@@ -1,5 +1,5 @@
-$test: blue;
+@import './Base/variables.scss';
 
 body {
-  background-color: $test;
+  background-color: $backgroundColor;
 }
