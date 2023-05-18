@@ -1,5 +1,13 @@
 @import './Base/variables.scss';
 
+* {
+  box-sizing: border-box;
+}
+
+
 body {
   background-color: $backgroundColor;
+  margin: 0px;
+
 }
+

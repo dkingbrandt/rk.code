@@ -2,6 +2,7 @@ import React from 'react'
 
 export default function PriceList() {
   return (
-    <div>PriceList</div>
+    <div>
+      <h1>PriceList</h1></div>
   )
 }
