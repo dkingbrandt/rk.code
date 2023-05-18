@@ -1,7 +1,6 @@
 import './css/App.css';
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import Header from './components/Header';
 import Footer from './components/Footer';
 import About from './views/About';
 import PriceList from './views/PriceList';
@@ -12,7 +11,6 @@ function App() {
     const [authorized, setAuthorized] = useState(false);
   return (
     <div className="App">
-      <Header/>
       <Routes>
          <Route path="/" element={<Home authorized={authorized} />} />
          <Route path="/om-oss" element={<About authorized={authorized} />} />
