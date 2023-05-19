@@ -6,6 +6,12 @@
   flex-direction: row;
  
 }
+
+.hide {
+  display: none;
+}
+
+
 .logga {
     position: absolute;
     top: 0%;
@@ -48,5 +54,12 @@
         color: #ffff;
         text-decoration: none;
         @include navFont();
+      }
+
+      .link-blue {
+        color: #3DD1AC;
+        text-decoration: none;
+        @include navFont();
+        
       }
   }
