@@ -2,8 +2,11 @@ import React from 'react'
 import './../scss/pages/home.scss';
 import Header from '../components/Header';
 
+
 export default function Home() {
   return (
+    <div className='pageContainer'>
+
     <div className='TopContainer'>
        <Header/>
       <div className='radialGradientDarkGreen'></div>
@@ -17,6 +20,14 @@ export default function Home() {
         <button className='btn-contact'>kontakta oss</button>
        </div>
       </div>
+    </div>
+
+    <div  className='middleContainer'>
+    <hr/>
+    <div className='middleContainer-img'></div>
+    <hr/>
+    </div>
+
     </div>
   )
 }

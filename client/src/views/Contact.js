@@ -1,11 +1,18 @@
 import React from 'react'
-import Header from '../components/Header'
+import './../scss/pages/home.scss';
+import Header from '../components/Header';
 
-export default function Contact() {
+
+export default function contact() {
   return (
-    <div>
-     <Header/> 
-      Contact
+    <div className='pageContainer'>
+
+    <div className='TopContainer'>
+       <Header/>
+      <div className='radialGradientDarkGreen'></div>
+      <div className='radialGradientsmall'></div>
+   
+    </div>
     </div>
   )
 }

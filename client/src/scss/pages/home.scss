@@ -2,6 +2,7 @@
 @import './../Base/variables.scss';
 @import './../Base/mixins.scss';
 
+
 h1 {
     color: white;
   }
@@ -103,4 +104,26 @@ h1 {
   }
 }
 
+}
+
+.middleContainer {
+
+  &-img {
+    min-height: 100%;
+  opacity: 10%;
+  background: url(../../../src/img/code-img.jpg);
+  background-size: cover;
+  min-height: 450px;
+  min-width: 100%;
+  }
+
+
+
+}
+
+hr{
+height: 5px;
+margin-top: -2px;
+margin-bottom: -2px;
+background: linear-gradient(to right, rgba(123, 241, 184, 1),rgba(166, 245, 169, 1), rgba(201, 247, 158, 1), rgba(212, 247, 154, 1));
 }
