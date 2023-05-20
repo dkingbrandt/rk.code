@@ -2,34 +2,36 @@
 @import './../Base/mixins.scss';
 
 .footerContainer {
+  overflow: hidden;
   position: relative;
   display: flex;
   height: 500px;
   padding: 10px 20px;
   border-top: 2px solid;
-  background: transparent;
+  background: rgba(0,31,26, .31);
   border-image: linear-gradient(90deg,#46EFC4 -19.55%,
     #7BF1B8 13.97%,
     #A6F5A9 34.08%,
     #D4F79A 50%) 1;
  
     .radialGradientsmall {
-        position: absolute;
-        min-width: 800px;
-        min-height: 500px;
-        left: 80%;
-        transform: rotate(-10deg);
-        background: radial-gradient(56.51% 46.26% at 52.72% 55.17%, #023D37 0%, #043933 35.58%, #001F1A 57.29%, rgba(0, 0, 0, 0) 100%)
+      position: absolute;
+      min-width: 719.58px;
+      min-height: 494.76px;
+      left: 70%;
+      top: 130px;
+      transform: rotate(-30deg);
+      background: radial-gradient(56.51% 46.26% at 52.72% 55.17%, #023D37 0%, #043933 35.58%,rgba(36, 129, 114, 0.521), #001F1A 57.29%, rgba(0, 0, 0, 0) 100%)
       }
 
             .radialGradientbig {
-            position: absolute;
-            overflow: hidden;
-              width: 1191.43px;
-              height: 500px;
-              left: -600px;
-              transform: rotate(-180deg);
-              background: radial-gradient(56.51% 46.26% at 52.72% 55.17%, #023D37 20%, #043933 33.33%, #001F1A 66.67%, rgba(0, 0, 0, 0) 100%)
+              position: absolute;
+              min-width: 1191.43px;
+              min-height: 1079.57px;
+              left: -25%;
+              top: 50px;
+              transform: rotate(30deg);
+              background: radial-gradient(56.51% 46.26% at 52.72% 55.17%, #023D37 0%, #043933 33.33%,rgba(36, 129, 114, 0.521), #001F1A 66.67%, rgba(0, 0, 0, 0) 100%)
             }
 
 
