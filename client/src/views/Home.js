@@ -72,9 +72,37 @@ export default function Home() {
     <hr/>
 
     <div className='project-container'>
+      <h2>Tidigare Project</h2>
+      <div className='project-container-grid'>
+      <div className='card'>
+        <img className='card-img' src={wildline} alt="websitephoto" />
+        <p className='card-heading'>Wild Line Bengals</p>
+        <p className='card-p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
+        <div className="textBox-Btn-Container">
+          <button className='btn-info'>mer info</button>
+          <button className='btn-prev'>live preview</button>
+        </div>
+      </div>
 
       <div className='card'>
         <img className='card-img' src={wildline} alt="websitephoto" />
+        <p className='card-heading'>Wild Line Bengals</p>
+        <p className='card-p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
+        <div className="textBox-Btn-Container">
+          <button className='btn-info'>mer info</button>
+          <button className='btn-prev'>live preview</button>
+        </div>
+      </div>
+
+      <div className='card'>
+        <img className='card-img' src={wildline} alt="websitephoto" />
+        <p className='card-heading'>Wild Line Bengals</p>
+        <p className='card-p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
+        <div className="textBox-Btn-Container">
+          <button className='btn-info'>mer info</button>
+          <button className='btn-prev'>live preview</button>
+        </div>
+      </div>
 
       </div>
 

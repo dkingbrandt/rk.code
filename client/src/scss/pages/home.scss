@@ -198,7 +198,62 @@ h1 {
  
 } 
 
+
+.project-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  width: 100%;
+  min-height: 700px;
+
+  h2 {
+  
+    font-family: $menyFont;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    color: white;
+    @include atSmallMedium {
+      align-self: start;
+      margin-left: 12%;
+    }
+    @include atLarge {
+      margin-left: 20%;
+    }
+  }
+
+
+&-grid {
+  
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); 
+  row-gap: 20px;
+
+  @include atSmallMedium {
+    grid-template-columns: repeat(2, 1fr);
+ 
+  }
+  @include atMedium {
+    grid-template-columns: repeat(3, 1fr);
+   
+  
+  }
+  @include atLarge {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 100px;
+  
+  }
+}
+}
+
 .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
  margin-top: 20px;
  margin-left: 20px;
  position: relative;
@@ -225,6 +280,52 @@ h1 {
   &-img {
     width: 255.77px;
     height: 129.89px;
+  }
+
+  &-heading {
+    font-family: $iconFont;
+    color: #FEFEFE;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+  }
+  &-p {
+   font-family: $menyFont;
+   color: #ABABAC;
+   font-weight: 600;
+   font-size: 14px;
+   margin-top: -15px;
+  
+  }
+
+  .textBox-Btn-Container {
+    display: flex;
+    flex: row;
+    gap: 4%;
+
+    .btn-info {
+      background: linear-gradient(90deg, #46EFC4 -19.55%, #7BF1B8 13.97%, #A6F5A9 34.08%, #D4F79A 50%);
+      border-radius: 13px;
+      width: 110px;
+      border: none;
+      height: 36px;
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+    }
+    .btn-prev {
+      border: 2px solid #808281;
+      border-radius: 13px;
+      width: 110px;
+      height: 36px;
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      color: white;
+      background: #000000;
+    }
   }
 }
 }
