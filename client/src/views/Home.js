@@ -1,9 +1,12 @@
 import React from 'react'
 import './../scss/pages/home.scss';
 import Header from '../components/Header';
+import Footer from '../components/Footer'
+
 
 export default function Home() {
   return (
+    <div>
     <div className='TopContainer'>
        <Header/>
       <div className='radialGradientDarkGreen'></div>
@@ -17,6 +20,9 @@ export default function Home() {
         <button className='btn-contact'>kontakta oss</button>
        </div>
       </div>
+      </div>
+      <Footer/>
     </div>
+    
   )
 }
