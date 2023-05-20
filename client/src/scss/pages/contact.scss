@@ -1,4 +1,15 @@
 @import './../Base/variables.scss';
+
+.areYouIntressted {
+    position: absolute;
+    left: 248px;
+    top: 150px;
+    z-index: 20;
+    color:rgba(221, 255, 246, 1);
+    font-family: $menyFont;
+    font-size: 22px;
+    max-width: 557px;;
+}
 .form-img {
     position: absolute;
     min-width: 1050px;
@@ -8,7 +19,7 @@
     left: 0;
     right: 0;
     margin: 0 auto;
-    top: 200px;
+    top: 250px;
     border-radius: 10px;
     z-index: 20;
     background-size: cover;
