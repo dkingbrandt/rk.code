@@ -1,6 +1,7 @@
 import React from 'react'
 import './../scss/pages/home.scss';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import './../scss/pages/contact.scss';
 
 
@@ -34,6 +35,7 @@ export default function contact() {
       </div>
    
     </div>
+    <Footer />
     </div>
   )
 }
