@@ -1,0 +1,110 @@
+@import './../Base/variables.scss';
+@import './../Base/mixins.scss';
+
+.footerContainer {
+  position: relative;
+  display: flex;
+  height: 500px;
+  padding: 10px 20px;
+  border-top: 2px solid;
+  background: transparent;
+  border-image: linear-gradient(90deg,#46EFC4 -19.55%,
+    #7BF1B8 13.97%,
+    #A6F5A9 34.08%,
+    #D4F79A 50%) 1;
+ 
+    .radialGradientsmall {
+        position: absolute;
+        min-width: 800px;
+        min-height: 500px;
+        left: 80%;
+        transform: rotate(-10deg);
+        background: radial-gradient(56.51% 46.26% at 52.72% 55.17%, #023D37 0%, #043933 35.58%, #001F1A 57.29%, rgba(0, 0, 0, 0) 100%)
+      }
+
+            .radialGradientbig {
+            position: absolute;
+            overflow: hidden;
+              width: 1191.43px;
+              height: 500px;
+              left: -600px;
+              transform: rotate(-180deg);
+              background: radial-gradient(56.51% 46.26% at 52.72% 55.17%, #023D37 20%, #043933 33.33%, #001F1A 66.67%, rgba(0, 0, 0, 0) 100%)
+            }
+
+
+
+
+  }
+
+.footer-heading-container{
+  position: absolute;
+  top: 50px;
+  left: 55px;
+  color: white;
+  
+}
+
+.footer-heading1{
+  font-size: 26px;
+  color: white;
+  font-weight: 600;
+  font-family: $menyFont;
+}
+
+
+.instagram-Icon{
+  font-size: 50px;
+  float: right;
+  margin-right: 10px;
+}
+.fb-Icon{
+  font-size: 50px;
+  float: right;
+  margin-right: 20px;
+}
+
+.mail-Icon{
+  font-size: 30px;
+}
+.footer-socialMedia-container{
+  position: absolute;
+  bottom: 60px;
+  right: 100px;
+ color: white;
+   
+ font-size: 26px;
+ font-family: $menyFont;
+ line-height: 64px ;
+ line-height: 202% ;
+ font-weight: bold;
+}
+
+.footerList {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  gap: 10px;
+  margin-bottom: 80px;
+  z-index: 5;
+  align-self: flex-end;
+  
+  
+  li {
+    display: inline;
+    list-style-type: none;
+    font-family: "Lora", serif;
+  }
+
+  .link {
+  color: rgb(235, 243, 239);
+  text-decoration: none;
+  font-size: 20px !important;
+    @include navFont();
+  }
+
+   
+
+   
+}

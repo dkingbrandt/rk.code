@@ -1,6 +1,7 @@
 import React from 'react'
 import './../scss/pages/home.scss';
 import Header from '../components/Header';
+import Footer from '../components/Footer'
 import data from './../img/data.svg';
 import dollar from './../img/dollar.svg';
 import heart from './../img/heart.svg';
@@ -10,6 +11,7 @@ import wildline from './../img/wildline.png';
 
 export default function Home() {
   return (
+    <div>
     <div className='pageContainer'>
 
     <div className='TopContainer'>
@@ -25,7 +27,9 @@ export default function Home() {
         <button className='btn-contact'>kontakta oss</button>
        </div>
       </div>
+      </div>
     </div>
+    
 
     <div  className='middleContainer'>
     <hr/>
@@ -81,6 +85,7 @@ export default function Home() {
     </div>
 
     </div>
+      <Footer />
 
     </div>
   )

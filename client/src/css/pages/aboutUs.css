@@ -1,0 +1,31 @@
+.about-container {
+  position: relative; }
+
+.history-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+  height: 1000px;
+  margin: auto;
+  margin-top: 10%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px; }
+  .history-container .history-heading {
+    font-family: 'Murecho', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 25px;
+    /* identical to box height, or 62% */
+    display: flex;
+    align-self: center;
+    letter-spacing: 0.255em;
+    color: #DEF4E0; }
+  .history-container .history-knowledge-box,
+  .history-container .history-create-box,
+  .history-container .history-vision-box {
+    margin-top: 50px;
+    border-top: 1px solid;
+    border-image: linear-gradient(90deg, #46EFC4 -19.55%, #7BF1B8 13.97%, #A6F5A9 34.08%, #D4F79A 50%) 1;
+    height: calc(100%/4); }
