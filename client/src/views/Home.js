@@ -28,7 +28,6 @@ export default function Home() {
        </div>
       </div>
       </div>
-      <Footer/>
     </div>
     
 
@@ -86,6 +85,7 @@ export default function Home() {
     </div>
 
     </div>
+      <Footer />
 
     </div>
   )
