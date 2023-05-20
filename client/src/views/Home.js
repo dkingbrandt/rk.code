@@ -23,7 +23,7 @@ export default function Home() {
       <h1 className='textBox-h1'>En Junior webbyrå där idéer blir till verklighet.<br/><span className='textBox-h1-color'>Optimera ditt företag idag!</span></h1>
        <p className='textBox-p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
        <div className='textBox-Btn-Container'>
-        <button className='btn-info'>mer info</button>
+        <button className='btn-info-home'>mer info</button>
         <button className='btn-contact'>kontakta oss</button>
        </div>
       </div>
@@ -83,7 +83,7 @@ export default function Home() {
         <p className='card-heading'>Wild Line Bengals</p>
         <p className='card-p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
         <div className="textBox-Btn-Container">
-          <button className='btn-info'>mer info</button>
+          <button className='btn-info-home'>mer info</button>
           <button className='btn-prev'>live preview</button>
         </div>
       </div>
@@ -93,7 +93,7 @@ export default function Home() {
         <p className='card-heading'>Wild Line Bengals</p>
         <p className='card-p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
         <div className="textBox-Btn-Container">
-          <button className='btn-info'>mer info</button>
+          <button className='btn-info-home'>mer info</button>
           <button className='btn-prev'>live preview</button>
         </div>
       </div>
@@ -103,7 +103,7 @@ export default function Home() {
         <p className='card-heading'>Wild Line Bengals</p>
         <p className='card-p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
         <div className="textBox-Btn-Container">
-          <button className='btn-info'>mer info</button>
+          <button className='btn-info-home'>mer info</button>
           <button className='btn-prev'>live preview</button>
         </div>
       </div>

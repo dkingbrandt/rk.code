@@ -53,7 +53,7 @@ h1 {
     flex: row;
     gap: 4%;
 
-    .btn-info {
+    .btn-info-home {
       background: linear-gradient(90deg, #46EFC4 -19.55%, #7BF1B8 13.97%, #A6F5A9 34.08%, #D4F79A 50%);
       box-shadow: 5px 7px 10px #000000;
       border-radius: 20px;
@@ -149,7 +149,7 @@ h1 {
     gap: 20px;
 
     .icon {
-      margin-top: 35px;;
+      margin-top: 15px;;
     
      }
 
@@ -185,7 +185,6 @@ h1 {
       font-weight: 600;
       font-size: 16px;
       line-height: 20px;
-      margin-top: -25px;
       max-width: 344px;
     
       
@@ -288,13 +287,14 @@ h1 {
     font-style: normal;
     font-weight: 700;
     font-size: 22px;
+    margin-top: 2%;
   }
   &-p {
    font-family: $menyFont;
    color: #ABABAC;
    font-weight: 600;
    font-size: 14px;
-   margin-top: -15px;
+   padding-bottom: 2%;
   
   }
 
@@ -303,7 +303,7 @@ h1 {
     flex: row;
     gap: 4%;
 
-    .btn-info {
+    .btn-info-home {
       background: linear-gradient(90deg, #46EFC4 -19.55%, #7BF1B8 13.97%, #A6F5A9 34.08%, #D4F79A 50%);
       border-radius: 13px;
       width: 110px;
