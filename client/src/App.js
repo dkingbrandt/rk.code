@@ -17,7 +17,6 @@ function App() {
          <Route path="/prislista" element={<PriceList authorized={authorized} />} />
          <Route path="/kontakt" element={<Contact authorized={authorized} />} />
       </Routes>
-      <Footer/>
     </div>
   );
 }
