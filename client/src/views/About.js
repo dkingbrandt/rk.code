@@ -20,9 +20,13 @@ import sassIcon from './../img/sass.svg';
 
 export default function About() {
   return (
-    <div className='about-container'>
+    <div className='about-container blurr'>
       <Header />
-      <div className='history-wrapper'>
+         <div className='radialGradientGreen'></div>
+         <div className='radialsmall'></div>
+         <div className='radialbig'></div>
+         <div className='history-wrapper'>
+
 
         <div className='history-container'>
           <h1 className='history-heading'>VÅR HISTORIA</h1>
