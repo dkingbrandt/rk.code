@@ -5,7 +5,43 @@
   position: relative;
 }
 
+.radialGradientGreen {
+  position: absolute;
+  min-width: 854.19px;
+  min-height: 684.11px;
+  left: 60%;
+  top: -115px;
+  z-index: -1;
+  transform: rotate(25.29deg);
+  background: radial-gradient(111.83% 81.76% at 70.18% 1.12%, #1D2E02 42.98%, #000000 72.47%, #000000 99.19%)
+}
+
+.radialsmall {
+  position: absolute;
+  min-width: 900.58px;
+  min-height: 700.76px;
+  left: 60%;
+  top: 950px;
+  z-index: -1;
+  transform: rotate(-30deg);
+  background: radial-gradient(56.51% 46.26% at 52.72% 55.17%, #23a195 0%, #022e2ed5 35.58%, #000201 57.29%, rgba(0, 0, 0, 0) 100%)
+}
+
+
+.radialbig {
+  position: absolute;
+  min-width: 1500px;
+  min-height: 1200px;
+  left: -25%;
+  top: 350px;
+  z-index: -1;
+  transform: rotate(30deg);
+  background: radial-gradient(56.51% 46.26% at 52.72% 55.17%, #023D37 0%, #011311 33.33%, #000000 66.67%, rgba(0, 0, 0, 0) 100%)
+}
+
 .history-container {
+ 
+  z-index: 20;
   display: flex;
   flex-direction: column;
   justify-content: center;
