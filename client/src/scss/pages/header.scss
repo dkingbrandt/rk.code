@@ -1,6 +1,8 @@
 
 @import './../Base/variables.scss';
 @import './../Base/mixins.scss';
+
+
 .headerContainer {
   display: flex;
   flex-direction: row;
@@ -27,7 +29,9 @@
     
    
 }
-.headerList {
+
+#dark {
+  .headerList {
     width: 100%;
     background-color: rgba(0, 0, 0, .5);
     height: 70px;
@@ -63,3 +67,45 @@
         
       }
   }
+
+}
+
+#light {
+  .headerList {
+    width: 100%;
+    background: linear-gradient(90deg, #4E114D 0%, rgba(140, 30, 139, 0.74) 50%, rgba(183, 11, 181, 0.37) 100%);
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    padding-right: 5%;
+    margin-top: 0%;
+    z-index: 5;
+
+    li {
+   
+        display: inline;
+        list-style-type: none;
+        margin-left: 2%;
+       
+    
+      
+        font-family: "Lora", serif;
+      }
+
+      .link {
+        color: #ffff;
+        text-decoration: none;
+        @include navFont();
+      }
+
+      .link-blue {
+        color: #6828BA;;
+        text-decoration: none;
+        @include navFont();
+        
+      }
+  }
+
+}

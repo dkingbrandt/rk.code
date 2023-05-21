@@ -18,10 +18,10 @@ import sassIcon from './../img/sass.svg';
 
 
 
-export default function About() {
+export default function About({theme, ToggleTheme}) {
   return (
     <div className='about-container blurr'>
-      <Header />
+      <Header theme={theme} ToggleTheme={ToggleTheme}/>
          <div className='radialGradientGreen'></div>
          <div className='radialsmall'></div>
          <div className='radialbig'></div>

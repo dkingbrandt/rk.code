@@ -5,9 +5,21 @@
 }
 
 
-body {
-  background-color: $backgroundColor;
-  margin: 0px;
+  body {
+    margin: 0px;
 
+    #dark{
+      background-color: $backgroundColor;
+    
+    }
+    #light{
+      background-color: white;
+    }
+  
+  
 }
+
+ 
+  
+
 

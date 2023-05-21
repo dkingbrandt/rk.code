@@ -6,20 +6,26 @@ import data from './../img/data.svg';
 import dollar from './../img/dollar.svg';
 import heart from './../img/heart.svg';
 import comment from './../img/comment.svg';
+import dataLight from './../img/data-light.svg';
+import dollarLight from './../img/dollar-light.svg';
+import heartLight from './../img/heart-light.svg';
+import commentLight from './../img/comment-light.svg';
 import wildline from './../img/wildline.png';
 
 
-export default function Home() {
+
+export default function Home({theme, ToggleTheme}) {
   return (
     <div>
     <div className='pageContainer'>
 
     <div className='TopContainer'>
-       <Header/>
+       <Header theme={theme} ToggleTheme={ToggleTheme}/>
       <div className='radialGradientDarkGreen'></div>
       <div className='radialGradientsmall'></div>
       <div className='radialGradientbig'></div>
       <div className='textBox'>
+     
       <h1 className='textBox-h1'>En Junior webbyrå där idéer blir till verklighet.<br/><span className='textBox-h1-color'>Optimera ditt företag idag!</span></h1>
        <p className='textBox-p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
        <div className='textBox-Btn-Container'>
@@ -32,13 +38,17 @@ export default function Home() {
     
 
     <div  className='middleContainer'>
-    <hr/>
+    <hr className='hr'/>
 
     <div className='middleContainer-img'>
     <div className='middleContainer-grid'>
 
      <div className='icon-container'>
+      {theme === "dark" ? (
       <img className='icon data' src={data} alt="computer" />
+      ):(
+        <img className='icon data' src={dataLight} alt="computer" />
+      )}
       <div>
          <h4 className='icon-heading'>Skräddarsydd Hemsida</h4> 
          <p className='icon-p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
@@ -46,7 +56,11 @@ export default function Home() {
      </div>
 
      <div className='icon-container'>
+      {theme === "dark" ? (
       <img className='icon dollar' src={dollar} alt="computer" />
+      ):(
+        <img className='icon dollar' src={dollarLight} alt="computer" />
+      )}
       <div>
          <h4 className='icon-heading'>Professionell hemsida till ett lågt pris</h4> 
          <p className='icon-p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
@@ -54,7 +68,11 @@ export default function Home() {
      </div>
 
      <div className='icon-container'>
+      {theme === "dark" ? (
       <img className='icon heart' src={heart} alt="computer" />
+      ):(
+        <img className='icon heart' src={heartLight} alt="computer" />
+      )}
       <div>
          <h4 className='icon-heading'>Passionerade utvecklare</h4> 
          <p className='icon-p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
@@ -62,7 +80,11 @@ export default function Home() {
      </div>
 
      <div className='icon-container'>
+      {theme === "dark" ? (
       <img className='icon comment' src={comment} alt="computer" />
+      ):(
+        <img className='icon comment' src={commentLight} alt="computer" />
+      )}
       <div>
          <h4 className='icon-heading'>Kontakt med utvecklare/designers</h4> 
          <p className='icon-p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
@@ -73,7 +95,7 @@ export default function Home() {
 
     </div>
 
-    <hr/>
+    <hr className='hr'/>
 
     <div className='project-container'>
       <h2>Tidigare Project</h2>

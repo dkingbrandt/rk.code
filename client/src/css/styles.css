@@ -2,5 +2,8 @@
   box-sizing: border-box; }
 
 body {
-  background-color: #000000;
   margin: 0px; }
+  body #dark {
+    background-color: #000000; }
+  body #light {
+    background-color: white; }

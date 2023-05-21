@@ -1,23 +1,33 @@
 import './css/App.css';
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import { createContext } from 'react';
 import Footer from './components/Footer';
 import About from './views/About';
 import PriceList from './views/PriceList';
 import Contact from './views/Contact';
 import Home from './views/Home';
 
+export const ThemeContext = createContext(null);
+
 function App() {
     const [authorized, setAuthorized] = useState(false);
+    const [theme, setTheme] = useState("dark");
+
+    const ToggleTheme = () => {
+      setTheme((curr) => (curr === 'light' ? 'dark' : 'light'))
+    }
   return (
-    <div className="App">
+  /*   <ThemeContext.Provider value= {{theme, ToggleTheme}}> */
+    <div className="App" id={theme}>
       <Routes>
-         <Route path="/" element={<Home authorized={authorized} />} />
-         <Route path="/om-oss" element={<About authorized={authorized} />} />
-         <Route path="/prislista" element={<PriceList authorized={authorized} />} />
-         <Route path="/kontakt" element={<Contact authorized={authorized} />} />
+         <Route path="/" element={<Home authorized={authorized} theme={theme} ToggleTheme={ToggleTheme} />} />
+         <Route path="/om-oss" element={<About authorized={authorized} theme={theme} ToggleTheme={ToggleTheme} />} />
+         <Route path="/prislista" element={<PriceList authorized={authorized} theme={theme} ToggleTheme={ToggleTheme} />} />
+         <Route path="/kontakt" element={<Contact authorized={authorized} theme={theme} ToggleTheme={ToggleTheme}/>} />
       </Routes>
     </div>
+ /*    </ThemeContext.Provider> */
   );
 }
 
