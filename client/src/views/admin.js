@@ -16,7 +16,7 @@ export default function Admin({theme, ToggleTheme}) {
 
       <p className='areYouIntressted'>Logga in</p>
 
-      <div className='form-img'>
+      <div className='form-img-admin'>
         <form className='form-flex'>
         <input className='input-field' type="text" placeholder='Mejl' />
         <input className='input-field' type="text" placeholder='lösenord' />
