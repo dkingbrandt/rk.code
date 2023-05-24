@@ -803,3 +803,48 @@ background-image: linear-gradient(to right, #6f0079e0,#EB88B1, #F5C05A),
 }
 
 
+// admin settings
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .admin-Btn-Container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-top: 50px;
+  }
+  
+
+  .erase-Btn {
+   background-color: #3DD1AC;
+   border: none;
+   width: 90px;
+   height: 40px;
+   border-radius: 12px;
+   color: #000000;
+   font-weight: 700;
+  }
+
+  .change-Btn {
+    background-color:transparent;
+    border: solid 2px  #3DD1AC;
+    width: 90px;
+    height: 40px;
+    border-radius: 12px;
+    color:  #3DD1AC;
+    font-weight: 700;
+  }
+
+  .admin-Btn-Container-icon {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+  }
+}
+
+
+

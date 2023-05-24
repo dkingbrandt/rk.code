@@ -12,7 +12,7 @@ import Admin from './views/admin';
 export const ThemeContext = createContext(null);
 
 function App() {
-    const [authorized, setAuthorized] = useState(false);
+    const [authorized, setAuthorized] = useState(true);
     const [theme, setTheme] = useState("dark");
 
     const ToggleTheme = () => {

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './../scss/pages/home.scss';
 import Header from '../components/Header';
 import Footer from '../components/Footer'
@@ -11,10 +11,18 @@ import dollarLight from './../img/dollar-light.svg';
 import heartLight from './../img/heart-light.svg';
 import commentLight from './../img/comment-light.svg';
 import wildline from './../img/wildline.png';
+import CardModal from '../components/cardModal';
 
 
 
-export default function Home({theme, ToggleTheme}) {
+export default function Home({theme, ToggleTheme, authorized}) {
+
+  const [popUp, setPopUp] = useState(false);
+
+  const handlePopUp = () => {
+    setPopUp((current) => !current); //toggle
+  };
+
   return (
     <div>
     <div className='pageContainer'>
@@ -42,7 +50,8 @@ export default function Home({theme, ToggleTheme}) {
 
     <div className='middleContainer-img'>
     <div className='middleContainer-grid'>
-
+     
+    <div className='card-container'>
      <div className='icon-container'>
       {theme === "dark" ? (
       <img className='icon data' src={data} alt="computer" />
@@ -55,6 +64,15 @@ export default function Home({theme, ToggleTheme}) {
       </div>
      </div>
 
+     {authorized && (
+      <div className='admin-Btn-Container-icon'>
+        <button className='erase-Btn'>Ta bort</button>
+        <button className='change-Btn'>Ändra</button>
+      </div>
+      )}
+      </div>
+
+     <div className='card-container'>
      <div className='icon-container'>
       {theme === "dark" ? (
       <img className='icon dollar' src={dollar} alt="computer" />
@@ -67,6 +85,15 @@ export default function Home({theme, ToggleTheme}) {
       </div>
      </div>
 
+     {authorized && (
+      <div className='admin-Btn-Container-icon'>
+        <button className='erase-Btn'>Ta bort</button>
+        <button className='change-Btn'>Ändra</button>
+      </div>
+      )}
+      </div>
+  
+     <div className='card-container'>
      <div className='icon-container'>
       {theme === "dark" ? (
       <img className='icon heart' src={heart} alt="computer" />
@@ -77,8 +104,18 @@ export default function Home({theme, ToggleTheme}) {
          <h4 className='icon-heading'>Passionerade utvecklare</h4> 
          <p className='icon-p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
       </div>
+
      </div>
 
+     {authorized && (
+      <div className='admin-Btn-Container-icon'>
+        <button className='erase-Btn'>Ta bort</button>
+        <button className='change-Btn'>Ändra</button>
+      </div>
+      )}
+      </div>
+    
+      <div className='card-container'>
      <div className='icon-container'>
       {theme === "dark" ? (
       <img className='icon comment' src={comment} alt="computer" />
@@ -91,6 +128,14 @@ export default function Home({theme, ToggleTheme}) {
       </div>
      </div>
 
+     {authorized && (
+      <div className='admin-Btn-Container-icon'>
+        <button className='erase-Btn'>Ta bort</button>
+        <button className='change-Btn'>Ändra</button>
+      </div>
+      )}
+      </div>
+
      </div>
 
     </div>
@@ -100,15 +145,8 @@ export default function Home({theme, ToggleTheme}) {
     <div className='project-container'>
       <h2>Tidigare Project</h2>
       <div className='project-container-grid'>
-      <div className='card'>
-        <img className='card-img' src={wildline} alt="websitephoto" />
-        <p className='card-heading'>Wild Line Bengals</p>
-        <p className='card-p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
-        <div className="textBox-Btn-Container">
-          <button className='btn-info-home'>mer info</button>
-          <button className='btn-prev'>live preview</button>
-        </div>
-      </div>
+
+      <div className='card-container'>
 
       <div className='card'>
         <img className='card-img' src={wildline} alt="websitephoto" />
@@ -119,6 +157,36 @@ export default function Home({theme, ToggleTheme}) {
           <button className='btn-prev'>live preview</button>
         </div>
       </div>
+      {authorized && (
+      <div className='admin-Btn-Container'>
+        <button className='erase-Btn'>Ta bort</button>
+        <button className='change-Btn' onClick={handlePopUp}>Ändra</button>
+      </div>
+      )}
+      </div>
+
+      <div className='card-container'>
+
+      <div className='card'>
+        <img className='card-img' src={wildline} alt="websitephoto" />
+        <p className='card-heading'>Wild Line Bengals</p>
+        <p className='card-p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
+        <div className="textBox-Btn-Container">
+          <button className='btn-info-home'>mer info</button>
+          <button className='btn-prev'>live preview</button>
+        </div>
+      </div>
+      
+      {authorized && (
+      <div className='admin-Btn-Container'>
+        <button className='erase-Btn'>Ta bort</button>
+        <button className='change-Btn' onClick={handlePopUp}>Ändra</button>
+      </div>
+    )}
+
+      </div>
+
+      <div className='card-container'>
 
       <div className='card'>
         <img className='card-img' src={wildline} alt="websitephoto" />
@@ -130,9 +198,19 @@ export default function Home({theme, ToggleTheme}) {
         </div>
       </div>
 
+     {authorized && (
+      <div className='admin-Btn-Container'>
+        <button className='erase-Btn'>Ta bort</button>
+        <button className='change-Btn' onClick={handlePopUp}>Ändra</button>
+      </div>
+      )}
       </div>
 
+
+      </div>
     </div>
+
+    <CardModal handlePopUp={handlePopUp} popUp={popUp}/>
 
     </div>
       <Footer />
