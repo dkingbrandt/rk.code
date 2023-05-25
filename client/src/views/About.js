@@ -14,7 +14,8 @@ import bootstrapIcon from './../img/bootstrap.svg';
 import tsIcon from './../img/typescript.svg';
 import jsIcon from './../img/js.svg';
 import sassIcon from './../img/sass.svg';
-
+import linkedInIcon from './../img/linkedin.svg';
+import mailIcon from './../img/mejl.svg';
 
 
 
@@ -120,37 +121,44 @@ export default function About({theme, ToggleTheme}) {
               <img className='circle-globe-css-icon' src={cssIcon} alt='css-icon' />
             </div>
           </div>
-            
+
           <div className='wrapper-text-dan'>
 
 
-          <div className='team-heading-box-dan'>
-            <p className='team-heading-dan'>Dan Kingbrant</p>
-          </div>
+            <div className='team-heading-box-dan'>
+              <p className='team-heading-dan'>Dan Kingbrant</p>
+            </div>
 
 
-          <div className='team-text-box-experience'>
-            <p className='team-sub-heading-dan'>Erfarenhet <p className='sub-heading-divider'>|</p> </p>
-            <p className='team-text-dan'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum non,
-              vero deleniti veniam commodi, fuga sit fugiat consectetur ipsam tempore molestiae
-              cumque soluta minima tenetur accusantium earum dolorem quod 
+            <div className='team-text-box-experience'>
+              <p className='team-sub-heading-dan'>Erfarenhet <p className='sub-heading-divider'>|</p> </p>
+              <p className='team-text-dan'>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum non,
+                vero deleniti veniam commodi, fuga sit fugiat consectetur ipsam tempore molestiae
+                cumque soluta minima tenetur accusantium earum dolorem quod
 
-               </p>
-            
+              </p>
+
 
             </div>
-          <div className='team-text-box-knowledge'>
-            <p className='team-sub-heading-dan'>Kunskap <p className='sub-heading-divider'>|</p> </p>
-            <p className='team-text-dan'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum non,
-              vero deleniti veniam commodi, fuga sit fugiat consectetur ipsam 
+            <div className='team-text-box-knowledge'>
+              <p className='team-sub-heading-dan'>Kunskap <p className='sub-heading-divider'>|</p> </p>
+              <p className='team-text-dan'>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum non,
+                vero deleniti veniam commodi, fuga sit fugiat consectetur ipsam
 
-               </p>
-            
+              </p>
+
 
             </div>
+            <div className='team-icon-box'>
+              <a href="mailto: dkingbrandt@hotmail.com"> <img className='team-mail-icon' src={mailIcon} alt='mail-dan' /></a>
+              <a href="https://www.linkedin.com/in/dan-kingbrant-102855233/"><img className='team-linkedin-icon' src={linkedInIcon} alt='linkedin-dan' /></a>
+
+              
+            </div>
           </div>
+
 
 
         </div>
@@ -205,8 +213,16 @@ export default function About({theme, ToggleTheme}) {
 
 
             </div>
+            <div className='team-icon-box'>
+              <a href="mailto: becka_91_@hotmail.com"> <img className='team-mail-icon' src={mailIcon} alt='mail-rebecca' /></a>
+              <a href="https://www.linkedin.com/in/rebecca-rydgren-607b21241/"><img className='team-linkedin-icon' src={linkedInIcon} alt='linkedin-rebecca' /></a>
+
+
+            </div>
+
           </div>
-         
+
+
         </div>
 
 
