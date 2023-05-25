@@ -17,7 +17,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
-export default function PriceList() {
+export default function PriceList({theme, ToggleTheme}) {
 
   let navigate = useNavigate()
   
@@ -28,8 +28,8 @@ export default function PriceList() {
 
 
   return (
-    <div className='priceList-container blurr'>
-      <Header />
+    <div className='priceList-container'>
+     <Header theme={theme} ToggleTheme={ToggleTheme}/>
       <div className='priceList-wrapper'>
       <div className='priceList-info-box'>
 

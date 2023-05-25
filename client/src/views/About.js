@@ -21,7 +21,7 @@ import mailIcon from './../img/mejl.svg';
 
 export default function About({theme, ToggleTheme}) {
   return (
-    <div className='about-container blurr'>
+    <div className='about-container'>
       <Header theme={theme} ToggleTheme={ToggleTheme}/>
          <div className='radialGradientGreen'></div>
          <div className='radialsmall'></div>
