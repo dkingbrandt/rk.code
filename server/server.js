@@ -26,13 +26,16 @@ app.use(cookieParser());
 // app.get('*', (req, res) => {
 //   res.sendFile(path.join(__dirname, './build'))
 // })
-
+const handleStaticFiles = express.static(
+  path.join(__dirname, "..", "client", "build")
+);
 
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
   next();
 });
 
+app.use(handleStaticFiles);
 app.use(aboutUsRouter);
 app.use(pricelistRouter);
 app.use(homeRouter);
