@@ -147,6 +147,17 @@
   justify-items: center;
   width: 100%;
   min-height: 700px; }
+  #dark .middleContainer .project-container .add-Btn {
+    background-color: transparent;
+    border: solid 2px #3DD1AC;
+    width: 200px;
+    height: 40px;
+    border-radius: 12px;
+    color: #3DD1AC;
+    font-weight: 700;
+    align-self: start;
+    margin-left: 5%;
+    margin-bottom: 2%; }
   #dark .middleContainer .project-container h2 {
     font-family: "Montserrat", sans-serif;
     font-style: normal;

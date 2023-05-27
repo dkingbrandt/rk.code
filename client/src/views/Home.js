@@ -13,6 +13,7 @@ import commentLight from './../img/comment-light.svg';
 import wildline from './../img/wildline.png';
 import CardModal from '../components/cardModal';
 import FormHome from '../components/formHome';
+import FormAddProject from '../components/formAddProject';
 import { get, post, put, erase, patch} from "./../utility/fetchHealper";
 
 
@@ -20,11 +21,13 @@ import { get, post, put, erase, patch} from "./../utility/fetchHealper";
 export default function Home({theme, ToggleTheme, authorized}) {
 
   const [popUp, setPopUp] = useState(false);
+  const [addProjectModal, setAddProjetModal] = useState(false);
   const [info, setInfo] = useState([]);
   const [projects, setProjects] = useState([]);
   const [heading, setHeading] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [erase, setErase] = useState("");
 
   useEffect(() => {
     get("/home/info").then((response) =>
@@ -43,6 +46,9 @@ export default function Home({theme, ToggleTheme, authorized}) {
   const handlePopUp = () => {
     setPopUp((current) => !current); //toggle
   };
+  const handleAddProjectModal = () => {
+    setAddProjetModal((current) => !current); //toggle
+  };
 
   function showDetail(index) {
     const ProjectIndex = projects[index];
@@ -50,6 +56,7 @@ export default function Home({theme, ToggleTheme, authorized}) {
       setHeading(projects[index].heading);
       setTitle(projects[index].title);
       setDescription(projects[index].description);
+      setErase(projects[index].title);
     }
   }
 
@@ -116,7 +123,9 @@ export default function Home({theme, ToggleTheme, authorized}) {
     <hr className='hr'/>
 
     <div className='project-container'>
-      <h2>Tidigare Project</h2>
+      <h2>Tidigare Projekt</h2>
+
+      <button className='add-Btn' onClick={handleAddProjectModal}>Lägg till Projekt</button>
 
       <div className='project-container-grid'>
 
@@ -125,7 +134,6 @@ export default function Home({theme, ToggleTheme, authorized}) {
    return (
 
       <div className='card-container'>
-
       <div className='card'>
         <img className='card-img' src={wildline} alt="websitephoto" />
         <p className='card-heading'>{project.heading}</p>
@@ -137,7 +145,12 @@ export default function Home({theme, ToggleTheme, authorized}) {
       </div>
       {authorized && (
       <div className='admin-Btn-Container'>
-        <button className='erase-Btn'>Ta bort</button>
+        <button className='erase-Btn'  onClick={() => {
+                  showDetail(index)
+                  erase(`/home/projects/${erase}`);
+                  get("/home/projects/").then((response) => setProjects(response.data));
+                }}>Ta bort</button>
+
         <button className='change-Btn' index={index} onClick={() => {
                   showDetail(index);
                   handlePopUp();
@@ -151,8 +164,9 @@ export default function Home({theme, ToggleTheme, authorized}) {
     
       </div>
     </div>
-
-    <CardModal handlePopUp={handlePopUp} popUp={popUp} component={<FormHome setProjects={setProjects} heading={heading} title={title} description={description} setHeading={setHeading} setTitle={setTitle} setDescription={setDescription} handlePopUp={handlePopUp}/>}/>
+   
+    <CardModal handlePopUp={handleAddProjectModal } popUp={addProjectModal} component={<FormAddProject setProjects={setProjects} handlePopUp={handleAddProjectModal} />}/>
+    <CardModal handlePopUp={handlePopUp} popUp={popUp} component={<FormHome setProjects={setProjects} heading={heading} title={title} description={description}   handlePopUp={handlePopUp}/>}/>
 
     </div>
       <Footer />
