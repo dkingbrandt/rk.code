@@ -18,7 +18,10 @@ import sassIcon from './../img/sass.svg';
 import linkedInIcon from './../img/linkedin.svg';
 import mailIcon from './../img/mejl.svg';
 import CardModal from '../components/cardModal';
-import FormAbout from '../components/formAboutus';
+import TeamModal from '../components/teamModal';
+import FormAboutUsHistory from '../components/formAboutUsHistory';
+import FormAboutUsTeam from '../components/formAboutUsTeam';
+
 
 
 
@@ -26,12 +29,25 @@ import FormAbout from '../components/formAboutus';
 
 export default function About({ theme, ToggleTheme }) {
   
-  const [popUp, setPopUp] = useState(false);
+  const [popUpHistory, setPopUpHistory] = useState(false);
+  const [popUpTeam, setPopUpTeam] = useState(false);
+  const [addHistory, setAddHistory] = useState(false);
+  const [addTeam, setAddTeam] = useState(false);
+  const [historyModal, setHistoryModal] = useState(false);
+  const [teamModal, setTeamModal] = useState(false);
 
-  const handlePopUp = () => {
-    setPopUp((current) => !current); //toggle
+  const handlePopUpTeam = () => {
+    setPopUpTeam((current) => !current); //toggle
   };
 
+  const handlePopUpHistory = () => {
+    setPopUpHistory((current) => !current); //toggle
+  };
+
+  const handleCloseModals = () => {
+    setTeamModal(false);
+    setHistoryModal(false);
+  };
 
 
 
@@ -64,12 +80,8 @@ export default function About({ theme, ToggleTheme }) {
               </p>
             </div>
           </div>
-          <div className='admin-Btn-Container-icon'>
-            <button className='erase-Btn' onClick={handlePopUp}>Ta bort</button>
-            <button className='change-Btn' onClick={handlePopUp}>Ändra</button>
-          </div>
+        
 
-          <CardModal handlePopUp={handlePopUp} popUp={popUp} component={<FormAbout />} />
 
           <div className='history-knowledge-box'>
             <div className='history-label-knowledge'>
@@ -111,9 +123,38 @@ export default function About({ theme, ToggleTheme }) {
             </div>
 
           </div>
-
+          <div className='admin-Btn-Container-icon'>
+            <button className='history-create-Btn' onClick={() => {
+              handlePopUpHistory()
+              setAddHistory(true)
+              setHistoryModal(true)
+            }}>Lägg till</button>
+            <button className='history-change-Btn' onClick={() => {
+              handlePopUpHistory()
+              setAddHistory(false)
+              setHistoryModal(true)
+            }}>Ändra</button>
+           
+          </div>
+          {historyModal && (
+            <CardModal
+              handleCloseModals={handleCloseModals}
+              handlePopUp={handlePopUpHistory}
+              popUp={popUpHistory}
+              component={<FormAboutUsHistory handlePopUp={handlePopUpHistory} popUp={popUpHistory} add={addHistory} handleCloseModals={handleCloseModals} />}
+            />
+          )}
+          {teamModal && (
+            <CardModal
+              handleCloseModals={handleCloseModals}
+              handlePopUp={handlePopUpTeam}
+              popUp={popUpTeam}
+              component={<FormAboutUsTeam handlePopUp={handlePopUpTeam} popUp={popUpTeam} add={addTeam} handleCloseModals={handleCloseModals} />}
+            />
+          )}
 
         </div>
+
 
       </div>
 
@@ -243,9 +284,26 @@ export default function About({ theme, ToggleTheme }) {
             </div>
 
           </div>
+        
 
 
         </div>
+        <div className='team-Btn-Container-icon'>
+          <button className='team-create-Btn' onClick={() => {
+            handlePopUpTeam()
+            setTeamModal(true)
+            setAddTeam(true)
+          }}>Lägg till</button>
+          <button className='team-change-Btn' onClick={() => {
+            handlePopUpTeam()
+            setTeamModal(true)
+            setAddTeam(false)
+          }}>Ändra</button>
+        </div>
+
+        
+
+       
 
 
 

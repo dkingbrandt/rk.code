@@ -13,8 +13,11 @@ aboutUsHistorySchema.index({ '$**': 'text' });
 
 const aboutUsTeamSchema = new mongoose.Schema({
   title: { type: String },
-  heading: { type: String },
-  description: { type: String },
+  name: {type:String},
+  heading1: { type: String },
+  heading2: { type: String },
+  description1: { type: String },
+  description2: { type: String },
   img: { type: String },
 }, { timestamps: true });
 

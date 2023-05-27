@@ -24,6 +24,17 @@ router.post("/aboutus/history", aboutUsController.createAboutHistory, (request, 
 
   });
 })
+
+router.put("/aboutus/history/:title", aboutUsController.updateAboutHistory, (request, response) => {
+
+
+  response.json({
+    status: "success",
+    method: request.method,
+
+  });
+})
+
 router.delete("/aboutus/history/:title", aboutUsController.deleteAboutHistory, (request, response) => {
 
 
@@ -34,7 +45,7 @@ router.delete("/aboutus/history/:title", aboutUsController.deleteAboutHistory, (
   });
 })
 
-router.put("/aboutus/team/:title", aboutUsController.updateAboutHistory, (request, response) => {
+router.put("/aboutus/team/:title", aboutUsController.updateAboutTeam, (request, response) => {
   
 
   response.json({
@@ -72,15 +83,7 @@ router.delete("/aboutus/team/:title", aboutUsController.deleteAboutTeam, (reques
   });
 })
 
-router.put("/aboutus/history/:title", aboutUsController.updateAboutTeam, (request, response) => {
-  
 
-  response.json({
-    status: "success",
-    method: request.method,
-    
-  });
-})
 
 
 
