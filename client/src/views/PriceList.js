@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import './../scss/pages/Pricelist.scss';
@@ -18,12 +18,39 @@ import small from './../img/small.svg';
 import medium from './../img/medium.svg';
 import large from './../img/large.svg';
 import { useNavigate } from "react-router-dom";
+import FormPriceListInfo from '../components/formPriceListInfo';
+import FormPriceList from '../components/formPriceList';
+import CardModal from '../components/cardModal';
 
 
 
 
 
-export default function PriceList({theme, ToggleTheme}) {
+export default function PriceList({ theme, ToggleTheme }) {
+  
+  const [popUpPriceInfo, setPopUpPriceInfo] = useState(false);
+  const [popUpPriceList, setPopUpPriceList] = useState(false);
+  const [addPriceInfo, setAddPriceInfo] = useState(false);
+  const [addPriceList, setAddPriceList] = useState(false);
+  const [priceInfoModal, setPriceInfoModal] = useState(false);
+  const [priceListModal, setPriceListModal] = useState(false);
+
+
+  const handlePopUpPriceInfo = () => {
+    setPopUpPriceInfo((current) => !current); //toggle
+  };
+  
+  const handlePopUpPriceList = () => {
+    setPopUpPriceList((current) => !current); //toggle
+  };
+ 
+
+  const handleCloseModals = () => {
+    setPriceInfoModal(false);
+   setPriceListModal(false);
+  };
+
+
 
   let navigate = useNavigate()
   
@@ -180,7 +207,40 @@ export default function PriceList({theme, ToggleTheme}) {
 
         </div>
 
-       
+          <div className='admin-Btn-Container-icon'>
+            <button className='price-info-create-Btn' onClick={() => {
+              handlePopUpPriceInfo()
+              setAddPriceInfo(true)
+              setPriceInfoModal(true)
+            
+            }}>Lägg till</button>
+            <button className='price-info-change-Btn' onClick={() => {
+              handlePopUpPriceInfo()
+              setAddPriceInfo(false)
+              setPriceInfoModal(true)
+              
+            }}>Ändra</button>
+             {priceInfoModal &&
+              <CardModal
+              handleCloseModals={handleCloseModals}
+              handlePopUp={handlePopUpPriceInfo}
+              popUp={popUpPriceInfo}
+              component={<FormPriceListInfo handlePopUp={handlePopUpPriceInfo} popUp={popUpPriceInfo} add={addPriceInfo} handleCloseModals={handleCloseModals} />}
+            />
+            }
+            
+            {priceListModal &&
+              <CardModal
+                handleCloseModals={handleCloseModals}
+                handlePopUp={handlePopUpPriceList}
+                popUp={popUpPriceList}
+              component={<FormPriceList handlePopUp={handlePopUpPriceList} popUp={popUpPriceList} add={addPriceList} handleCloseModals={handleCloseModals} />}
+              />
+            }
+
+
+
+          </div>
         
      </div>
   </div>
@@ -264,6 +324,22 @@ export default function PriceList({theme, ToggleTheme}) {
 
           </ul>
         </div>
+        <div className='admin-Btn-Container-icon'>
+          <button className='price-list-create-Btn' onClick={() => {
+            handlePopUpPriceList()
+            setAddPriceList(true)
+            setPriceListModal(true)
+
+          }}>Lägg till</button>
+          <button className='price-list-change-Btn' onClick={() => {
+            handlePopUpPriceList()
+            setAddPriceList(false)
+            setPriceListModal(true)
+
+          }}>Ändra</button>
+
+        </div>
+
      
        
       </div>

@@ -18,7 +18,6 @@ import sassIcon from './../img/sass.svg';
 import linkedInIcon from './../img/linkedin.svg';
 import mailIcon from './../img/mejl.svg';
 import CardModal from '../components/cardModal';
-import TeamModal from '../components/teamModal';
 import FormAboutUsHistory from '../components/formAboutUsHistory';
 import FormAboutUsTeam from '../components/formAboutUsTeam';
 
