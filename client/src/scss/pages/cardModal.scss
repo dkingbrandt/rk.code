@@ -1,3 +1,4 @@
+@import './../Base/variables.scss';
 #dark {
 
     .blurr{
@@ -60,7 +61,77 @@
     }
 }
 
+.homeFormContainer {
+  display: flex;
+  width: 450px;
+  flex-direction: column;
+  gap: 20px;
+ 
+  label {
+    color:rgb(33, 185, 145);
+    font-weight: 700;
+    font-size: 20px;
+    font-family: $menyFont;
+  }
+
+  textarea {
+    color:rgb(33, 185, 145);
+    font-weight: 700;
+    font-size: 16px;
+    font-family: $menyFont;
+    width: 100%;
+    background-color: rgba(240, 255, 255, 0.801);
+    resize: none;
+
+    &::placeholder { 
+      color:rgba(96, 146, 132, 0.411);
+      font-weight: 700;
+      font-size: 18px;
+      font-family: $menyFont;
+    }
+    &:focus {
+      outline: none;
+      border-bottom: 3px solid rgb(4, 177, 128) ; 
+    }
+  }
+
+  input {
+    background-color: rgba(240, 255, 255, 0.801);
+    border: none;
+    height: 50px;
+    border-radius: 10px;
+    color: rgb(6, 53, 40) ;
+    font-weight: 700;
+    font-size: 18px;
+    padding-left:5%;
+    font-family: $menyFont;
+
+    &::placeholder { 
+      color:rgba(96, 146, 132, 0.411);
+      font-weight: 700;
+      font-size: 18px;
+      font-family: $menyFont;
+    }
+    &:focus {
+      outline: none;
+      border-bottom: 3px solid rgb(4, 177, 128) ; 
+    }
+  }
+
+  &-btn {
+    background: linear-gradient(90deg, #46EFC4 -19.55%, #7BF1B8 13.97%, #A6F5A9 34.08%, #D4F79A 50%);
+    border-radius: 13px;
+    width: 200px;
+    border: none;
+    height: 50px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+  }
+}
 
 
 
+  
 
