@@ -5,9 +5,22 @@
 }
 
 
-body {
-  background-color: $backgroundColor;
-  margin: 0px;
-
+  body {
+    z-index: -2;
+    margin: 0px;
+    #dark{
+      background-color: $backgroundColor;
+      background-color: $backgroundColor;
+    
+    }
+    #light{
+      background-color: white;
+    }
+  
+  
 }
+
+ 
+  
+
 

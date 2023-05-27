@@ -8,6 +8,12 @@ import price from './../img/price.svg';
 import search from './../img/search.svg';
 import support from './../img/support.svg';
 import ideas from './../img/ideas.svg';
+import computerLight from './../img/computer-light.svg';
+import timeLight from './../img/time-light.svg';
+import priceLight from './../img/price-light.svg';
+import searchLight from './../img/search-light.svg';
+import supportLight from './../img/support-light.svg';
+import ideasLight from './../img/ideas-light.svg';
 import small from './../img/small.svg';
 import medium from './../img/medium.svg';
 import large from './../img/large.svg';
@@ -17,7 +23,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
-export default function PriceList() {
+export default function PriceList({theme, ToggleTheme}) {
 
   let navigate = useNavigate()
   
@@ -28,14 +34,21 @@ export default function PriceList() {
 
 
   return (
-    <div className='priceList-container blurr'>
-      <Header />
+    <div className='priceList-container'>
+     <Header theme={theme} ToggleTheme={ToggleTheme}/>
       <div className='priceList-wrapper'>
       <div className='priceList-info-box'>
 
 
         <div className='price-list-info-tailor-box'>
+          {theme === "dark" ?
+           (
           <img className='price-list-icon-computer' src={computer} alt="computer-icon" />
+          ) 
+          : (
+          <img className='price-list-icon-computer' src={computerLight} alt="computer-icon" />
+          )
+          }
             <div className='price-list-heading-box'>
               <p className='price-list-heading-computer'>Skräddarsydda Hemsidor</p>
 
@@ -54,7 +67,13 @@ export default function PriceList() {
 
         </div>
         <div className='price-list-info-tailor-box'>
+          {theme === "dark" ?
+           (
           <img className='price-list-icon-time' src={time} alt="time-icon" />
+          ): (
+          <img className='price-list-icon-time' src={timeLight} alt="time-icon" />
+          )
+          }
             <div className='price-list-heading-box'>
               <p className='price-list-heading-time'>Fasta Tidsramar</p>
 
@@ -72,7 +91,11 @@ export default function PriceList() {
 
         </div>
         <div className='price-list-info-tailor-box'>
+          {theme === "dark" ?(
           <img className='price-list-icon-ideas' src={ideas} alt="idea-icon" />
+          ): (
+          <img className='price-list-icon-ideas' src={ideasLight} alt="idea-icon" />
+          )}
             <div className='price-list-heading-box'>
               <p className='price-list-heading-ideas'>Vi förverkligar era idéer och
                 behov</p>
@@ -91,7 +114,11 @@ export default function PriceList() {
 
         </div>
         <div className='price-list-info-tailor-box'>
+          {theme === "dark" ? (
           <img className='price-list-icon-search' src={search} alt="search-icon" />
+          ) : (
+          <img className='price-list-icon-search' src={searchLight} alt="search-icon" />
+          )}
             <div className='price-list-heading-box'>
               <p className='price-list-heading-search'>SökmotorOptimering</p>
 
@@ -109,7 +136,11 @@ export default function PriceList() {
 
         </div>
         <div className='price-list-info-tailor-box'>
+          {theme === "dark" ? (
           <img className='price-list-icon-price' src={price} alt="price-icon" />
+          ) : (
+          <img className='price-list-icon-price' src={priceLight} alt="price-icon" />
+          )}
             <div className='price-list-heading-box'>
               <p className='price-list-heading-price'>Fasta Priser</p>
 
@@ -127,7 +158,11 @@ export default function PriceList() {
 
         </div>
         <div className='price-list-info-tailor-box'>
+          {theme === "dark" ? (
           <img className='price-list-icon-support' src={support} alt="support-icon" />
+          ) : (
+          <img className='price-list-icon-support' src={supportLight} alt="support-icon" />
+          )}
             <div className='price-list-heading-box'>
               <p className='price-list-heading-support'>Alltid fri support och hjälp</p>
 

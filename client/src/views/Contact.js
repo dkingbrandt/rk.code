@@ -5,12 +5,12 @@ import Footer from '../components/Footer';
 import './../scss/pages/contact.scss';
 
 
-export default function contact() {
+export default function contact({theme, ToggleTheme}) {
   return (
     <div className='pageContainer'>
 
     <div className='TopContainer'>
-       <Header/>
+       <Header theme={theme} ToggleTheme={ToggleTheme}/>
       <div className='radialGradientDarkGreen'></div>
       <div className='radialGradientsmall'></div>
 
