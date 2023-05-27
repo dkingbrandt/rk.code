@@ -23,7 +23,7 @@ export default function Home({theme, ToggleTheme, authorized}) {
   const [info, setInfo] = useState([]);
 
   useEffect(() => {
-    get("http://localhost:8080/home/info").then((response) =>
+    get("/home/info").then((response) =>
       setInfo(response.data)
     );
   }, []);
