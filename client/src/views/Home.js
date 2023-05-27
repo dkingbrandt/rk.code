@@ -13,6 +13,7 @@ import commentLight from './../img/comment-light.svg';
 import wildline from './../img/wildline.png';
 import CardModal from '../components/cardModal';
 import FormHome from '../components/formHome';
+import { get, post, put, erase, patch} from "../utility/fetchHealper";
 
 
 
