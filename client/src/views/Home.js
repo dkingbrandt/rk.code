@@ -21,10 +21,17 @@ export default function Home({theme, ToggleTheme, authorized}) {
 
   const [popUp, setPopUp] = useState(false);
   const [info, setInfo] = useState([]);
+  const [projects, setProjects] = useState([]);
 
   useEffect(() => {
     get("/home/info").then((response) =>
       setInfo(response.data)
+    );
+  }, []);
+
+  useEffect(() => {
+    get("/home/projects").then((response) =>
+      setProjects(response.data)
     );
   }, []);
 
@@ -62,16 +69,20 @@ export default function Home({theme, ToggleTheme, authorized}) {
     <div className='middleContainer-img'>
     <div className='middleContainer-grid'>
      
+    {info.map((infos, id) => {
+   
+
+        return (
     <div className='card-container'>
      <div className='icon-container'>
       {theme === "dark" ? (
-      <img className='icon data' src={data} alt="computer" />
+      <img className='icon data' src={data}alt="computer" />
       ):(
         <img className='icon data' src={dataLight} alt="computer" />
       )}
       <div>
-         <h4 className='icon-heading'>Skräddarsydd Hemsida</h4> 
-         <p className='icon-p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+         <h4 className='icon-heading'>{infos.heading}</h4> 
+         <p className='icon-p'>{infos.description}</p>
       </div>
      </div>
 
@@ -83,70 +94,9 @@ export default function Home({theme, ToggleTheme, authorized}) {
       )}
       </div>
 
-     <div className='card-container'>
-     <div className='icon-container'>
-      {theme === "dark" ? (
-      <img className='icon dollar' src={dollar} alt="computer" />
-      ):(
-        <img className='icon dollar' src={dollarLight} alt="computer" />
-      )}
-      <div>
-         <h4 className='icon-heading'>Professionell hemsida till ett lågt pris</h4> 
-         <p className='icon-p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
-      </div>
-     </div>
+        )  })};
 
-     {authorized && (
-      <div className='admin-Btn-Container-icon'>
-        <button className='erase-Btn'>Ta bort</button>
-        <button className='change-Btn'>Ändra</button>
-      </div>
-      )}
-      </div>
-  
-     <div className='card-container'>
-     <div className='icon-container'>
-      {theme === "dark" ? (
-      <img className='icon heart' src={heart} alt="computer" />
-      ):(
-        <img className='icon heart' src={heartLight} alt="computer" />
-      )}
-      <div>
-         <h4 className='icon-heading'>Passionerade utvecklare</h4> 
-         <p className='icon-p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
-      </div>
-
-     </div>
-
-     {authorized && (
-      <div className='admin-Btn-Container-icon'>
-        <button className='erase-Btn'>Ta bort</button>
-        <button className='change-Btn'>Ändra</button>
-      </div>
-      )}
-      </div>
-    
-      <div className='card-container'>
-     <div className='icon-container'>
-      {theme === "dark" ? (
-      <img className='icon comment' src={comment} alt="computer" />
-      ):(
-        <img className='icon comment' src={commentLight} alt="computer" />
-      )}
-      <div>
-         <h4 className='icon-heading'>Kontakt med utvecklare/designers</h4> 
-         <p className='icon-p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
-      </div>
-     </div>
-
-     {authorized && (
-      <div className='admin-Btn-Container-icon'>
-        <button className='erase-Btn'>Ta bort</button>
-        <button className='change-Btn'>Ändra</button>
-      </div>
-      )}
-      </div>
-
+     
      </div>
 
     </div>
@@ -155,14 +105,19 @@ export default function Home({theme, ToggleTheme, authorized}) {
 
     <div className='project-container'>
       <h2>Tidigare Project</h2>
+
       <div className='project-container-grid'>
 
+      {projects.map((project, id) => {
+   
+   return (
+
       <div className='card-container'>
 
       <div className='card'>
         <img className='card-img' src={wildline} alt="websitephoto" />
-        <p className='card-heading'>Wild Line Bengals</p>
-        <p className='card-p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
+        <p className='card-heading'>{project.heading}</p>
+        <p className='card-p'>{project.description}</p>
         <div className="textBox-Btn-Container">
           <button className='btn-info-home'>mer info</button>
           <button className='btn-prev'>live preview</button>
@@ -175,49 +130,9 @@ export default function Home({theme, ToggleTheme, authorized}) {
       </div>
       )}
       </div>
+   )})}
 
-      <div className='card-container'>
-
-      <div className='card'>
-        <img className='card-img' src={wildline} alt="websitephoto" />
-        <p className='card-heading'>Wild Line Bengals</p>
-        <p className='card-p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
-        <div className="textBox-Btn-Container">
-          <button className='btn-info-home'>mer info</button>
-          <button className='btn-prev'>live preview</button>
-        </div>
-      </div>
-      
-      {authorized && (
-      <div className='admin-Btn-Container'>
-        <button className='erase-Btn'>Ta bort</button>
-        <button className='change-Btn' onClick={handlePopUp}>Ändra</button>
-      </div>
-    )}
-
-      </div>
-
-      <div className='card-container'>
-
-      <div className='card'>
-        <img className='card-img' src={wildline} alt="websitephoto" />
-        <p className='card-heading'>Wild Line Bengals</p>
-        <p className='card-p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
-        <div className="textBox-Btn-Container">
-          <button className='btn-info-home'>mer info</button>
-          <button className='btn-prev'>live preview</button>
-        </div>
-      </div>
-
-     {authorized && (
-      <div className='admin-Btn-Container'>
-        <button className='erase-Btn'>Ta bort</button>
-        <button className='change-Btn' onClick={handlePopUp}>Ändra</button>
-      </div>
-      )}
-      </div>
-
-
+    
       </div>
     </div>
 
