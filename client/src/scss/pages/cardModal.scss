@@ -81,12 +81,17 @@
     font-family: $menyFont;
     width: 100%;
     background-color: rgba(240, 255, 255, 0.801);
+    resize: none;
 
     &::placeholder { 
       color:rgba(96, 146, 132, 0.411);
       font-weight: 700;
       font-size: 18px;
       font-family: $menyFont;
+    }
+    &:focus {
+      outline: none;
+      border-bottom: 3px solid rgb(4, 177, 128) ; 
     }
   }
 
@@ -106,6 +111,10 @@
       font-weight: 700;
       font-size: 18px;
       font-family: $menyFont;
+    }
+    &:focus {
+      outline: none;
+      border-bottom: 3px solid rgb(4, 177, 128) ; 
     }
   }
 
