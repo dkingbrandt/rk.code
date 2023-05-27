@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './../scss/pages/home.scss';
 import Header from '../components/Header';
 import Footer from '../components/Footer'
@@ -13,13 +13,22 @@ import commentLight from './../img/comment-light.svg';
 import wildline from './../img/wildline.png';
 import CardModal from '../components/cardModal';
 import FormHome from '../components/formHome';
-import { get, post, put, erase, patch} from "../utility/fetchHealper";
+import { get, post, put, erase, patch} from "./../utility/fetchHealper";
 
 
 
 export default function Home({theme, ToggleTheme, authorized}) {
 
   const [popUp, setPopUp] = useState(false);
+  const [info, setInfo] = useState([]);
+
+  useEffect(() => {
+    get("http://localhost:8080/home/info").then((response) =>
+      setInfo(response.data)
+    );
+  }, []);
+
+  console.log(info);
 
   const handlePopUp = () => {
     setPopUp((current) => !current); //toggle
