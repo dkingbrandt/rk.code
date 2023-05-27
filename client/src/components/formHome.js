@@ -1,14 +1,17 @@
 import React, {useState} from 'react'
 import './../scss/pages/cardModal.scss';
 
-export default function FormHome() {
+export default function FormHome({handlePopUp}) {
 
   
   return (
     <div>
-        <form action="">
-            <input type="text" placeholder='Heading'/>
-            <input type="text" placeholder='description'/>
+        <form className='homeFormContainer' action="">
+            <label for="heading">Title:</label>
+            <input id='heading' type="text" placeholder='Title'/>
+            <label for="description">Description:</label>
+            <input id='description' type="text" placeholder='Description'/>
+            <button className='homeFormContainer-btn' onClick={handlePopUp}>Ändra</button>
         </form>
   
     </div>

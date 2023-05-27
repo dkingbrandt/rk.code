@@ -136,7 +136,7 @@ export default function Home({theme, ToggleTheme, authorized}) {
       </div>
     </div>
 
-    <CardModal handlePopUp={handlePopUp} popUp={popUp} component={<FormHome/>}/>
+    <CardModal handlePopUp={handlePopUp} popUp={popUp} component={<FormHome handlePopUp={handlePopUp}/>}/>
 
     </div>
       <Footer />
