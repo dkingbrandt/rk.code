@@ -12,6 +12,7 @@ import heartLight from './../img/heart-light.svg';
 import commentLight from './../img/comment-light.svg';
 import wildline from './../img/wildline.png';
 import CardModal from '../components/cardModal';
+import FormHome from '../components/formHome';
 
 
 
@@ -210,7 +211,7 @@ export default function Home({theme, ToggleTheme, authorized}) {
       </div>
     </div>
 
-    <CardModal handlePopUp={handlePopUp} popUp={popUp}/>
+    <CardModal handlePopUp={handlePopUp} popUp={popUp} component={<FormHome/>}/>
 
     </div>
       <Footer />
