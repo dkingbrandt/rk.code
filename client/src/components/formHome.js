@@ -14,7 +14,7 @@ export default function FormHome({handlePopUp,heading, title, description, setPr
         <form className='homeFormContainer' action="">
           
             <label for="title">Title:</label>
-            <input id='title' value={newTitle} onChange={(e) => setNewTitle(e.target.value)} type="text" placeholder={title}/>
+            <input id='title' value={newTitle} onChange={(e) => setNewTitle(e.target.value)} type="text" placeholder={heading}/>
             <label for="description">Description:</label>
             <textarea  onChange={(e) => setNewDescription(e.target.value)} name="" id="description" placeholder={description} cols="30" rows="10"></textarea>
             <button className='homeFormContainer-btn' onClick={()=> {
