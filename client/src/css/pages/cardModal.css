@@ -1,0 +1,97 @@
+#dark .blurr {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  /*  opacity: 0;
+       visibility:hidden;
+        z-index: -2;
+        */
+  transition: all .5s;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.3); }
+  #dark .blurr .popUp {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #040e0f;
+    width: 70vw;
+    height: 80vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 5%;
+    border-radius: 15px;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    opacity: 1;
+    visibility: visible; }
+    #dark .blurr .popUp--close {
+      color: rgba(255, 255, 255, 0.842);
+      position: absolute;
+      top: 5px;
+      left: 95%;
+      font-size: 7rem;
+      text-decoration: none;
+      display: inline-block;
+      line-height: 1; }
+      #dark .blurr .popUp--close:hover {
+        cursor: pointer;
+        color: rgba(22, 151, 134, 0.521); }
+
+.homeFormContainer {
+  display: flex;
+  width: 450px;
+  flex-direction: column;
+  gap: 20px; }
+  .homeFormContainer label {
+    color: #21b991;
+    font-weight: 700;
+    font-size: 20px;
+    font-family: "Montserrat", sans-serif; }
+  .homeFormContainer textarea {
+    color: #21b991;
+    font-weight: 700;
+    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+    width: 100%;
+    background-color: rgba(240, 255, 255, 0.801);
+    resize: none; }
+    .homeFormContainer textarea::placeholder {
+      color: rgba(96, 146, 132, 0.411);
+      font-weight: 700;
+      font-size: 18px;
+      font-family: "Montserrat", sans-serif; }
+    .homeFormContainer textarea:focus {
+      outline: none;
+      border-bottom: 3px solid #04b180; }
+  .homeFormContainer input {
+    background-color: rgba(240, 255, 255, 0.801);
+    border: none;
+    height: 50px;
+    border-radius: 10px;
+    color: #063528;
+    font-weight: 700;
+    font-size: 18px;
+    padding-left: 5%;
+    font-family: "Montserrat", sans-serif; }
+    .homeFormContainer input::placeholder {
+      color: rgba(96, 146, 132, 0.411);
+      font-weight: 700;
+      font-size: 18px;
+      font-family: "Montserrat", sans-serif; }
+    .homeFormContainer input:focus {
+      outline: none;
+      border-bottom: 3px solid #04b180; }
+  .homeFormContainer-btn {
+    background: linear-gradient(90deg, #46EFC4 -19.55%, #7BF1B8 13.97%, #A6F5A9 34.08%, #D4F79A 50%);
+    border-radius: 13px;
+    width: 200px;
+    border: none;
+    height: 50px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px; }

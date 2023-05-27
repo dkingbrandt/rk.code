@@ -370,7 +370,7 @@
   align-items: center;
   justify-content: center;
   min-height: 100%;
-  background-image: linear-gradient(to bottom, rgba(7, 7, 7, 0.89), rgba(20, 20, 20, 0.932)), url(../../../src/img/code-img.jpg);
+  background-image: linear-gradient(to bottom, rgba(7, 7, 7, 0.377), rgba(20, 20, 20, 0.712)), url(../../../src/img/code-ligth.jpg);
   background-size: cover;
   min-height: 450px;
   min-width: 100%; }
@@ -576,3 +576,34 @@
     box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.514); }
     .switch input:checked + .slider:before {
       transform: translate(50px); }
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .card-container .admin-Btn-Container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-top: 50px; }
+  .card-container .erase-Btn {
+    background-color: #3DD1AC;
+    border: none;
+    width: 90px;
+    height: 40px;
+    border-radius: 12px;
+    color: #000000;
+    font-weight: 700; }
+  .card-container .change-Btn {
+    background-color: transparent;
+    border: solid 2px  #3DD1AC;
+    width: 90px;
+    height: 40px;
+    border-radius: 12px;
+    color: #3DD1AC;
+    font-weight: 700; }
+  .card-container .admin-Btn-Container-icon {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px; }
