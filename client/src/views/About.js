@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import './../scss/pages/aboutUs.scss';
@@ -16,10 +17,24 @@ import jsIcon from './../img/js.svg';
 import sassIcon from './../img/sass.svg';
 import linkedInIcon from './../img/linkedin.svg';
 import mailIcon from './../img/mejl.svg';
+import CardModal from '../components/cardModal';
+import FormAbout from '../components/formAboutus';
 
 
 
-export default function About({theme, ToggleTheme}) {
+
+
+export default function About({ theme, ToggleTheme }) {
+  
+  const [popUp, setPopUp] = useState(false);
+
+  const handlePopUp = () => {
+    setPopUp((current) => !current); //toggle
+  };
+
+
+
+
   return (
     <div className='about-container'>
       <Header theme={theme} ToggleTheme={ToggleTheme}/>
@@ -49,6 +64,13 @@ export default function About({theme, ToggleTheme}) {
               </p>
             </div>
           </div>
+          <div className='admin-Btn-Container-icon'>
+            <button className='erase-Btn' onClick={handlePopUp}>Ta bort</button>
+            <button className='change-Btn' onClick={handlePopUp}>Ändra</button>
+          </div>
+
+          <CardModal handlePopUp={handlePopUp} popUp={popUp} component={<FormAbout />} />
+
           <div className='history-knowledge-box'>
             <div className='history-label-knowledge'>
               <img className='icon-knowledge' src={knowledge} alt="knowledge" />
