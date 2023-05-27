@@ -2241,14 +2241,30 @@ body {
     font-weight: 700;
     font-size: 20px;
     font-family: "Montserrat", sans-serif; }
+  .homeFormContainer textarea {
+    color: #21b991;
+    font-weight: 700;
+    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+    width: 100%;
+    background-color: rgba(240, 255, 255, 0.801); }
+    .homeFormContainer textarea::placeholder {
+      color: rgba(96, 146, 132, 0.411);
+      font-weight: 700;
+      font-size: 18px;
+      font-family: "Montserrat", sans-serif; }
   .homeFormContainer input {
     background-color: rgba(240, 255, 255, 0.801);
     border: none;
     height: 50px;
-    border-radius: 10px; }
+    border-radius: 10px;
+    color: #063528;
+    font-weight: 700;
+    font-size: 18px;
+    padding-left: 5%;
+    font-family: "Montserrat", sans-serif; }
     .homeFormContainer input::placeholder {
-      color: #063528;
-      padding-left: 5%;
+      color: rgba(96, 146, 132, 0.411);
       font-weight: 700;
       font-size: 18px;
       font-family: "Montserrat", sans-serif; }

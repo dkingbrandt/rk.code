@@ -74,15 +74,35 @@
     font-family: $menyFont;
   }
 
+  textarea {
+    color:rgb(33, 185, 145);
+    font-weight: 700;
+    font-size: 16px;
+    font-family: $menyFont;
+    width: 100%;
+    background-color: rgba(240, 255, 255, 0.801);
+
+    &::placeholder { 
+      color:rgba(96, 146, 132, 0.411);
+      font-weight: 700;
+      font-size: 18px;
+      font-family: $menyFont;
+    }
+  }
+
   input {
     background-color: rgba(240, 255, 255, 0.801);
     border: none;
     height: 50px;
     border-radius: 10px;
+    color: rgb(6, 53, 40) ;
+    font-weight: 700;
+    font-size: 18px;
+    padding-left:5%;
+    font-family: $menyFont;
 
     &::placeholder { 
-      color:rgb(6, 53, 40);
-      padding-left:5%;
+      color:rgba(96, 146, 132, 0.411);
       font-weight: 700;
       font-size: 18px;
       font-family: $menyFont;

@@ -22,6 +22,9 @@ export default function Home({theme, ToggleTheme, authorized}) {
   const [popUp, setPopUp] = useState(false);
   const [info, setInfo] = useState([]);
   const [projects, setProjects] = useState([]);
+  const [heading, setHeading] = useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
 
   useEffect(() => {
     get("/home/info").then((response) =>
@@ -40,6 +43,15 @@ export default function Home({theme, ToggleTheme, authorized}) {
   const handlePopUp = () => {
     setPopUp((current) => !current); //toggle
   };
+
+  function showDetail(index) {
+    const ProjectIndex = projects[index];
+    if (ProjectIndex == projects[index]) {
+      setHeading(projects[index].heading);
+      setTitle(projects[index].title);
+      setDescription(projects[index].description);
+    }
+  }
 
   return (
     <div>
@@ -108,7 +120,7 @@ export default function Home({theme, ToggleTheme, authorized}) {
 
       <div className='project-container-grid'>
 
-      {projects.map((project, id) => {
+      {projects.map((project, index) => {
    
    return (
 
@@ -126,7 +138,11 @@ export default function Home({theme, ToggleTheme, authorized}) {
       {authorized && (
       <div className='admin-Btn-Container'>
         <button className='erase-Btn'>Ta bort</button>
-        <button className='change-Btn' onClick={handlePopUp}>Ändra</button>
+        <button className='change-Btn' index={index} onClick={() => {
+                  showDetail(index);
+                  handlePopUp();
+
+                }}>Ändra</button>
       </div>
       )}
       </div>
@@ -136,7 +152,7 @@ export default function Home({theme, ToggleTheme, authorized}) {
       </div>
     </div>
 
-    <CardModal handlePopUp={handlePopUp} popUp={popUp} component={<FormHome handlePopUp={handlePopUp}/>}/>
+    <CardModal handlePopUp={handlePopUp} popUp={popUp} component={<FormHome setProjects={setProjects} heading={heading} title={title} description={description} setHeading={setHeading} setTitle={setTitle} setDescription={setDescription} handlePopUp={handlePopUp}/>}/>
 
     </div>
       <Footer />
