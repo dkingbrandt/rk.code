@@ -13,6 +13,10 @@ import commentLight from './../img/comment-light.svg';
 import wildline from './../img/wildline.png';
 import CardModal from '../components/cardModal';
 import FormHome from '../components/formHome';
+import FormAddProject from '../components/formAddProject';
+import SmalModal from '../components/smalModal';
+import FormDelete from '../components/deleteForm';
+import FormInfoHome from '../components/formInfoHome';
 import { get, post, put, erase, patch} from "./../utility/fetchHealper";
 
 
@@ -20,11 +24,18 @@ import { get, post, put, erase, patch} from "./../utility/fetchHealper";
 export default function Home({theme, ToggleTheme, authorized}) {
 
   const [popUp, setPopUp] = useState(false);
+  const [popUpInfo, setPopUpInfo] = useState(false);
+  const [addProjectModal, setAddProjetModal] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
   const [info, setInfo] = useState([]);
   const [projects, setProjects] = useState([]);
   const [heading, setHeading] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [infoHeading, setInfoHeading] = useState("");
+  const [infoTitle, setInfoTitle] = useState("");
+  const [infoDescription, setInfoDescription] = useState("");
+
 
   useEffect(() => {
     get("/home/info").then((response) =>
@@ -43,6 +54,15 @@ export default function Home({theme, ToggleTheme, authorized}) {
   const handlePopUp = () => {
     setPopUp((current) => !current); //toggle
   };
+  const handleAddProjectModal = () => {
+    setAddProjetModal((current) => !current); //toggle
+  };
+  const handleDelete = () => {
+    setDeleteModal((current) => !current); //toggle
+  };
+  const handlepPopUpInfo = () => {
+    setPopUpInfo((current) => !current); //toggle
+  };
 
   function showDetail(index) {
     const ProjectIndex = projects[index];
@@ -50,6 +70,16 @@ export default function Home({theme, ToggleTheme, authorized}) {
       setHeading(projects[index].heading);
       setTitle(projects[index].title);
       setDescription(projects[index].description);
+     
+    }
+  }
+  function showDetailInfo(index) {
+    const InfoIndex = info[index];
+    if (InfoIndex == info[index]) {
+      setInfoHeading(info[index].heading);
+      setInfoTitle(info[index].title);
+      setInfoDescription(info[index].description);
+    
     }
   }
 
@@ -81,7 +111,7 @@ export default function Home({theme, ToggleTheme, authorized}) {
     <div className='middleContainer-img'>
     <div className='middleContainer-grid'>
      
-    {info.map((infos, id) => {
+    {info.map((infos, index) => {
    
 
         return (
@@ -101,7 +131,12 @@ export default function Home({theme, ToggleTheme, authorized}) {
      {authorized && (
       <div className='admin-Btn-Container-icon'>
         <button className='erase-Btn'>Ta bort</button>
-        <button className='change-Btn'>Ändra</button>
+        <button className='change-Btn' onClick={() => {
+                  showDetailInfo(index);
+                  handlepPopUpInfo();
+
+                }}
+        >Ändra</button>
       </div>
       )}
       </div>
@@ -116,16 +151,20 @@ export default function Home({theme, ToggleTheme, authorized}) {
     <hr className='hr'/>
 
     <div className='project-container'>
-      <h2>Tidigare Project</h2>
+      <h2>Tidigare Projekt</h2>
+
+      <button className='add-Btn' onClick={handleAddProjectModal}>Lägg till Projekt</button>
 
       <div className='project-container-grid'>
 
       {projects.map((project, index) => {
+
    
+       console.log(project.heading)
+
    return (
 
       <div className='card-container'>
-
       <div className='card'>
         <img className='card-img' src={wildline} alt="websitephoto" />
         <p className='card-heading'>{project.heading}</p>
@@ -137,7 +176,12 @@ export default function Home({theme, ToggleTheme, authorized}) {
       </div>
       {authorized && (
       <div className='admin-Btn-Container'>
-        <button className='erase-Btn'>Ta bort</button>
+        <button className='erase-Btn' onClick={() => {
+                  showDetail(index);
+                  handleDelete();
+
+                }}>Ta bort</button>
+
         <button className='change-Btn' index={index} onClick={() => {
                   showDetail(index);
                   handlePopUp();
@@ -151,8 +195,10 @@ export default function Home({theme, ToggleTheme, authorized}) {
     
       </div>
     </div>
-
-    <CardModal handlePopUp={handlePopUp} popUp={popUp} component={<FormHome setProjects={setProjects} heading={heading} title={title} description={description} setHeading={setHeading} setTitle={setTitle} setDescription={setDescription} handlePopUp={handlePopUp}/>}/>
+    <SmalModal handlePopUp={handleDelete } popUp={deleteModal} component={<FormDelete setProjects={setProjects} title={title} textHeading={"Är du säker på att du vill ta bor projektet?"}/>} />
+    <CardModal handlePopUp={handleAddProjectModal } popUp={addProjectModal} component={<FormAddProject setProjects={setProjects} handlePopUp={handleAddProjectModal} />}/>
+    <CardModal handlePopUp={handlepPopUpInfo} popUp={popUpInfo} component={<FormInfoHome setInfo={setInfo} heading={infoHeading} title={infoTitle} description={infoDescription}  handlePopUp={handlepPopUpInfo}/>}/>
+    <CardModal handlePopUp={handlePopUp} popUp={popUp} component={<FormHome setProjects={setProjects} heading={heading} title={title} description={description} handlePopUp={handlePopUp}/>}/>
 
     </div>
       <Footer />
