@@ -210,6 +210,19 @@
   width: 100%;
   min-height: 700px;
 
+  .add-Btn {
+    background-color: transparent;
+    border: solid 2px #3DD1AC;
+    width: 200px;
+    height: 40px;
+    border-radius: 12px;
+    color: #3DD1AC;
+    font-weight: 700;
+    align-self: start;
+    margin-left: 5%;
+    margin-bottom: 2%;
+  }
+
   h2 {
   
     font-family: $menyFont;
