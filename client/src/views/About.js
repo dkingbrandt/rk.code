@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-
+import React, { useState,useEffect} from 'react'
+import { post, put, get } from '../utility/fetchHealper'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import './../scss/pages/aboutUs.scss';
@@ -34,6 +34,24 @@ export default function About({ theme, ToggleTheme }) {
   const [addTeam, setAddTeam] = useState(false);
   const [historyModal, setHistoryModal] = useState(false);
   const [teamModal, setTeamModal] = useState(false);
+  const [history, setHistory] = useState([]);
+  const [team, setTeam] = useState([]);
+  const[heading, setHeading] = useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [img, setImg] = useState("");
+
+  useEffect(() => {
+    get("/aboutus/history").then((response) =>
+      setHistory(response.data)
+    );
+  }, []);
+
+  useEffect(() => {
+    get("/aboutus/team").then((response) =>
+      setTeam(response.data)
+    );
+  }, []);
 
   const handlePopUpTeam = () => {
     setPopUpTeam((current) => !current); //toggle
@@ -48,6 +66,15 @@ export default function About({ theme, ToggleTheme }) {
     setHistoryModal(false);
   };
 
+  function showDetail(index) {
+    const ProjectIndex = history[index];
+    if (ProjectIndex == history[index]) {
+      setHeading(history[index].heading);
+      setTitle(history[index].title);
+      setDescription(history[index].description);
+    }
+  }
+
 
 
   return (
@@ -58,89 +85,55 @@ export default function About({ theme, ToggleTheme }) {
          <div className='radialbig'></div>
          <div className='history-wrapper'>
 
-
+         {console.log(history)}
         <div className='history-container'>
           <h1 className='history-heading'>VÅR HISTORIA</h1>
+          {history.map((history, index) => {
+            
+            return (
+              <div className='history-create-box'>
+                <div className='history-label-create'>
+                  <img className='icon-task' src={taskTools} alt="task" />
+                  <p className='heading-create'>{history.heading}</p>
+                </div>
+                <div className='history-textBox-knowledge'>
+                  <p className='text-knowledge'>{history.description}</p>
+                </div>
+            
 
-          <div className='history-create-box'>
-            <div className='history-label-create'>
-              <img className='icon-task' src={taskTools} alt="task" />
-              <p className='heading-create'>Skapandet</p>
-            </div>
-            <div className='history-textBox-knowledge'>
-              <p className='text-knowledge'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum non,
-                vero deleniti veniam commodi, fuga sit fugiat consectetur ipsam tempore molestiae
-                cumque soluta minima tenetur accusantium earum dolorem quod perferendis?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum non,
-                vero deleniti veniam commodi, fuga sit fugiat consectetur ipsam tempore molestiae
-                cumque soluta minima tenetur accusantium
+               
+                    <div className='admin-Btn-Container-icon'>
+                      <button className='history-create-Btn' onClick={() => {
+                        handlePopUpHistory()
+                        setAddHistory(true)
+                        setHistoryModal(true)
+                      }}>Lägg till</button>
+                      <button className='history-change-Btn' onClick={() => {
+                        handlePopUpHistory()
+                        setAddHistory(false)
+                        setHistoryModal(true)
+                      }}>Ändra</button>
+                    
+                    </div>
+              </div>
 
-              </p>
-            </div>
-          </div>
+
+
+
+            )
+
+
+
+
+          })}
+
         
-
-
-          <div className='history-knowledge-box'>
-            <div className='history-label-knowledge'>
-              <img className='icon-knowledge' src={knowledge} alt="knowledge" />
-              <p className='heading-knowledge'>Kunskap</p>
-            </div>
-            <div className='history-textBox-knowledge'>
-              <p className='text-knowledge'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum non,
-                vero deleniti veniam commodi, fuga sit fugiat consectetur ipsam tempore molestiae
-                cumque soluta minima tenetur accusantium earum dolorem quod perferendis?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum non,
-                vero deleniti veniam commodi, fuga sit fugiat consectetur ipsam tempore molestiae
-                cumque soluta minima tenetur accusantium
-
-
-              </p>
-            </div>
-
-
-          </div>
-          <div className='history-vision-box'>
-            <div className='history-label-vision'>
-              <img className='icon-lightbulb' src={lightbulb} alt="vision" />
-              <p className='heading-vision'>Vision</p>
-
-
-            </div>
-            <div className='history-textBox-knowledge'>
-              <p className='text-knowledge'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum non,
-                vero deleniti veniam commodi, fuga sit fugiat consectetur ipsam tempore molestiae
-                cumque soluta minima tenetur accusantium earum dolorem quod perferendis?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum non,
-                vero deleniti veniam commodi, fuga sit fugiat consectetur ipsam tempore molestiae
-                cumque soluta minima tenetur accusantium
-
-              </p>
-            </div>
-
-          </div>
-          <div className='admin-Btn-Container-icon'>
-            <button className='history-create-Btn' onClick={() => {
-              handlePopUpHistory()
-              setAddHistory(true)
-              setHistoryModal(true)
-            }}>Lägg till</button>
-            <button className='history-change-Btn' onClick={() => {
-              handlePopUpHistory()
-              setAddHistory(false)
-              setHistoryModal(true)
-            }}>Ändra</button>
-           
-          </div>
           {historyModal && (
             <CardModal
               handleCloseModals={handleCloseModals}
               handlePopUp={handlePopUpHistory}
               popUp={popUpHistory}
-              component={<FormAboutUsHistory handlePopUp={handlePopUpHistory} popUp={popUpHistory} add={addHistory} handleCloseModals={handleCloseModals} />}
+              component={<FormAboutUsHistory setHistory={setHistory} img={img} heading={heading} title={title} description={description} setHeading={setHeading} setTitle={setTitle} setDescription={setDescription} handlePopUp={handlePopUpHistory} popUp={popUpHistory} add={addHistory} handleCloseModals={handleCloseModals} />}
             />
           )}
           {teamModal && (
