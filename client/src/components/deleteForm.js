@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import './../scss/pages/cardModal.scss';
 import {get, erase} from './../utility/fetchHealper';
 
-export default function FormDelete({handlePopUp, title, setProjects, textHeading}) {
+export default function FormDelete({handlePopUp, title, setProjects, textHeading, link}) {
 
 
 
@@ -13,10 +13,10 @@ export default function FormDelete({handlePopUp, title, setProjects, textHeading
             <h1>{textHeading}</h1>
             <button className='homeFormContainer-btn' onClick={()=> {
 
-                erase(`home/projects/${title}`, {
+                erase(`${link}${title}`, {
                 })
                 .then(() =>
-                get("home/projects/").then((response) => setProjects(response.data))
+                get({link}).then((response) => setProjects(response.data))
               );
                 handlePopUp();
             }}>Ja</button>
