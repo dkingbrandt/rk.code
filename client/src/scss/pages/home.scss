@@ -113,8 +113,23 @@
  
 
   &-img {
+    position: relative;
+    .addInfo-Btn {
+      background-color: transparent;
+      border: solid 2px #3DD1AC;
+      width: 200px;
+      height: 40px;
+      border-radius: 12px;
+      color: #3DD1AC;
+      font-weight: 700;
+      position: absolute;
+      left: 5%;
+      top: 25px;
+
+    }
 
     .middleContainer-grid { 
+      margin-top: 2%;
       display: grid;
       column-gap: 100px;  
       row-gap: 10px; 
