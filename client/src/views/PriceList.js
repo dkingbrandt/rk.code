@@ -36,6 +36,9 @@ export default function PriceList({theme, ToggleTheme}) {
   return (
     <div className='priceList-container'>
      <Header theme={theme} ToggleTheme={ToggleTheme}/>
+     <div className='radialGradientGreen'></div>
+         <div className='radialsmall'></div>
+         <div className='radialbig'></div>
       <div className='priceList-wrapper'>
       <div className='priceList-info-box'>
 
