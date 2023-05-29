@@ -103,7 +103,6 @@ const handleSubmit = (e) => {
               .finally(() => {
                 uploadImage();
                 props.handlePopUp();
-                props.handleCloseModals();
               });
           }}>skapa</button>
         }
@@ -121,7 +120,6 @@ const handleSubmit = (e) => {
               .finally(() => {
                 uploadImage();
                 props.handlePopUp();
-                props.handleCloseModals();
               });
 
           }}>ändra</button>

@@ -3,10 +3,6 @@ import { get } from '../utility/fetchHealper'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import './../scss/pages/Pricelist.scss';
-import computer from './../img/computer.svg';
-
-import computerLight from './../img/computer-light.svg';
-
 
 import { useNavigate } from "react-router-dom";
 import FormPriceListInfo from '../components/formPriceListInfo';
@@ -23,8 +19,6 @@ export default function PriceList({ theme, ToggleTheme }) {
   const [popUpPriceList, setPopUpPriceList] = useState(false);
   const [addPriceInfo, setAddPriceInfo] = useState(false);
   const [addPriceList, setAddPriceList] = useState(false);
-  const [priceInfoModal, setPriceInfoModal] = useState(false);
-  const [priceListModal, setPriceListModal] = useState(false);
   const [heading, setHeading] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -55,10 +49,7 @@ export default function PriceList({ theme, ToggleTheme }) {
   };
  
 
-  const handleCloseModals = () => {
-    setPriceInfoModal(false);
-   setPriceListModal(false);
-  };
+  
 
   function showDetailPriceInfo(index) {
     const PriceInfoIndex = priceInfo[index];
@@ -121,14 +112,12 @@ export default function PriceList({ theme, ToggleTheme }) {
                     showDetailPriceInfo(index)
                     handlePopUpPriceInfo()
                     setAddPriceInfo(true)
-                    setPriceInfoModal(true)
 
                   }}>Lägg till</button>
                   <button className='price-info-change-Btn' index={index} onClick={() => {
                     showDetailPriceInfo(index)
                     handlePopUpPriceInfo()
                     setAddPriceInfo(false)
-                    setPriceInfoModal(true)
 
                   }}>Ändra</button>
 
@@ -153,9 +142,7 @@ export default function PriceList({ theme, ToggleTheme }) {
   
 
         
-             {priceInfoModal &&
               <CardModal
-              handleCloseModals={handleCloseModals}
               handlePopUp={handlePopUpPriceInfo}
               popUp={popUpPriceInfo}
               component=
@@ -167,14 +154,13 @@ export default function PriceList({ theme, ToggleTheme }) {
                 handlePopUp={handlePopUpPriceInfo}
                 popUp={popUpPriceInfo}
                 add={addPriceInfo}
-                handleCloseModals={handleCloseModals}
               />}
             />
-            }
             
-            {priceListModal &&
+            
+           
               <CardModal
-                handleCloseModals={handleCloseModals}
+                
                 handlePopUp={handlePopUpPriceList}
                 popUp={popUpPriceList}
                 component=
@@ -186,10 +172,10 @@ export default function PriceList({ theme, ToggleTheme }) {
                   handlePopUp={handlePopUpPriceList}
                   popUp={popUpPriceList}
                   add={addPriceList}
-                  handleCloseModals={handleCloseModals}
+                  
                 />}
               />
-            }
+            
 
 
 
@@ -222,14 +208,12 @@ export default function PriceList({ theme, ToggleTheme }) {
                   showDetailPricePackage(index)
                   handlePopUpPriceList()
                   setAddPriceList(true)
-                  setPriceListModal(true)
 
                 }}>Lägg till</button>
                 <button className='price-list-change-Btn' index={index} onClick={() => {
                   showDetailPricePackage(index)
                   handlePopUpPriceList()
                   setAddPriceList(false)
-                  setPriceListModal(true)
 
                 }}>Ändra</button>
 

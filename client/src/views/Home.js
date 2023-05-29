@@ -214,7 +214,7 @@ export default function Home({theme, ToggleTheme, authorized}) {
     <SmalModal handlePopUp={handleDeleteInfo } popUp={deleteInfo} component={<FormDelete setProjects={setInfo} title={infoTitle} link={"home/info/"} textHeading={"Är du säker på att du vill ta bort infoblocket?"}/>} />
     <CardModal handlePopUp={handleAddProjectModal } popUp={addProjectModal} component={<FormAddProject textHeading={"Lägg till ett nytt Projekt"} link={"home/projects/"} setProjects={setProjects} handlePopUp={handleAddProjectModal} />}/>
     <CardModal handlePopUp={handleAddInfoModal } popUp={addInfoModal} component={<FormAddProject textHeading={"Lägg till ett nytt informationsblock"} link={"home/info"} setProjects={setInfo} handlePopUp={handleAddInfoModal} />}/>
-    <CardModal handlePopUp={handlepPopUpInfo} popUp={popUpInfo} component={<FormInfoHome setInfo={setInfo} heading={infoHeading} title={infoTitle} description={infoDescription}  handlePopUp={handlepPopUpInfo}/>}/>
+    <CardModal handlePopUp={handlepPopUpInfo} popUp={popUpInfo} component={<FormInfoHome setInfo={setInfo} heading={infoHeading} title={infoTitle} description={infoDescription} handlePopUp={handlepPopUpInfo}/>}/>
     <CardModal handlePopUp={handlePopUp} popUp={popUp} component={<FormHome setProjects={setProjects} heading={heading} title={title} description={description} handlePopUp={handlePopUp}/>}/>
 
     </div>

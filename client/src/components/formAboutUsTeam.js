@@ -128,7 +128,6 @@ export default function FormAboutUsTeam(props) {
             .finally(() => {
                 uploadImage();
                 props.handlePopUp();
-                props.handleCloseModals();
               });
 
 
@@ -151,7 +150,6 @@ export default function FormAboutUsTeam(props) {
             ).finally(() => {
               uploadImage();
               props.handlePopUp();
-              props.handleCloseModals();
             });
             
 
@@ -160,7 +158,6 @@ export default function FormAboutUsTeam(props) {
         <button className='formAbout-team-cancel-btn'
           onClick={() => {
             props.handlePopUp()
-            props.handleCloseModals()
           }}
         >avbryt</button>
 
