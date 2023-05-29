@@ -89,6 +89,7 @@
 
 
     .history-textBox-knowledge {
+      height: calc(100%/4);
       margin-left: 5%;
       width: 70%;
       color: #ecfaf4;
@@ -96,13 +97,20 @@
       letter-spacing: 0.22em;
       line-height: 25px;
     }
-
+    .icon-history{
+      margin-left: 10px;
+      align-self: center;
+      width: 45px;
+      height: 45px;
+    }
       
     .history-label-knowledge,
     .history-label-create,
     .history-label-vision {
       display: flex;
       flex-direction: row;
+      justify-content: flex-start;
+      gap: 5px;
       width: 250px;
       height: 60px;
       border-radius: 10px 10px 10px 0px;
@@ -112,7 +120,7 @@
       .heading-vision,
       .heading-create,
       .heading-knowledge {
-
+        align-self: center;
         padding-left: 10px;
         font-family: 'Murecho';
         font-style: normal;
@@ -130,8 +138,40 @@
     }
   
     }
-  
 
+
+      .history-Btn-Container-icon{
+        display: flex;
+        justify-content: flex-start;
+        gap: 10px;
+        margin: auto;
+        padding-top: 40px;
+        
+      }
+       .history-create-Btn{
+        background: linear-gradient(90deg, #46EFC4 -19.55%, #7BF1B8 13.97%, #A6F5A9 34.08%, #D4F79A 50%);
+          border-radius: 13px;
+          width: 110px;
+          border: none;
+          height: 36px;
+          font-family: 'Montserrat';
+          font-style: normal;
+          font-weight: 600;
+          font-size: 16px;
+          color: #000000;
+       }
+       .history-change-Btn{
+        border: 2px solid #808281;
+          border-radius: 13px;
+          width: 110px;
+          height: 36px;
+          font-family: 'Montserrat';
+          font-style: normal;
+          font-weight: 600;
+          font-size: 16px;
+          color: white;
+          background: #000000;
+       }
   
   }
   
@@ -173,7 +213,7 @@
   padding: 80px;
   margin: auto;
   width: 1101px;
-  height: 550px;
+  height: auto;
   column-gap: 30px;
   border: 3px solid rgba(123, 241, 184, 0.5);
 }
@@ -379,6 +419,37 @@
   margin-left: 30%;
   margin-top: 5%;
 }
+     .team-Btn-Container-icon{
+      display: flex;
+      gap: 10px;
+      padding-top: 40px;
+      margin: auto;
+     }
+
+    .team-create-Btn {
+      background: linear-gradient(90deg, #46EFC4 -19.55%, #7BF1B8 13.97%, #A6F5A9 34.08%, #D4F79A 50%);
+      border-radius: 13px;
+      width: 110px;
+      border: none;
+      height: 36px;
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+    }
+  
+    .team-change-Btn {
+      border: 2px solid #808281;
+      border-radius: 13px;
+      width: 110px;
+      height: 36px;
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      color: white;
+      background: #000000;
+    }
 
 
 }

@@ -1,29 +1,82 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { get } from '../utility/fetchHealper'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import './../scss/pages/Pricelist.scss';
 import computer from './../img/computer.svg';
-import time from './../img/time.svg';
-import price from './../img/price.svg';
-import search from './../img/search.svg';
-import support from './../img/support.svg';
-import ideas from './../img/ideas.svg';
+
 import computerLight from './../img/computer-light.svg';
-import timeLight from './../img/time-light.svg';
-import priceLight from './../img/price-light.svg';
-import searchLight from './../img/search-light.svg';
-import supportLight from './../img/support-light.svg';
-import ideasLight from './../img/ideas-light.svg';
-import small from './../img/small.svg';
-import medium from './../img/medium.svg';
-import large from './../img/large.svg';
+
+
 import { useNavigate } from "react-router-dom";
+import FormPriceListInfo from '../components/formPriceListInfo';
+import FormPriceList from '../components/formPriceList';
+import CardModal from '../components/cardModal';
 
 
 
 
 
-export default function PriceList({theme, ToggleTheme}) {
+export default function PriceList({ theme, ToggleTheme }) {
+  
+  const [popUpPriceInfo, setPopUpPriceInfo] = useState(false);
+  const [popUpPriceList, setPopUpPriceList] = useState(false);
+  const [addPriceInfo, setAddPriceInfo] = useState(false);
+  const [addPriceList, setAddPriceList] = useState(false);
+  const [priceInfoModal, setPriceInfoModal] = useState(false);
+  const [priceListModal, setPriceListModal] = useState(false);
+  const [heading, setHeading] = useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [descriptionList, setDescriptionList] = useState([]);
+  const [img, setImg] = useState("");
+  const [priceInfo, setPriceInfo] = useState([]);
+  const [pricePackage, setPricePackage] = useState([]);
+
+
+
+  useEffect(() => {
+    get("/pricelist/info").then((response) =>
+      setPriceInfo(response.data)
+    );
+  }, []);
+  useEffect(() => {
+    get("/pricelist/package").then((response) =>
+      setPricePackage(response.data)
+    );
+  }, []);
+
+  const handlePopUpPriceInfo = () => {
+    setPopUpPriceInfo((current) => !current); //toggle
+  };
+  
+  const handlePopUpPriceList = () => {
+    setPopUpPriceList((current) => !current); //toggle
+  };
+ 
+
+  const handleCloseModals = () => {
+    setPriceInfoModal(false);
+   setPriceListModal(false);
+  };
+
+  function showDetailPriceInfo(index) {
+    const PriceInfoIndex = priceInfo[index];
+    if (PriceInfoIndex == priceInfo[index]) {
+      setHeading(priceInfo[index].heading);
+      setTitle(priceInfo[index].title);
+      setDescription(priceInfo[index].description);
+    }
+  }
+  function showDetailPricePackage(index) {
+    const PricePackageIndex = pricePackage[index];
+    if (PricePackageIndex == pricePackage[index]) {
+      setHeading(pricePackage[index].heading);
+      setTitle(pricePackage[index].title);
+      setDescription(pricePackage[index].description);
+    }
+  }
+
 
   let navigate = useNavigate()
   
@@ -37,233 +90,164 @@ export default function PriceList({theme, ToggleTheme}) {
     <div className='priceList-container'>
      <Header theme={theme} ToggleTheme={ToggleTheme}/>
       <div className='priceList-wrapper'>
-      <div className='priceList-info-box'>
+        <div className='priceList-info-box'>
+          {priceInfo.map((info, index) => {
 
+            return (
+              <div className='price-list-info-container'>
+              <div className='price-list-info-tailor-box'>
+                {theme === "dark" ?
+                  (
+                    <img className='price-list-icon-computer' src={info.img} alt="computer-icon" />
+                  )
+                  : (
+                    <img className='price-list-icon-computer' src={info.img} alt="computer-icon" />
+                  )
+                }
+                <div className='price-list-heading-box'>
+                  <p className='price-list-heading-computer'>{info.heading}</p>
 
-        <div className='price-list-info-tailor-box'>
-          {theme === "dark" ?
-           (
-          <img className='price-list-icon-computer' src={computer} alt="computer-icon" />
-          ) 
-          : (
-          <img className='price-list-icon-computer' src={computerLight} alt="computer-icon" />
-          )
-          }
-            <div className='price-list-heading-box'>
-              <p className='price-list-heading-computer'>Skräddarsydda Hemsidor</p>
+                  <div className='price-list-text-box'>
+                    <p className='price-list-text-computer'>{info.description}</p>
 
-            <div className='price-list-text-box'>
-              <p className='price-list-text-computer'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Magnam nobis minima cumque eum
-                voluptatem autem vel
-                soluta odit praesentium, enim sint
-              </p>
-
+                  </div>
+                </div>
+               
               </div>
-            </div>
 
-         
 
-        </div>
-        <div className='price-list-info-tailor-box'>
-          {theme === "dark" ?
-           (
-          <img className='price-list-icon-time' src={time} alt="time-icon" />
-          ): (
-          <img className='price-list-icon-time' src={timeLight} alt="time-icon" />
-          )
-          }
-            <div className='price-list-heading-box'>
-              <p className='price-list-heading-time'>Fasta Tidsramar</p>
+                   <div className='priceInfo-Btn-Container-icon'>
+                  <button className='price-info-create-Btn' index={index} onClick={() => {
+                    showDetailPriceInfo(index)
+                    handlePopUpPriceInfo()
+                    setAddPriceInfo(true)
+                    setPriceInfoModal(true)
 
-            <div className='price-list-text-box'>
-              <p className='price-list-text-computer'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Magnam nobis minima cumque eum
-                voluptatem autem vel
-                soluta odit praesentium, enim sint
-              </p>
+                  }}>Lägg till</button>
+                  <button className='price-info-change-Btn' index={index} onClick={() => {
+                    showDetailPriceInfo(index)
+                    handlePopUpPriceInfo()
+                    setAddPriceInfo(false)
+                    setPriceInfoModal(true)
 
+                  }}>Ändra</button>
+
+
+
+                </div>
               </div>
-            </div>
 
 
-        </div>
-        <div className='price-list-info-tailor-box'>
-          {theme === "dark" ?(
-          <img className='price-list-icon-ideas' src={ideas} alt="idea-icon" />
-          ): (
-          <img className='price-list-icon-ideas' src={ideasLight} alt="idea-icon" />
-          )}
-            <div className='price-list-heading-box'>
-              <p className='price-list-heading-ideas'>Vi förverkligar era idéer och
-                behov</p>
-
-            <div className='price-list-text-box'>
-              <p className='price-list-text-computer'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Magnam nobis minima cumque eum
-                voluptatem autem vel
-                soluta odit praesentium, enim sint
-              </p>
-
-              </div>
-            </div>
 
 
-        </div>
-        <div className='price-list-info-tailor-box'>
-          {theme === "dark" ? (
-          <img className='price-list-icon-search' src={search} alt="search-icon" />
-          ) : (
-          <img className='price-list-icon-search' src={searchLight} alt="search-icon" />
-          )}
-            <div className='price-list-heading-box'>
-              <p className='price-list-heading-search'>SökmotorOptimering</p>
-
-            <div className='price-list-text-box'>
-              <p className='price-list-text-computer'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Magnam nobis minima cumque eum
-                voluptatem autem vel
-                soluta odit praesentium, enim sint
-              </p>
-
-              </div>
-            </div>
 
 
-        </div>
-        <div className='price-list-info-tailor-box'>
-          {theme === "dark" ? (
-          <img className='price-list-icon-price' src={price} alt="price-icon" />
-          ) : (
-          <img className='price-list-icon-price' src={priceLight} alt="price-icon" />
-          )}
-            <div className='price-list-heading-box'>
-              <p className='price-list-heading-price'>Fasta Priser</p>
+              
+            )
+          })}
 
-            <div className='price-list-text-box'>
-              <p className='price-list-text-computer'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Magnam nobis minima cumque eum
-                voluptatem autem vel
-                soluta odit praesentium, enim sint
-              </p>
+     
+      
+    
+    
+  
 
-              </div>
-            </div>
+        
+             {priceInfoModal &&
+              <CardModal
+              handleCloseModals={handleCloseModals}
+              handlePopUp={handlePopUpPriceInfo}
+              popUp={popUpPriceInfo}
+              component=
+              {<FormPriceListInfo
+                setPriceInfo={setPriceInfo}
+                img={img} heading={heading}
+                title={title}
+                description={description}
+                handlePopUp={handlePopUpPriceInfo}
+                popUp={popUpPriceInfo}
+                add={addPriceInfo}
+                handleCloseModals={handleCloseModals}
+              />}
+            />
+            }
+            
+            {priceListModal &&
+              <CardModal
+                handleCloseModals={handleCloseModals}
+                handlePopUp={handlePopUpPriceList}
+                popUp={popUpPriceList}
+                component=
+                {<FormPriceList
+                  setPricePackage={setPricePackage}
+                  img={img} heading={heading}
+                  title={title}
+                  description={description}
+                  handlePopUp={handlePopUpPriceList}
+                  popUp={popUpPriceList}
+                  add={addPriceList}
+                  handleCloseModals={handleCloseModals}
+                />}
+              />
+            }
 
 
-        </div>
-        <div className='price-list-info-tailor-box'>
-          {theme === "dark" ? (
-          <img className='price-list-icon-support' src={support} alt="support-icon" />
-          ) : (
-          <img className='price-list-icon-support' src={supportLight} alt="support-icon" />
-          )}
-            <div className='price-list-heading-box'>
-              <p className='price-list-heading-support'>Alltid fri support och hjälp</p>
 
-            <div className='price-list-text-box'>
-              <p className='price-list-text-computer'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Magnam nobis minima cumque eum
-                voluptatem autem vel
-                soluta odit praesentium, enim sint
-              </p>
-
-              </div>
-            </div>
-
-
-        </div>
-
-       
+          
         
      </div>
   </div>
       
 
       <div className='price-list-price-wrapper'>
-        <div className='price-list-price-small'>
-          <div className='pirce-list-label-box'>
-            <img className='price-list-icon-small' src={small} alt="code-icon" />
-              <p className='price-list-heading'>SMALL</p>
-          </div>
-          <ul className='price-list-info-list'>
-            <li>Nöjd kundgaranti!</li>
-            <li>text & bilder</li>
-            <li>4 undersidor eller one page</li>
-            <li>Upp till 6 timmars design</li>
-            <li> Egen Domän</li>
-            <li>Lansera sidan på webbhotell</li>
-            <li>WordPress eller React hemsida</li>
-            <li>Mobilanpassad</li>
-            <li>Genomgång av design med kund</li>
-            <li>Kartor</li>
-            <li> Sökordsoptimerad</li>
-            <li>Bildspel & Animering</li>
-            <li>Koppling Social Media</li>
-            <li>Kontaktformulär</li>
-
-          </ul>
-        </div>
-        <div className='price-list-price-medium'>
-          <div className='pirce-list-label-box'>
-            <img className='price-list-icon-medium' src={medium} alt="code-icon" />
-            <p className='price-list-heading'>MEDIUM</p>
-          </div>
-          <ul className='price-list-info-list'>
-            <li>Nöjd kundgaranti!</li>
-            <li>text & bilder</li>
-            <li>8-10 undersidor eller one page</li>       
-            <li>Upp till 12 timmars design</li>
-            <li> Egen Domän</li>
-            <li>Lansera sidan på webbhotell</li>
-            <li>WordPress eller React hemsida</li>
-            <li>Mobilanpassad</li>
-            <li>Genomgång av design med kund</li>
-            <li>Kartor</li>
-            <li> Sökordsoptimerad</li>
-            <li>Bildspel & Animering</li>
-            <li>Koppling Social Media</li>
-            <li>Bildspel & Animering</li>
-            <li>Kontaktformulär</li>
-            <li>ändringsmöjligheter av text och bilder</li>
+        {pricePackage.map((list, index) => {
+          return (
+              
+            <div className='price-list-price-small'>
+              <div className='pirce-list-label-box'>
+                <img className='price-list-icon-small' src={list.img} alt="code-icon" />
+                <p className='price-list-heading'>{list.heading}</p>
+              </div>
+              
+              <ul className='price-list-info-list'>
+                {list.description.map((details) =>
+                  <li>{details}</li>
+               
+                )}
+              </ul>
 
 
-            
-          </ul>
-        </div>
-        <div className='price-list-price-large'>
-          <div className='pirce-list-label-box'>
-            <img className='price-list-icon-large' src={large} alt="code-icon" />
-            <p className='price-list-heading'>LARGE</p>
+              <div className='pricelist-Btn-Container'>
+                <button className='price-list-create-Btn' index={index} onClick={() => {
+                  showDetailPricePackage(index)
+                  handlePopUpPriceList()
+                  setAddPriceList(true)
+                  setPriceListModal(true)
 
-          </div>
-          <ul className='price-list-info-list'>
-            <li>Nöjd kundgaranti</li>
-            <li>Hjälp med bilder & texter</li>
-            <li>Domän & Webbhotell</li>
-            <li>WordPress eller React</li>
-            <li>Fritt antal undersidor</li>
-            <li>Mobilanpassad & Responsiv</li>
-            <li>E-mail Konton</li>
-            <li>Unik Design</li>
-            <li>Hjälp med Google Ads</li>
-            <li>Bildspel & Animering</li>
-            <li> E-handel & Webbutik</li>
-            <li>Fria Designförslag</li>
-            <li>Fria Designtimmar</li>
-            <li>Kartor</li>
-            <li> Sökordsoptimerad</li>
-            <li>Egenutvecklade tillägg</li>
-            <li>Koppling Social Media</li>
+                }}>Lägg till</button>
+                <button className='price-list-change-Btn' index={index} onClick={() => {
+                  showDetailPricePackage(index)
+                  handlePopUpPriceList()
+                  setAddPriceList(false)
+                  setPriceListModal(true)
 
-          </ul>
-        </div>
+                }}>Ändra</button>
+
+              </div>
+            </div>
+
+
+
+
+
+
+          )
+        })}
+        
+        
+      
+       
+
      
        
       </div>

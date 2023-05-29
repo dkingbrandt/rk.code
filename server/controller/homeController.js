@@ -74,11 +74,21 @@ const updateHomeInfo = async (req, res) => {
         message: ' not found!',
       });
     }
-
-    return res.status(200).json({
-      success: true,
-      message: 'Updated!',
-    });
+    if (!homeInfo) {
+      return res.status(404).json({
+        success: false,
+        message: ' not found!',
+      });
+    }
+   
+    if (homeInfo) {
+      return res.status(200).json({
+        success: true,
+        message: 'Updated!',
+      });
+     
+   }
+   
   } catch (err) {
     console.log(err);
     return res.status(500).json({
@@ -204,6 +214,12 @@ const updateHomeProjects = async (req, res) => {
     ).exec();
 
     if (homeProjects.nModified === 0) {
+      return res.status(404).json({
+        success: false,
+        message: ' not found!',
+      });
+    }
+    if (!homeProjects) {
       return res.status(404).json({
         success: false,
         message: ' not found!',

@@ -1,5 +1,10 @@
+@import './../Base/variables.scss';
+@import './../Base/mixins.scss';
+
+
 .priceList-container blurr{
   position: relative;
+  height: auto;
 }
 
 .priceList-wrapper{
@@ -14,7 +19,8 @@ display: grid;
 row-gap: 20px;
 column-gap: 50px;
 grid-template-columns: repeat(2, 3fr);
-max-width: 1300px;
+width: auto;
+height: auto;
 box-sizing: border-box;
 
 
@@ -92,11 +98,53 @@ border: 2px solid #7BF1B8;
   color: #FFFFFF;
 }
 
+.priceInfo-Btn-Container-icon{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding-bottom: 30px;
+}
+
+.price-info-create-Btn,
+.price-list-create-Btn{
+  background: linear-gradient(90deg, #46EFC4 -19.55%, #7BF1B8 13.97%, #A6F5A9 34.08%, #D4F79A 50%);
+    border-radius: 13px;
+    width: 110px;
+    border: none;
+    height: 36px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.price-info-change-Btn,
+.price-list-change-Btn{
+  border: 2px solid #808281;
+    border-radius: 13px;
+    width: 110px;
+    height: 36px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    color: white;
+    background: #000000;
+}
+
+
+
 .price-list-price-wrapper{
-  padding-top: 200px;
+  padding-top: 100px;
   display: grid;
-  max-width: 1400px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: auto;
+  height: auto;
   margin: auto;
+  gap: 40px;
     
   grid-template-columns: repeat(3, 4fr);
   box-sizing: border-box;
@@ -113,22 +161,7 @@ border: 2px solid #7BF1B8;
     border-radius: 10px 10px 10px 0px;
 }
 
-.price-list-price-medium{
-  width: 453px;
-    height: 684px;
-    background: rgba(35, 35, 35, 0.6);
-    border: 2px solid #e8f7e9;
-    border-radius: 10px 10px 10px 10px;
 
-}
-.price-list-price-large{
-  width: 453px;
-    height: 684px;
-    background: rgba(35, 35, 35, 0.6);
-    border: 2px solid #e8f7e9;
-    border-radius: 10px 10px 0px 10px;
-
-}
 
 
 .pirce-list-label-box{
@@ -178,6 +211,12 @@ border: 2px solid #7BF1B8;
 .price-list-btn-wrapper{
   margin-bottom: 110px;
   text-align: center;
+ 
+}
+.pricelist-Btn-Container{
+  padding: 25px;
+  display: flex;
+  gap: 10px;
 }
 .price-list-contact-btn{
   width: 214px;
