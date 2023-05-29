@@ -54,7 +54,6 @@ export default function FormInfoHome({handlePopUp,heading, title, description, s
       <form className='homeFormContainer' onSubmit={handleSubmit}>
         {console.log(title)
         }
-        <label for="title">Ladda upp en fil:</label>
         <input
           className="formAbout-icon"
           id="image"

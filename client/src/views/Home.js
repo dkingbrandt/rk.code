@@ -129,7 +129,7 @@ export default function Home({theme, ToggleTheme, authorized}) {
     <div className='card-container'>
      <div className='icon-container'>
       {theme === "dark" ? (
-      <img className='icon data' src={data}alt="computer" />
+      <img className='icon data' src={infos.img}alt="computer" />
       ):(
         <img className='icon data' src={dataLight} alt="computer" />
       )}
@@ -181,7 +181,7 @@ export default function Home({theme, ToggleTheme, authorized}) {
 
       <div className='card-container'>
       <div className='card'>
-        <img className='card-img' src={wildline} alt="websitephoto" />
+        <img className='card-img' src={project.img} alt="websitephoto" />
         <p className='card-heading'>{project.heading}</p>
         <p className='card-p'>{project.description}</p>
         <div className="textBox-Btn-Container">
