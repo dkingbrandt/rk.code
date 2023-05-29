@@ -1,54 +1,135 @@
 
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import '../scss/pages/formAboutUsTeam.scss'
-import { post, put } from '../utility/fetchHealper'
+import { post, put, get } from '../utility/fetchHealper'
+import Axios from 'axios';
+
 
 export default function FormAboutUsTeam(props) {
-  const [heading1, setHeading1] = useState("")
-  const [heading2, setHeading2] = useState("")
-  const [name, setName] = useState("")
-  const [title, setTitle] = useState("")
-  const [description1, setDescription1] = useState("")
-  const [description2, setDescription2] = useState("")
-  const [img, setImg] = useState("")
+  const [newHeading1, setNewHeading1] = useState(props.heading)
+  const [newHeading, setNewHeading] = useState(props.heading)
+  const [newName, setNewName] = useState(props.name)
+  const [newTitle, setNewTitle] = useState(props.title)
+  const [newDescription1, setNewDescription1] = useState(props.heading)
+  const [newDescription, setNewDescription] = useState(props.heading)
+  const [img, setImg] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    uploadImage()
+  }, [img])
+
+  const uploadImage = async () => {
+    const formData = new FormData();
+    formData.append('file', img);
+    formData.append('upload_preset', 'Hantverkare');
+    try {
+      setLoading(true);
+      const res = await Axios.post(
+        'https://api.cloudinary.com/v1_1/bexryd/image/upload',
+        formData
+      );
+      setImageUrl(res.data.secure_url);
+      setLoading(false);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (
+      newTitle.trim() === '' ||
+      !img ||
+      newHeading.trim() === '' ||
+      newDescription.trim() === ''
+    ) {
+      alert('Field cannot be empty');
+      return;
+    }
+
+  };
 
   return (
-    <div className='formAbout-team-Container'>
+    <form className='formAbout-team-Container' onSubmit={handleSubmit}>
 
-      <input className="formAbout-team-icon" value={img} placeholder="Ladda upp icon" onChange={(e) => setImg(e.target.value)}>
-      </input>
+      <input
+        className="formAbout-team-icon"
+        required
+        type="file"
+        name="file"
+        placeholder="Ladda upp en bild"
+        onChange={(e) => { setImg(e.target.files[0]) }}
+      />
+     
+      {console.log(imageUrl)}
+      <input
+        className='formAbout-team-title'
+        required
+        placeholder={props.title}
+        onChange={(e) => setNewTitle(e.target.value)}
+      />
 
-      <input className='formAbout-team-title' placeholder="Titel" value={title} onChange={(e) => setTitle(e.target.value)}>
-      </input>
-      <input className='formAbout-team-name' placeholder="Namn" value={name} onChange={(e) => setName(e.target.value)}>
-      </input>
+      <input
+        className='formAbout-team-name'
+        required
+        placeholder={props.name}
+        onChange={(e) => setNewName(e.target.value)}
+      />
 
-      <input className='formAbout-team-heading' placeholder="Rubrik 1" value={heading1} onChange={(e) => setHeading1(e.target.value)}>
-      </input>
-      <input className='formAbout-team-heading' placeholder="Rubrik 2" value={heading2} onChange={(e) => setHeading2(e.target.value)}>
-      </input>
+      <input
+        className='formAbout-team-heading'
+        required
+        placeholder={props.heading}
+        onChange={(e) => setNewHeading(e.target.value)}
+      />
 
-      <textarea className='formAbout-team-description' placeholder="Beskrivning 1" value={description1} onChange={(e) => setDescription1(e.target.value)}>
-      </textarea>
-      <textarea className='formAbout-team-description' placeholder="Beskrivning 2" value={description2} onChange={(e) => setDescription2(e.target.value)}>
-      </textarea>
+
+      <input
+        className='formAbout-team-heading'
+        required
+        placeholder={props.heading1}
+        onChange={(e) => setNewHeading1(e.target.value)}
+      />
+
+      <textarea
+        className='formAbout-team-description'
+        required
+        placeholder={props.description}
+        onChange={(e) => setNewDescription(e.target.value)}
+      ></textarea>
+
+      <textarea
+        className='formAbout-team-description'
+        required
+        placeholder={props.description1}
+        onChange={(e) => setNewDescription1(e.target.value)}
+      ></textarea>
+
       <div className='formAbout-team-btn-container'>
         {props.add &&
           <button className='formAbout-team-save-btn' onClick={() => {
             post("/aboutus/team", {
-              title: title,
-              img: img,
-              name:name,
-              heading1: heading1,
-              heading2: heading2,
-              description1: description1,
-              description2: description2,
+              title: newTitle,
+              img: imageUrl,
+              name:newName,
+              heading1: newHeading,
+              heading2: newHeading1,
+              description1: newDescription,
+              description2: newDescription1,
 
-            })
+            }).then(() =>
+              get("/aboutus/team").then((response) => props.setTeam(response.data))
+            )
 
-            props.handlePopUp()
-            props.handleCloseModals()
+            .finally(() => {
+                uploadImage();
+                props.handlePopUp();
+                props.handleCloseModals();
+              });
 
 
           }} >skapa</button>
@@ -56,29 +137,35 @@ export default function FormAboutUsTeam(props) {
 
         {!props.add &&
           <button className='formAbout-team-save-btn' onClick={() => {
-            put(`/aboutus/team/${title}`, {
-              title: title,
-              img: img,
-              name: name,
-              heading1: heading1,
-              heading2: heading2,
-              description1: description1,
-              description2: description2,
+            put(`/aboutus/team/${props.title}`, {
+              title: newTitle,
+              img: imageUrl,
+              name: newName,
+              heading1: newHeading,
+              heading2: newHeading1,
+              description1: newDescription,
+              description2: newDescription1,
 
-            })
-
-            props.handlePopUp()
-            props.handleCloseModals()
-
+            }).then(() =>
+              get("/aboutus/team").then((response) => props.setTeam(response.data))
+            ).finally(() => {
+              uploadImage();
+              props.handlePopUp();
+              props.handleCloseModals();
+            });
+            
 
           }} >ändra</button>
         }
-        <button className='formAbout-team-cancel-btn' onClick={() => {
-          props.handlePopUp()
-          props.handleCloseModals()
-        }}>avbryt</button>
+        <button className='formAbout-team-cancel-btn'
+          onClick={() => {
+            props.handlePopUp()
+            props.handleCloseModals()
+          }}
+        >avbryt</button>
+
       </div>
 
-    </div>
+    </form>
   )
 }
