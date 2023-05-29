@@ -55,16 +55,15 @@ export default function About({ theme, ToggleTheme }) {
 
   const handlePopUpTeam = () => {
     setPopUpTeam((current) => !current); //toggle
+    setTeamModal(false);
+
   };
 
   const handlePopUpHistory = () => {
     setPopUpHistory((current) => !current); //toggle
   };
 
-  const handleCloseModals = () => {
-    setTeamModal(false);
-    setHistoryModal(false);
-  };
+  
 
   function showDetailHistory(index) {
     const HistoryIndex = history[index];
@@ -145,18 +144,16 @@ export default function About({ theme, ToggleTheme }) {
         
           {historyModal && (
             <CardModal
-              handleCloseModals={handleCloseModals}
               handlePopUp={handlePopUpHistory}
               popUp={popUpHistory}
-              component={<FormAboutUsHistory setHistory={setHistory} img={img} heading={heading} title={title} description={description}  handlePopUp={handlePopUpHistory} popUp={popUpHistory} add={addHistory} handleCloseModals={handleCloseModals} />}
+              component={<FormAboutUsHistory setHistory={setHistory} img={img} heading={heading} title={title} description={description}  handlePopUp={handlePopUpHistory} popUp={popUpHistory} add={addHistory}  />}
             />
           )}
           {teamModal && (
             <CardModal
-              handleCloseModals={handleCloseModals}
               handlePopUp={handlePopUpTeam}
               popUp={popUpTeam}
-              component={<FormAboutUsTeam setTeam={setTeam} img={img} name={name} heading={heading} heading1={heading1} title={title} description={description} description1={description1}  handlePopUp={handlePopUpTeam} popUp={popUpTeam} add={addTeam} handleCloseModals={handleCloseModals} />}
+              component={<FormAboutUsTeam setTeam={setTeam} img={img} name={name} heading={heading} heading1={heading1} title={title} description={description} description1={description1}  handlePopUp={handlePopUpTeam} popUp={popUpTeam} add={addTeam}  />}
             />
           )}
 

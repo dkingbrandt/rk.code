@@ -109,7 +109,6 @@ export default function FormPriceListInfo(props) {
               .finally(() => {
                 uploadImage();
                 props.handlePopUp();
-                props.handleCloseModals();
               });
           }} >skapa</button>
         }
@@ -128,7 +127,6 @@ export default function FormPriceListInfo(props) {
               .finally(() => {
                 uploadImage();
                 props.handlePopUp();
-                props.handleCloseModals();
               });
           }} >ändra</button>
         }
