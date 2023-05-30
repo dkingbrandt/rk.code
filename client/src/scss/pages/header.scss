@@ -23,7 +23,7 @@
     font-style: normal;
     font-weight: 400;
     font-size: 30px;
-    z-index: 10;
+    z-index: 60;
     margin-left: 15%;
     width: 200px;
     
@@ -31,28 +31,148 @@
 }
 
 #dark {
-  .headerList {
-    width: 100%;
-    background-color: rgba(0, 0, 0, .5);
+  .headerContainer {
+    background-color:black;
+    position: relative;
+    z-index: 8;
     height: 70px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: end;
-    padding-right: 5%;
-    margin-top: 0%;
-    z-index: 5;
 
-    li {
    
-        display: inline;
-        list-style-type: none;
-        margin-left: 2%;
+
+    .menyBtn {
+      background-image: linear-gradient(to right bottom, rgb(136, 213, 182), rgb(2, 32, 41));
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      position:absolute;
+      top: 10px;
+      right: 15px;
+      z-index: 60;
+      display: flex;
+      flex-direction: center;
+      align-items: center;
+
+      @include atMedium {
+        display: none;
+      }
+   
        
+      .openMeny {
+         
+        .line-1 {
+          position: absolute;
+          top: 20px;
+          left: 30px;
+          transform: translate(-50%, -50%);
+          rotate: -45deg; 
+          
+      
+         
+        }
+       
+        .line-3 {
+          rotate: 45deg;
+          position: absolute;
+          top: 27.5px;
+          left: 29px;
+          transform: translate(-50%, -50%);
+        
+         
+        }
+
+        
+        .line-2 {
+          width: 0px;
+         }
+       }
+      
+     .menu {
+      height: 100%;
+      width: 100%;
+      position: relative;
+      transition: transform 0.5s, width 0.5s;
+      
+       
+      .line-1{
+        transform: translate(-50%, -15px);
+      }
+      .line-3{
+        transform: translate(-50%, 13px);
+      }
+
+ 
+      span {
+        background-color: black;
+        width: 80%;
+        height: 3.5px;
+        border-radius: 5px;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        transition: rotate .8s, width .8s;
+
+      }
     
       
-        font-family: "Lora", serif;
-      }
+     }
+
+    }
+
+   
+
+  }
+
+  .hiddenNav {
+    transform: translateY(-100%); 
+    transition: transform 1000ms ease-in-out;
+    @include atMedium {
+      transform: translateY(0%); 
+     }
+
+   
+  }
+  .navShow {
+    transform: translateY(0%); 
+    transition: transform 1000ms ease-in-out;
+   
+    
+  }
+  .headerList {
+    width: 100%;
+    background-color: rgb(2, 24, 30);
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding-right: 5%;
+    margin-top: 0%;
+    position:relative;
+    z-index: 20;
+
+    @include atMedium {
+      height: 70px;
+      flex-direction: row;
+      background-color: rgba(0, 0, 0, .5);
+      align-items: center;
+      justify-content: end;
+    }
+   
+    li {
+
+      display: inline;
+      list-style-type: none;
+      margin-left: 2%;
+     
+  
+    
+      font-family: "Lora", serif;
+    }
+
+  
 
       .link {
         color: #ffff;

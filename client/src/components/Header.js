@@ -6,6 +6,13 @@ import { NavLink } from "react-router-dom";
 
 export default function Header({theme, ToggleTheme}) {
 
+  const [meny, setMeny] = useState(false);
+
+  const menuToggle = () => {
+    setMeny((current) => !current); //toggle
+
+  };
+
   const logga = "[ RK.CODE ]";
   const homeText = "< HOME />"
   const aboutText = "< Om oss />"
@@ -14,11 +21,18 @@ export default function Header({theme, ToggleTheme}) {
   return (
     <div>
       <header className="headerContainer">
+        <div className='menyBtn' onClick={menuToggle}>
+          <div className={!meny?'menu': 'menu openMeny'}>
+          <span className="line-1"></span>
+          <span className="line-2"></span>
+          <span className="line-3"></span>
+          </div>
+          </div>
       <div><p className='logga'>{logga}</p></div>
        
    
 
-        <ul className="headerList">
+        <ul className={meny ? "headerList navShow" : "headerList hiddenNav"}>
         <label className='switch'>
         {theme === 'dark' ? (
       <svg style={{position:"absolute",  top:"8px",left: "45px"}}  xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-brightness-high" viewBox="0 0 16 16">
