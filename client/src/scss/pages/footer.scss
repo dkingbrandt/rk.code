@@ -4,6 +4,8 @@
 
 #dark {
   .footerContainer {
+    margin-top: 100px;
+    z-index: 2;
     overflow: hidden;
     position: relative;
     display: flex;
@@ -119,6 +121,7 @@
 
 #light {
   .footerContainer {
+    margin-top: 100px;
     overflow: hidden;
     position: relative;
     display: flex;

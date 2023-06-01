@@ -15,7 +15,7 @@ export default function contact({theme, ToggleTheme}) {
       <div className='radialGradientsmall'></div>
 
       <p className='areYouIntressted'>Är du intresserad av våra paket, vill veta mer, eller har några frågor. Kontakt oss</p>
-
+     <div className='marginBottom'>
       <div className='form-img'>
         <form className='form-flex'>
         <input className='input-field' type="text" placeholder='Namn'/>
@@ -32,6 +32,7 @@ export default function contact({theme, ToggleTheme}) {
         <button type='submit' className='submitBtn'>Skicka</button>
         </form>
 
+      </div>
       </div>
    
     </div>

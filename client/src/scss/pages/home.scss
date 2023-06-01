@@ -14,7 +14,7 @@
   height: 700px;
 
   @include atMedium {
-    height: 1024px;
+    height: 980px;
   }
 
   .radialGradientDarkGreen{
@@ -176,14 +176,16 @@
       column-gap: 100px;  
       row-gap: 10px; 
       grid-template-columns: repeat(1, 1fr); 
+      padding: 4%;
 
       @include atSmallMedium {
         grid-template-columns: repeat(2, 1fr);
         row-gap: 20px; 
         column-gap: 100px;  
       }
-      @include atMedium {
-        grid-template-columns: repeat(2, 1fr);
+     
+      
+      @include atLarge {
         row-gap: 50px; 
       }
      
@@ -298,11 +300,9 @@
     color: white;
     @include atSmallMedium {
       align-self: start;
-      margin-left: 12%;
+      margin-bottom: 4%;
     }
-    @include atLarge {
-      margin-left: 20%;
-    }
+   
   }
 
 
@@ -317,8 +317,8 @@
  
   }
   @include atMedium {
-    grid-template-columns: repeat(3, 1fr);
-   
+    
+    column-gap: 50px;
   
   }
   @include atLarge {
@@ -476,8 +476,7 @@ background: linear-gradient(to right, rgba(123, 241, 184, 1),rgba(166, 245, 169,
 //light theme ******************************************************************************************
 
 
-@import './../Base/variables.scss';
-@import './../Base/mixins.scss';
+
 
 #light {
 
@@ -490,7 +489,7 @@ background: linear-gradient(to right, rgba(123, 241, 184, 1),rgba(166, 245, 169,
   height: 700px;
 
   @include atMedium {
-    height: 1024px;
+    height: 980px;
   }
 
 
@@ -605,6 +604,10 @@ background: linear-gradient(to right, rgba(123, 241, 184, 1),rgba(166, 245, 169,
     font-weight: 600;
     font-size: 30px;
 
+     @include atSmallMedium {
+      font-size: 40px;
+      }
+
     @include atMedium {
       font-size: 50px;
       }
@@ -637,7 +640,7 @@ background: linear-gradient(to right, rgba(123, 241, 184, 1),rgba(166, 245, 169,
     .addInfo-Btn {
       display: none;
 
-     @include atMedium {
+     @include at2XlLarge {
 
       display: block;
       background-color: transparent;
@@ -659,14 +662,14 @@ background: linear-gradient(to right, rgba(123, 241, 184, 1),rgba(166, 245, 169,
       column-gap: 100px;  
       row-gap: 10px; 
       grid-template-columns: repeat(1, 1fr); 
+      padding: 4%;
 
       @include atSmallMedium {
         grid-template-columns: repeat(2, 1fr);
         row-gap: 20px; 
         column-gap: 100px;  
       }
-      @include atMedium {
-        grid-template-columns: repeat(2, 1fr);
+      @include atLarge {
         row-gap: 50px; 
       }
      
@@ -680,7 +683,8 @@ background: linear-gradient(to right, rgba(123, 241, 184, 1),rgba(166, 245, 169,
   min-height: 450px;
   margin-top: 0px;
   height: auto;
-  position: relative;
+  min-width: 100%;
+  
 
 
 
@@ -752,6 +756,7 @@ background: linear-gradient(to right, rgba(123, 241, 184, 1),rgba(166, 245, 169,
   justify-items: center;
   width: 100%;
   min-height: 700px;
+  padding: 5%;
   height: auto;
  
 
@@ -759,7 +764,7 @@ background: linear-gradient(to right, rgba(123, 241, 184, 1),rgba(166, 245, 169,
 
     display: none;
 
-    @include atMedium {
+    @include at2XlLarge {
       display: block;
       background-color: transparent;
       border: solid 2px #3DD1AC;
@@ -784,11 +789,9 @@ background: linear-gradient(to right, rgba(123, 241, 184, 1),rgba(166, 245, 169,
     color: white;
     @include atSmallMedium {
       align-self: start;
-      margin-left: 12%;
+      margin-bottom: 4%;
     }
-    @include atLarge {
-      margin-left: 20%;
-    }
+  
   }
 
 
@@ -803,7 +806,7 @@ background: linear-gradient(to right, rgba(123, 241, 184, 1),rgba(166, 245, 169,
  
   }
   @include atMedium {
-    grid-template-columns: repeat(3, 1fr);
+   column-gap: 50px;
    
   
   }

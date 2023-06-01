@@ -103,6 +103,7 @@ export default function About({theme, ToggleTheme}) {
 
         <div className='team-box-dan'>
 
+          
           <div className='team-circle-dan'>
             <img className='team-img-dan' src={Dan} alt='photo-dan' />
             <div className='circle-globe-one'>
@@ -122,12 +123,11 @@ export default function About({theme, ToggleTheme}) {
             </div>
           </div>
 
-          <div className='wrapper-text-dan'>
-
-
-            <div className='team-heading-box-dan'>
-              <p className='team-heading-dan'>Dan Kingbrant</p>
-            </div>
+              <div className='wrapper-text-dan'>
+               <div className='team-heading-box-dan'>
+               <p className='team-heading-dan'>Dan Kingbrant</p>
+              </div>
+            
 
 
             <div className='team-text-box-experience'>
@@ -165,9 +165,9 @@ export default function About({theme, ToggleTheme}) {
 
         <div className='team-box-rebecca'>
           <div className='team-circle-rebecca'>
-
             <div className='circle-globe-one'>
               <img className='circle-globe-wordpress-icon' src={wordpressIcon} alt='wordpress-icon' />
+             
             </div>
             <div className='circle-globe-two'>
               <img className='circle-globe-react-icon' src={reactIcon} alt='react-icon' />
