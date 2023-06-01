@@ -7,8 +7,8 @@ import Axios from 'axios';
 export default function FormInfoHome({handlePopUp,heading, title, description, setInfo}) {
 
 
-  const [newTitle, setNewTitle] = useState(title);
-  const [newDescription, setNewDescription] = useState(description);
+  const [newTitle, setNewTitle] = useState("");
+  const [newDescription, setNewDescription] = useState("");
   const [img, setImg] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [loading, setLoading] = useState(false);
@@ -36,15 +36,21 @@ export default function FormInfoHome({handlePopUp,heading, title, description, s
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    put(`home/info/${title}`, {
+      img: imageUrl,
+      title: newTitle,
+      heading: newTitle,
+      description: newDescription,
+    })
+      .then(() => get("home/info/")
+        .then((response) => setInfo(response.data))
+        .finally(() => {
+          uploadImage();
+          handlePopUp();
+        })
+      )
 
-    if (
-      newTitle.trim() === '' ||
-      !img ||
-      newDescription.trim() === ''
-    ) {
-      alert('Field cannot be empty');
-      return;
-    }
+   
 
   };
   
@@ -52,12 +58,11 @@ export default function FormInfoHome({handlePopUp,heading, title, description, s
     
     <div>
       <form className='homeFormContainer' onSubmit={handleSubmit}>
-        {console.log(title)
-        }
+        
         <input
           className="formAbout-icon"
-          id="image"
           required
+          id="image"
           type="file"
           name="file"
           placeholder="Ladda upp icon"
@@ -66,7 +71,8 @@ export default function FormInfoHome({handlePopUp,heading, title, description, s
             
         <label for="title">Title:</label>
         <input
-          id='title' value={newTitle}
+          required
+          id='title' 
           type="text"
           placeholder={heading}
           onChange={(e) => setNewTitle(e.target.value)}
@@ -75,6 +81,7 @@ export default function FormInfoHome({handlePopUp,heading, title, description, s
 
         <label for="description">Description:</label>
         <textarea
+          required
           name=""
           id="description"
           placeholder={description}
@@ -83,23 +90,7 @@ export default function FormInfoHome({handlePopUp,heading, title, description, s
           onChange={(e) => setNewDescription(e.target.value)}
         ></textarea>
             
-        <button className='homeFormContainer-btn' onClick={() => {
-
-                put(`home/info/${title}`, {
-                  img:imageUrl,
-                  title: newTitle,
-                  heading: newTitle,
-                  description: newDescription,
-                })
-                  .then(() => get("home/info/")
-                  .then((response) => setInfo(response.data))
-                  .finally(() => {
-                      uploadImage();
-                      handlePopUp();
-                  })
-              )
-               
-            }}>Ändra</button>
+        <button type='submit' className='homeFormContainer-btn'>Ändra</button>
         </form>
   
     </div>

@@ -61,6 +61,7 @@ export default function About({ theme, ToggleTheme }) {
 
   const handlePopUpHistory = () => {
     setPopUpHistory((current) => !current); //toggle
+    setHistoryModal(false);
   };
 
   

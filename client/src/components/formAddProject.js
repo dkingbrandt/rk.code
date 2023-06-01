@@ -37,14 +37,21 @@ export default function FormAddProject({handlePopUp, setProjects, textHeading, l
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (
-      newTitle.trim() === '' ||
-      !img ||
-      newDescription.trim() === ''
-    ) {
-      alert('Field cannot be empty');
-      return;
-    }
+    post(link, {
+      img: imageUrl,
+      title: newTitle,
+      heading: newTitle,
+      description: newDescription,
+    })
+      .then(() => get(link)
+        .then((response) => setProjects(response.data))
+        .finally(() => {
+          uploadImage();
+          handlePopUp();
+        })
+      );
+
+    
 
   };
 
@@ -66,38 +73,24 @@ export default function FormAddProject({handlePopUp, setProjects, textHeading, l
             />
             <label for="title">Titel:</label>
             <input
+              required
               id='title'
-              value={newTitle}
-              onChange={(e) => setNewTitle(e.target.value)}
               type="text"
-              placeholder="Titel"
+              onChange={(e) => setNewTitle(e.target.value)}
             />
             <label for="description">Beskrivning:</label>
             <textarea
-              onChange={(e) => setNewDescription(e.target.value)}
+              required
               name=""
               id="description"
               placeholder="Skriv en beskrivning..."
               cols="30"
               rows="10"
+              onChange={(e) => setNewDescription(e.target.value)}
+
             ></textarea>
         
-            <button className='homeFormContainer-btn' onClick={()=> {
-
-                post(link, {
-                  img: imageUrl,
-                  title: newTitle,
-                  heading: newTitle,
-                  description: newDescription,
-                })
-                  .then(() => get(link)
-                  .then((response) => setProjects(response.data))
-                  .finally(() => {
-                    uploadImage();
-                    handlePopUp();
-                  })
-                );
-            }}>Lägg till</button>
+            <button type="submit" className='homeFormContainer-btn'>Lägg till</button>
         </form>
   
     </div>

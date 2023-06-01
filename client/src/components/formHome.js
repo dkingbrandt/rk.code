@@ -34,17 +34,25 @@ export default function FormHome({handlePopUp,heading, title, description, setPr
     }
   };
 
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    put(`home/projects/${title}`, {
+      img: imageUrl,
+      title: newTitle,
+      heading: newTitle,
+      description: newDescription,
+    })
+      .then(() => get("home/projects/")
+        .then((response) => setProjects(response.data))
+        .finally(() => {
+          uploadImage();
+          handlePopUp();
+        })
+      );
 
-    if (
-      newTitle.trim() === '' ||
-      !img ||
-      newDescription.trim() === ''
-    ) {
-      alert('Field cannot be empty');
-      return;
-    }
+  
 
   };
 
@@ -57,8 +65,8 @@ export default function FormHome({handlePopUp,heading, title, description, setPr
             
           <input
             className="formAbout-icon"
-            id="image"
             required
+            id="image"
             type="file"
             name="file"
             placeholder="Ladda upp icon"
@@ -66,13 +74,15 @@ export default function FormHome({handlePopUp,heading, title, description, setPr
           />
           <label for="title">Title:</label>
           <input
+            required
             id='title'
             onChange={(e) => setNewTitle(e.target.value)}
             type="text"
             placeholder={heading}
           />
           <label for="description">Description:</label>
-          <textarea
+        <textarea
+            required
             onChange={(e) => setNewDescription(e.target.value)}
             name=""
             id="description"
@@ -81,24 +91,8 @@ export default function FormHome({handlePopUp,heading, title, description, setPr
             rows="10"
           ></textarea>
         
-          <button className='homeFormContainer-btn' onClick={()=> {
-
-                put(`home/projects/${title}`, {
-                  img: imageUrl,
-                  title: newTitle,
-                  heading: newTitle,
-                  description: newDescription,
-                })
-                  .then(() => get("home/projects/")
-                  .then((response) => setProjects(response.data))
-                  .finally(() => {
-                    uploadImage();
-                    handlePopUp();
-                  })
-              );
-
-            }}>Ändra</button>
-        </form>
+        <button type='submit' className='homeFormContainer-btn'>Ändra</button>
+      </form>
   
     </div>
   )

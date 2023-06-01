@@ -40,17 +40,43 @@ export default function FormAboutUsTeam(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (props.add) {
+      post("/aboutus/team", {
+        title: newTitle,
+        img: imageUrl,
+        name: newName,
+        heading1: newHeading,
+        heading2: newHeading1,
+        description1: newDescription,
+        description2: newDescription1,
 
-    if (
-      newTitle.trim() === '' ||
-      !img ||
-      newHeading.trim() === '' ||
-      newDescription.trim() === ''
-    ) {
-      alert('Field cannot be empty');
-      return;
+      }).then(() =>
+        get("/aboutus/team").then((response) => props.setTeam(response.data))
+      )
+
+        .finally(() => {
+          uploadImage();
+          props.handlePopUp();
+        });
+
+    } else {
+      put(`/aboutus/team/${props.title}`, {
+        title: newTitle,
+        img: imageUrl,
+        name: newName,
+        heading1: newHeading,
+        heading2: newHeading1,
+        description1: newDescription,
+        description2: newDescription1,
+
+      }).then(() =>
+        get("/aboutus/team").then((response) => props.setTeam(response.data))
+      ).finally(() => {
+        uploadImage();
+        props.handlePopUp();
+      });
     }
-
+   
   };
 
   return (
@@ -65,7 +91,6 @@ export default function FormAboutUsTeam(props) {
         onChange={(e) => { setImg(e.target.files[0]) }}
       />
      
-      {console.log(imageUrl)}
       <input
         className='formAbout-team-title'
         required
@@ -111,53 +136,17 @@ export default function FormAboutUsTeam(props) {
 
       <div className='formAbout-team-btn-container'>
         {props.add &&
-          <button className='formAbout-team-save-btn' onClick={() => {
-            post("/aboutus/team", {
-              title: newTitle,
-              img: imageUrl,
-              name:newName,
-              heading1: newHeading,
-              heading2: newHeading1,
-              description1: newDescription,
-              description2: newDescription1,
-
-            }).then(() =>
-              get("/aboutus/team").then((response) => props.setTeam(response.data))
-            )
-
-            .finally(() => {
-                uploadImage();
-                props.handlePopUp();
-              });
-
-
-          }} >skapa</button>
+          <button className='formAbout-team-save-btn' type='submit'>skapa</button>
         }
 
         {!props.add &&
-          <button className='formAbout-team-save-btn' onClick={() => {
-            put(`/aboutus/team/${props.title}`, {
-              title: newTitle,
-              img: imageUrl,
-              name: newName,
-              heading1: newHeading,
-              heading2: newHeading1,
-              description1: newDescription,
-              description2: newDescription1,
-
-            }).then(() =>
-              get("/aboutus/team").then((response) => props.setTeam(response.data))
-            ).finally(() => {
-              uploadImage();
-              props.handlePopUp();
-            });
-            
-
-          }} >ändra</button>
+          <button className='formAbout-team-save-btn' type='submit'>ändra</button>
         }
         <button className='formAbout-team-cancel-btn'
+          type='submit'
           onClick={() => {
             props.handlePopUp()
+          
           }}
         >avbryt</button>
 
