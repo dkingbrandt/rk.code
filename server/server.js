@@ -16,8 +16,7 @@ const app = express();
 
 
 
-
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/rkcode', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://dkingbrandt:ZV0i64gAB5NrEIba@cluster0.uhysadz.mongodb.net/rkcode', { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(bodyParser.json());
 app.use(cookieParser());

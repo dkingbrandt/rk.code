@@ -1,37 +1,96 @@
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react';
 import './../scss/pages/cardModal.scss';
-import {get, put} from './../utility/fetchHealper';
+import { get, put } from './../utility/fetchHealper';
+import Axios from 'axios';
+
 
 export default function FormInfoHome({handlePopUp,heading, title, description, setInfo}) {
 
 
-  const [newTitle, setNewTitle] = useState(title);
-  const [newDescription, setNewDescription] = useState(description);
+  const [newTitle, setNewTitle] = useState("");
+  const [newDescription, setNewDescription] = useState("");
+  const [img, setImg] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    uploadImage()
+  }, [img])
+
+  const uploadImage = async () => {
+    const formData = new FormData();
+    formData.append('file', img);
+    formData.append('upload_preset', 'Hantverkare');
+    try {
+      setLoading(true);
+      const res = await Axios.post(
+        'https://api.cloudinary.com/v1_1/bexryd/image/upload',
+        formData
+      );
+      setImageUrl(res.data.secure_url);
+      setLoading(false);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    put(`home/info/${title}`, {
+      img: imageUrl,
+      title: newTitle,
+      heading: newTitle,
+      description: newDescription,
+    })
+      .then(() => get("home/info/")
+        .then((response) => setInfo(response.data))
+        .finally(() => {
+          uploadImage();
+          handlePopUp();
+        })
+      )
+
+   
+
+  };
   
   return (
     
     <div>
-        <form className='homeFormContainer' action="">
-        {console.log(title)
-          }
-            <label for="title">Title:</label>
-            <input id='title' value={newTitle} onChange={(e) => setNewTitle(e.target.value)} type="text" placeholder={heading}/>
-            <label for="description">Description:</label>
-            <textarea  onChange={(e) => setNewDescription(e.target.value)} name="" id="description" placeholder={description} cols="30" rows="10"></textarea>
-            <button className='homeFormContainer-btn' onClick={()=> {
+      <form className='homeFormContainer' onSubmit={handleSubmit}>
+        
+        <input
+          className="formAbout-icon"
+          required
+          id="image"
+          type="file"
+          name="file"
+          placeholder="Ladda upp icon"
+          onChange={(e) => {setImg(e.target.files[0]);}}
+        />
+            
+        <label for="title">Title:</label>
+        <input
+          required
+          id='title' 
+          type="text"
+          placeholder={heading}
+          onChange={(e) => setNewTitle(e.target.value)}
+        />
 
-                put(`home/info/${title}`, {
-                  title: newTitle,
-                  heading: newTitle,
-                  description: newDescription,
-                })
-                .then(() =>
-                get("home/info/").then((response) => setInfo(response.data))
-              );
-                handlePopUp();
-               
-            }}>Ändra</button>
+
+        <label for="description">Description:</label>
+        <textarea
+          required
+          name=""
+          id="description"
+          placeholder={description}
+          cols="30"
+          rows="10"
+          onChange={(e) => setNewDescription(e.target.value)}
+        ></textarea>
+            
+        <button type='submit' className='homeFormContainer-btn'>Ändra</button>
         </form>
   
     </div>

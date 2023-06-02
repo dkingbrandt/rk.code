@@ -189,8 +189,11 @@ const updateAboutTeam = async (req, res) => {
       {
         $set: {
           title: req.body.title,
-          heading: req.body.heading,
-          description: req.body.description,
+          name: req.body.name,
+          heading1: req.body.heading1,
+          heading2: req.body.heading2,
+          description1: req.body.description1,
+          description2: req.body.description2,
           img: req.body.img,
           category: req.body.category,
         },

@@ -129,7 +129,7 @@ export default function Home({theme, ToggleTheme, authorized}) {
     <div className='card-container'>
      <div className='icon-container'>
       {theme === "dark" ? (
-      <img className='icon data' src={data}alt="computer" />
+      <img className='icon data' src={infos.img}alt="computer" />
       ):(
         <img className='icon data' src={dataLight} alt="computer" />
       )}
@@ -182,7 +182,7 @@ export default function Home({theme, ToggleTheme, authorized}) {
 
       <div className='card-container'>
       <div className='card'>
-        <img className='card-img' src={wildline} alt="websitephoto" />
+        <img className='card-img' src={project.img} alt="websitephoto" />
         <p className='card-heading'>{project.heading}</p>
         <p className='card-p'>{project.description}</p>
         <div className="textBox-Btn-Container">
@@ -215,7 +215,7 @@ export default function Home({theme, ToggleTheme, authorized}) {
     <SmalModal handlePopUp={handleDeleteInfo } popUp={deleteInfo} component={<FormDelete setProjects={setInfo} title={infoTitle} link={"home/info/"} textHeading={"Är du säker på att du vill ta bort infoblocket?"}/>} />
     <CardModal handlePopUp={handleAddProjectModal } popUp={addProjectModal} component={<FormAddProject textHeading={"Lägg till ett nytt Projekt"} link={"home/projects/"} setProjects={setProjects} handlePopUp={handleAddProjectModal} />}/>
     <CardModal handlePopUp={handleAddInfoModal } popUp={addInfoModal} component={<FormAddProject textHeading={"Lägg till ett nytt informationsblock"} link={"home/info"} setProjects={setInfo} handlePopUp={handleAddInfoModal} />}/>
-    <CardModal handlePopUp={handlepPopUpInfo} popUp={popUpInfo} component={<FormInfoHome setInfo={setInfo} heading={infoHeading} title={infoTitle} description={infoDescription}  handlePopUp={handlepPopUpInfo}/>}/>
+    <CardModal handlePopUp={handlepPopUpInfo} popUp={popUpInfo} component={<FormInfoHome setInfo={setInfo} heading={infoHeading} title={infoTitle} description={infoDescription} handlePopUp={handlepPopUpInfo}/>}/>
     <CardModal handlePopUp={handlePopUp} popUp={popUp} component={<FormHome setProjects={setProjects} heading={heading} title={title} description={description} handlePopUp={handlePopUp}/>}/>
 
     </div>

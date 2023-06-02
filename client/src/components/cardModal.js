@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import './../scss/pages/cardModal.scss';
 
-export default function CardModal({handlePopUp,popUp, component}) {
+export default function CardModal({ handlePopUp, popUp, component }) {
 
   
   return (
@@ -15,7 +15,10 @@ export default function CardModal({handlePopUp,popUp, component}) {
   >
     <div className="popUp">
       <div>
-        <p className="popUp--close" onClick={handlePopUp}>
+          <p className="popUp--close" onClick={() => {
+            handlePopUp()
+          
+          }}>
           &times;{" "}
         </p>
         {component}

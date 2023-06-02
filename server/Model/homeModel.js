@@ -4,18 +4,18 @@ const mongoose = require("mongoose")
 
 
 const homeInfoSchema = new mongoose.Schema({
-  title: { type: String },
-  heading: { type: String },
-  description: { type: String },
+  title: { type: String, required: true },
+  heading: { type: String, required: true },
+  description: { type: String, required: true },
   img: { type: String },
 }, { timestamps: true });
 
 homeInfoSchema.index({ '$**': 'text' });
 
 const homeProjectsSchema = new mongoose.Schema({
-  title: { type: String },
-  heading: { type: String },
-  description: { type: String },
+  title: { type: String, required: true },
+  heading: { type: String, required: true },
+  description: { type: String, required: true },
   img: { type: String },
 }, { timestamps: true });
 
