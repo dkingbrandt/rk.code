@@ -1,7 +1,9 @@
+@import'./../Base/mixins.scss';
+
 #dark {
   .priceList-container {
     position: relative;
-
+    overflow: hidden;
       
   .radialGradientGreen {
     position: absolute;
@@ -14,6 +16,10 @@
   }
   
   .radialsmall {
+
+    display: none;
+    @include atLarge {
+    display: block;
     position: absolute;
     min-width: 900.58px;
     min-height: 700.76px;
@@ -22,9 +28,13 @@
     z-index: 1;
     transform: rotate(-30deg);
     background: radial-gradient(56.51% 46.26% at 52.72% 55.17%, #23a195 0%, #022e2ed5 35.58%, #000201 57.29%, rgba(0, 0, 0, 0) 100%)
+
+    }
+   
   }
+
   
-  
+    
   .radialbig {
     position: absolute;
     min-width: 1500px;
@@ -33,31 +43,60 @@
     top: 350px;
     z-index: 1;
     transform: rotate(30deg);
-    background: radial-gradient(56.51% 46.26% at 52.72% 55.17%, #023D37 0%, #011311 33.33%, #000000 66.67%, rgba(0, 0, 0, 0) 100%)
+    background: radial-gradient(56.51% 46.26% at 52.72% 55.17%, #023D37 0%, #011311 33.33%, #000000 66.67%, rgba(0, 0, 0, 0) 100%);
+
+    @include atLarge {
+       min-width: 1300px;
+    min-height: 1000px;
+    }
+    @include at2XlLarge {
+       min-width: 1500px;
+    min-height: 1300px;
+    }
+
+    
   }
+  
+
   }
   
   .priceList-wrapper{
     position: relative;
-    z-index: 20;
+    z-index: 7;
     display: flex;
+    align-items: center;
     justify-content: center;
     margin-top: 100px;
     margin-bottom: 200px;
+   
   }
   
   .priceList-info-box{
   display: grid;
-  row-gap: 20px;
+  row-gap: 50px;
   column-gap: 50px;
-  grid-template-columns: repeat(2, 3fr);
+  grid-template-columns: repeat(1, 1fr);
+  width: 100%;
+  padding-left: 2%;
+  padding-right: 2%;
   max-width: 1300px;
   box-sizing: border-box;
-  
-  
-  
   border-radius: 20px;
-  border: 2px solid #7BF1B8;
+  
+
+ 
+
+  @include atMedium {
+    grid-template-columns: repeat(2, 3fr);
+    border: 2px solid #7BF1B8;
+    width: 95%;
+    column-gap: 2%;
+    row-gap: 20px;
+  }
+  @include atLarge {
+   width: 90%;
+   column-gap: 50px;
+  }
   }
   
   
@@ -88,19 +127,41 @@
       font-style: normal;
       font-weight: 400;
       font-size: 20px;
-      /* or 104% */
-    
+      text-align: center;
       display: flex;
       align-items: center;
       letter-spacing: 0.22em;
-    
       color: #FFFFFF;
+
+      @include atMedium {
+        text-align: start;
+      }
   }
   
   .price-list-info-tailor-box{
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     margin: auto;
-    padding:40px;
+    border: 2px solid #7BF1B8;
+    border-radius: 20px;
+    max-width: 450px;
+    padding: 2%;
+    
+
+    @include atMedium {
+   
+      padding:2%;
+      border: none;
+     
+    }
+    @include atLarge {
+      flex-direction: row;
+      padding:40px;
+      text-align: start;
+    }
     
     
   }
@@ -117,7 +178,6 @@
   }
   .price-list-text-computer{
     font-family: 'Murecho', sans-serif;
-  
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -128,23 +188,35 @@
   
     color: #FFFFFF;
   }
+
+  .price-list-wrapper-flex {
+    display: flex;
+    align-items: center;
+  }
   
   .price-list-price-wrapper{
-    padding-top: 200px;
     display: grid;
     max-width: 1400px;
-    margin: auto;
-      
-    grid-template-columns: repeat(3, 4fr);
+    margin:0 auto;
+    grid-template-columns: repeat(1, 2fr);
     box-sizing: border-box;
     padding-bottom: 100px;
+    gap: 50px;
+    
+
+
+    @include at2XlLarge {
+      grid-template-columns: repeat(3, 4fr);
+      gap: 10px;
+      padding-top: 200px;
+    }
   
   }
   
   
   .price-list-price-small{
       position: relative;
-      z-index: 50;
+      z-index: 7;
       width: 453px;
       height: 684px;
       background: rgba(35, 35, 35, 0.6);
@@ -154,7 +226,7 @@
   
   .price-list-price-medium{
       position: relative;
-      z-index: 50;
+      z-index: 7;
       width: 453px;
       height: 684px;
       background: rgba(35, 35, 35, 0.6);
@@ -164,7 +236,7 @@
   }
   .price-list-price-large{
       position: relative;
-      z-index: 50;
+      z-index: 7;
       width: 453px;
       height: 684px;
       background: rgba(35, 35, 35, 0.6);
@@ -255,6 +327,10 @@
     }
     
     .radialsmall {
+      display: none;
+
+      @include atLarge {
+      display: block;
       position: absolute;
       min-width: 700.58px;
       min-height: 600.76px;
@@ -263,25 +339,53 @@
       z-index: 1;
       transform: rotate(-30deg);
       background: radial-gradient(50% 50% at 50% 50%, #FFFFFF 9.9%, #cb51cd52 17.96%, #8b1ab462 39.32%, #d56ce893 50%, rgba(255, 255, 255, 0) 100%);
+      }
+     
     }
     
     
+        
     .radialbig {
+    
       position: absolute;
       min-width: 1500px;
       min-height: 1200px;
-      left: -25%;
+      left: -165%;
       top: 350px;
       z-index: 1;
-      transform: rotate(30deg);
-      background: radial-gradient(56.51% 46.26% at 36.88% 59.78%, rgba(172, 72, 162, 0.6) 0%, rgba(156, 51, 182, 0.6) 35.58%, rgba(123, 22, 101, 0.6) 57.29%, rgba(231, 18, 209, 0) 100%) 
-    }
+      transform: rotate(40deg);
+      background: radial-gradient(56.51% 46.26% at 36.88% 59.78%, rgba(172, 72, 162, 0.6) 0%, rgba(156, 51, 182, 0.6) 35.58%, rgba(123, 22, 101, 0.6) 57.29%, rgba(231, 18, 209, 0) 100%);
+    
+      @include atSmall{
+        left: -125%;
+      }
+      @include atSmallMedium {
+        left: -95%;
+      }
+      @include atMedium {
+        left: -65%;
+      }
+
+    @include atLarge {
+      left: -45%;
+      min-width: 1300px;
+   min-height: 1000px;
+   }
+   @include at2XlLarge {
+    left: -35%;
+      min-width: 1500px;
+   min-height: 1300px;
+   }
+  }
+
+
   }
   
   .priceList-wrapper{
     position: relative;
-    z-index: 20;
+    z-index: 7;
     display: flex;
+    align-items: center;
     justify-content: center;
     margin-top: 100px;
     margin-bottom: 200px;
@@ -291,32 +395,71 @@
   
   .priceList-info-box{
 
-  display: grid;
-  row-gap: 20px;
+   display: grid;
+  row-gap: 50px;
   column-gap: 50px;
-  grid-template-columns: repeat(2, 3fr);
+  grid-template-columns: repeat(1, 1fr);
+  width: 100%;
+  padding-left: 2%;
+  padding-right: 2%;
   max-width: 1300px;
   box-sizing: border-box;
-  position: relative;
+  border-radius: 20px;
+  
+  @include atMedium {
+    grid-template-columns: repeat(2, 3fr);
+    width: 95%;
+    column-gap: 2%;
+    row-gap: 20px;
+
+    &::before {
+      margin-left: 2%;
+      margin-right: 2%;
+      content: "";
+   position: absolute;
+   inset: 0;
+   border-radius:20px; 
+   padding: 4px; 
+   background: linear-gradient(82.48deg, #962DE9 11.66%, rgba(144, 63, 173, 0.44) 90.76%, rgba(186, 58, 218, 0)159.15%) border-box; /*3*/
+-webkit-mask: 
+linear-gradient(#fff 0 0) content-box, 
+linear-gradient(#fff 0 0);
+-webkit-mask-composite: xor;
+    mask-composite: exclude; 
+
+
+             
+    }
+  }
+  @include atLarge {
+   width: 90%;
+   column-gap: 50px;
+  
+
+   &::before {
+    margin-left: 4%;
+   margin-right: 4%;
+   }
+  }
+  @include atXlLarge {
+ 
+   &::before {
+    margin-left: 7%;
+   margin-right: 7%;
+   }
+  }
+  @include at2XlLarge {
+    column-gap: 20px;
+   &::before {
+   
+    margin-left: 10%;
+   margin-right: 10%;
+   }
+  }
 
 
        
-          &::before {
-            content: "";
-  position: absolute;
-  inset: 0;
-  border-radius:20px; 
-  padding: 4px; 
-  background: linear-gradient(82.48deg, #962DE9 11.66%, rgba(144, 63, 173, 0.44) 90.76%, rgba(186, 58, 218, 0)159.15%) border-box; /*3*/
-  -webkit-mask: 
-     linear-gradient(#fff 0 0) content-box, 
-     linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude; 
-
-
-                   
-          }
+ 
 
   .price-list-info-tailor-box {
     
@@ -355,20 +498,41 @@
       font-style: normal;
       font-weight: 400;
       font-size: 20px;
-      /* or 104% */
-    
+      align-items: center;
       display: flex;
       align-items: center;
       letter-spacing: 0.22em;
-    
       color: #38324F;
+
+      @include atMedium {
+        text-align: start;
+      }
   }
   
   .price-list-info-tailor-box{
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     margin: auto;
-    padding:40px;
-    
+    border: 2px solid   #962DE9;
+    border-radius: 20px;
+    max-width: 450px;
+    padding: 2%;
+  
+    @include atMedium {
+   
+      padding:2%;
+      border: none;
+     
+    }
+    @include atLarge {
+      flex-direction: row;
+      padding:40px;
+      text-align: start;
+    }
+ 
     
   }
   .price-list-heading-box{
@@ -384,7 +548,6 @@
   }
   .price-list-text-computer{
     font-family: 'Murecho', sans-serif;
-  
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -395,16 +558,29 @@
   
     color: #38324F;
   }
+
+  
+  .price-list-wrapper-flex {
+    display: flex;
+    align-items: center;
+  }
   
   .price-list-price-wrapper{
-    padding-top: 200px;
     display: grid;
     max-width: 1400px;
-    margin: auto;
-      
-    grid-template-columns: repeat(3, 4fr);
+    margin:0 auto;
+    grid-template-columns: repeat(1, 2fr);
     box-sizing: border-box;
     padding-bottom: 100px;
+    gap: 50px;
+    
+
+
+    @include at2XlLarge {
+      grid-template-columns: repeat(3, 4fr);
+      gap: 10px;
+      padding-top: 200px;
+    }
   
   }
   

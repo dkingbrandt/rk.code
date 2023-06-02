@@ -188,7 +188,7 @@ export default function PriceList({theme, ToggleTheme}) {
      </div>
   </div>
       
-
+    <div className='price-list-wrapper-flex'>
       <div className='price-list-price-wrapper'>
         <div className='price-list-price-small'>
           <div className='pirce-list-label-box'>
@@ -270,6 +270,7 @@ export default function PriceList({theme, ToggleTheme}) {
      
        
       </div>
+    </div>
 
       <div className='price-list-btn-wrapper'>
 
