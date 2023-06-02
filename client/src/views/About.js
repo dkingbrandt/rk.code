@@ -279,6 +279,31 @@ export default function About({ theme, ToggleTheme }) {
                 <div className='wrapper-text-rebecca'>
 
 
+
+        </div>
+
+        <div className='team-box-rebecca'>
+          <div className='team-circle-rebecca'>
+            <div className='circle-globe-one'>
+              <img className='circle-globe-wordpress-icon' src={wordpressIcon} alt='wordpress-icon' />
+             
+            </div>
+            <div className='circle-globe-two'>
+              <img className='circle-globe-react-icon' src={reactIcon} alt='react-icon' />
+            </div>
+            <div className='circle-globe-three'>
+              <img className='circle-globe-sass-icon' src={sassIcon} alt='sass-icon' />
+            </div>
+            <div className='circle-globe-four'>
+              <img className='circle-globe-js-icon' src={jsIcon} alt='js-icon' />
+            </div>
+            <div className='circle-globe-five'>
+              <img className='circle-globe-css-icon' src={cssIcon} alt='css-icon' />
+            </div>
+            <img className='team-img-rebecca' src={Dan} alt='photo-rebecca' />
+          </div>
+
+          <div className='wrapper-text-rebecca'>
                   <div className='team-heading-box-rebecca'>
                     <p className='team-heading-rebecca'>Rebecca Rydgren</p>
                   </div>

@@ -11,44 +11,72 @@
 .TopContainer {
   position: relative;
   overflow: hidden;
-  height: 1024px;
+  height: 700px;
 
+  @include atMedium {
+    height: 980px;
+  }
 
   .radialGradientDarkGreen{
-    position: absolute;
-    min-width: 750.19px;
-    min-height: 600.11px;
-    left: 70%;
-    top: -180px;
-    transform: rotate(25.29deg);
-    background: radial-gradient(56.51% 46.26% at 52.72% 55.17%, #0a7e72 0%, #0a70648f 35.58%, #0bad9500 57.29%, rgba(0, 0, 0, 0) 100%)
+    display: none;
+    @include atMedium {
+      display: block;
+      position: absolute;
+      min-width: 750.19px;
+      min-height: 600.11px;
+      left: 70%;
+      top: -180px;
+      transform: rotate(25.29deg);
+      background: radial-gradient(56.51% 46.26% at 52.72% 55.17%, #0a7e72 0%, #0a70648f 35.58%, #0bad9500 57.29%, rgba(0, 0, 0, 0) 100%)
+    }
+    
     }
   .radialGradientsmall{
-    position: absolute;
-    min-width: 719.58px;
-    min-height: 494.76px;
-    left: 70%;
-    top: 700px;
-    transform: rotate(-10deg);
-    background: radial-gradient(56.51% 46.26% at 52.72% 55.17%, #023D37 0%, #043933 35.58%, #001F1A 57.29%, rgba(0, 0, 0, 0) 100%)
-  }
+    display: none;
+    @include atMedium {
+      position: absolute;
+      min-width: 719.58px;
+      min-height: 494.76px;
+      left: 70%;
+      top: 700px;
+      transform: rotate(-10deg);
+      background: radial-gradient(56.51% 46.26% at 52.72% 55.17%, #023D37 0%, #043933 35.58%, #001F1A 57.29%, rgba(0, 0, 0, 0) 100%);
+    }
+    }
+    
   .radialGradientbig{
     position: absolute;
-    min-width: 1191.43px;
-    min-height: 1079.57px;
-    left: -25%;
-    top: 350px;
+    min-width:700px;
+    min-height: 600px;
+    left: -15%;
+    top: 380px;
     transform: rotate(30deg);
-    background: radial-gradient(56.51% 46.26% at 52.72% 55.17%, #023D37 0%, #043933 33.33%, #001F1A 66.67%, rgba(0, 0, 0, 0) 100%)
-
+    background: radial-gradient(56.51% 46.26% at 52.72% 55.17%, #023D37 0%, #043933 33.33%, #001F1A 66.67%, rgba(0, 0, 0, 0) 100%);
+   
+    @include atMedium {
+      min-width: 1191.43px;
+      min-height: 1079.57px;
+      left: -5%;
+      top: 380px;
+      transform: rotate(20deg);
+    }
 }
 
 .textBox {
-  z-index: 15;
+  z-index: 7;
   position: absolute;
-  width: 800px;
-  left: 150px;
-  top: 225px;
+  width: 90%;
+  left: 5%;
+  right: 5%;
+  top: 150px;
+
+  @include atMedium {
+ 
+    width: 800px;
+    left: 150px;
+    top: 225px;
+  
+    }
 
   .textBox-Btn-Container {
     display: flex;
@@ -87,7 +115,14 @@
     font-family: $menyFont;
     font-style: normal;
     font-weight: 600;
-    font-size: 50px;
+    font-size: 32px;
+
+    @include atSmallMedium {
+      font-size: 40px;
+      }
+    @include atMedium {
+      font-size: 50px;
+      }
     
     &-color {
       background-image: linear-gradient(to right, #46EFC4 16.93%, #7BF1B8 30.72%, #A6F5A9 46.62%, #D4F79A 55.73%),
@@ -115,16 +150,23 @@
   &-img {
     position: relative;
     .addInfo-Btn {
+      display: none;
+
+      @include at2XlLarge {
+
+      display: block;
       background-color: transparent;
       border: solid 2px #3DD1AC;
-      width: 200px;
+      width: 150px;
       height: 40px;
       border-radius: 12px;
       color: #3DD1AC;
       font-weight: 700;
       position: absolute;
-      left: 5%;
+      left: 2%;
       top: 25px;
+      }
+     
 
     }
 
@@ -134,14 +176,16 @@
       column-gap: 100px;  
       row-gap: 10px; 
       grid-template-columns: repeat(1, 1fr); 
+      padding: 4%;
 
       @include atSmallMedium {
         grid-template-columns: repeat(2, 1fr);
         row-gap: 20px; 
         column-gap: 100px;  
       }
-      @include atMedium {
-        grid-template-columns: repeat(2, 1fr);
+     
+      
+      @include atLarge {
         row-gap: 50px; 
       }
      
@@ -150,10 +194,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100%;
   background-image:   linear-gradient(to bottom, rgba(7, 7, 7, 0.89), rgba(20, 20, 20, 0.932)),url(../../../src/img/code-img.jpg);
   background-size: cover;
   min-height: 450px;
+  height: auto;
   min-width: 100%;
 
   .icon-container {
@@ -224,18 +268,27 @@
   justify-items: center;
   width: 100%;
   min-height: 700px;
+  padding: 5%;
+  padding-bottom: 50px;
 
   .add-Btn {
-    background-color: transparent;
-    border: solid 2px #3DD1AC;
-    width: 200px;
-    height: 40px;
-    border-radius: 12px;
-    color: #3DD1AC;
-    font-weight: 700;
-    align-self: start;
-    margin-left: 5%;
-    margin-bottom: 2%;
+
+    display: none;
+
+    @include at2XlLarge {
+      display: block;
+      background-color: transparent;
+      border: solid 2px #3DD1AC;
+      width: 150px;
+      height: 40px;
+      border-radius: 12px;
+      color: #3DD1AC;
+      font-weight: 700;
+      align-self: start;
+      margin-left: 2%;
+      margin-bottom: 2%;
+    }
+  
   }
 
   h2 {
@@ -247,11 +300,9 @@
     color: white;
     @include atSmallMedium {
       align-self: start;
-      margin-left: 12%;
+      margin-bottom: 4%;
     }
-    @include atLarge {
-      margin-left: 20%;
-    }
+   
   }
 
 
@@ -266,8 +317,8 @@
  
   }
   @include atMedium {
-    grid-template-columns: repeat(3, 1fr);
-   
+    
+    column-gap: 50px;
   
   }
   @include atLarge {
@@ -425,8 +476,7 @@ background: linear-gradient(to right, rgba(123, 241, 184, 1),rgba(166, 245, 169,
 //light theme ******************************************************************************************
 
 
-@import './../Base/variables.scss';
-@import './../Base/mixins.scss';
+
 
 #light {
 
@@ -436,49 +486,81 @@ background: linear-gradient(to right, rgba(123, 241, 184, 1),rgba(166, 245, 169,
 .TopContainer {
   position: relative;
   overflow: hidden;
-  height: 1024px;
+  height: 700px;
+
+  @include atMedium {
+    height: 980px;
+  }
 
 
   .radialGradientDarkGreen{
-    position: absolute;
-    min-width: 1000.19px;
-    min-height: 900.11px;
-    left: 70%;
-    top: -280px;
-    transform: rotate(25.29deg);
-    background: radial-gradient(56.51% 46.26% at 52.72% 55.17%,#f4a48286, 
-    #ff608da6,#d532d84f,
-     rgba(213, 108, 232, 0.116) 50%, rgba(252, 249, 249, 0) 100%)
-
+     display: none;
+    @include atMedium {
+      display: block;
+      position: absolute;
+      min-width: 1000.19px;
+      min-height: 900.11px;
+      left: 70%;
+      top: -280px;
+      transform: rotate(25.29deg);
+      background: radial-gradient(56.51% 46.26% at 52.72% 55.17%,#f4a48286, 
+      #ff608da6,#d532d84f,
+       rgba(213, 108, 232, 0.116) 50%, rgba(252, 249, 249, 0) 100%)
+  
     }
-  .radialGradientsmall{
-    position: absolute;
-    min-width: 719.58px;
-    min-height: 494.76px;
-    left: 70%;
-    top: 700px;
-    transform: rotate(-10deg);
-    background: radial-gradient(50% 50% at 50% 50%, #FFFFFF 9.9%, #cb51cd52 17.96%, #8b1ab462 39.32%, #d56ce893 50%, rgba(255, 255, 255, 0) 100%);
-
+   
+    }
+  .radialGradientsmall {
+     display: none;
+    @include atMedium {
+      display: block;
+      position: absolute;
+      min-width: 719.58px;
+      min-height: 494.76px;
+      left: 70%;
+      top: 700px;
+      transform: rotate(-10deg);
+      background: radial-gradient(50% 50% at 50% 50%, #FFFFFF 9.9%, #cb51cd52 17.96%, #8b1ab462 39.32%, #d56ce893 50%, rgba(255, 255, 255, 0) 100%);
+  
+    }
+   
   }
   .radialGradientbig{
-    position: absolute;
-    min-width: 1191.43px;
-    min-height: 1079.57px;
-    left: -5%;
-    top: 380px;
-    transform: rotate(20deg);
-    background: radial-gradient(56.51% 46.26% at 36.88% 59.78%, rgba(172, 72, 162, 0.6) 0%, rgba(156, 51, 182, 0.6) 35.58%, rgba(123, 22, 101, 0.6) 57.29%, rgba(231, 18, 209, 0) 100%) 
-  
+
+      position: absolute;
+      min-width:700px;
+      min-height: 600px;
+      left: -15%;
+      top: 380px;
+      transform: rotate(20deg);
+      background: radial-gradient(56.51% 46.26% at 36.88% 59.78%, rgba(172, 72, 162, 0.6) 0%, rgba(156, 51, 182, 0.6) 35.58%, rgba(123, 22, 101, 0.6) 57.29%, rgba(231, 18, 209, 0) 100%); 
+      
+      @include atMedium {
+        min-width: 1191.43px;
+        min-height: 1079.57px;
+        left: -5%;
+        top: 380px;
+        transform: rotate(20deg);
+      }
+    
 
 }
 
 .textBox {
-  z-index: 15;
+  z-index: 7;
   position: absolute;
+  width: 90%;
+  left: 5%;
+  right: 5%;
+  top: 150px;
+
+  @include atMedium {
+ 
   width: 800px;
   left: 150px;
   top: 225px;
+
+  }
 
   .textBox-Btn-Container {
     display: flex;
@@ -497,6 +579,8 @@ background: linear-gradient(to right, rgba(123, 241, 184, 1),rgba(166, 245, 169,
       font-weight: 600;
       font-size: 16px;
       color: white;
+
+      
     }
     .btn-contact {
       background-color: white;
@@ -518,8 +602,16 @@ background: linear-gradient(to right, rgba(123, 241, 184, 1),rgba(166, 245, 169,
     font-family: $menyFont;
     font-style: normal;
     font-weight: 600;
-    font-size: 50px;
-    
+    font-size: 30px;
+
+     @include atSmallMedium {
+      font-size: 40px;
+      }
+
+    @include atMedium {
+      font-size: 50px;
+      }
+
     &-color {
       background-image: linear-gradient(to right, #6f0079e0,#EB88B1, #F5C05A),
     linear-gradient(0deg, #FFFFFF, #FFFFFF);
@@ -541,23 +633,43 @@ background: linear-gradient(to right, rgba(123, 241, 184, 1),rgba(166, 245, 169,
 
 .middleContainer {
 
- 
 
   &-img {
+    position: relative;
+
+    .addInfo-Btn {
+      display: none;
+
+     @include at2XlLarge {
+
+      display: block;
+      background-color: transparent;
+      border: solid 2px #3DD1AC;
+      width: 200px;
+      height: 40px;
+      border-radius: 12px;
+      color: #3DD1AC;
+      font-weight: 700;
+      position: absolute;
+      left: 5%;
+      top: 25px;
+     }
+
+    }
 
     .middleContainer-grid { 
       display: grid;
       column-gap: 100px;  
       row-gap: 10px; 
       grid-template-columns: repeat(1, 1fr); 
+      padding: 4%;
 
       @include atSmallMedium {
         grid-template-columns: repeat(2, 1fr);
         row-gap: 20px; 
         column-gap: 100px;  
       }
-      @include atMedium {
-        grid-template-columns: repeat(2, 1fr);
+      @include atLarge {
         row-gap: 50px; 
       }
      
@@ -566,11 +678,15 @@ background: linear-gradient(to right, rgba(123, 241, 184, 1),rgba(166, 245, 169,
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100%;
   background-image:   linear-gradient(to bottom, rgba(7, 7, 7, 0.377), rgba(20, 20, 20, 0.712)),url(../../../src/img/code-ligth.jpg);
   background-size: cover;
   min-height: 450px;
+  margin-top: 0px;
+  height: auto;
   min-width: 100%;
+  
+
+
 
   .icon-container {
     max-width: 539px;
@@ -640,6 +756,29 @@ background: linear-gradient(to right, rgba(123, 241, 184, 1),rgba(166, 245, 169,
   justify-items: center;
   width: 100%;
   min-height: 700px;
+  padding: 5%;
+  height: auto;
+ 
+
+  .add-Btn {
+
+    display: none;
+
+    @include at2XlLarge {
+      display: block;
+      background-color: transparent;
+      border: solid 2px #3DD1AC;
+      width: 200px;
+      height: 40px;
+      border-radius: 12px;
+      color: #3DD1AC;
+      font-weight: 700;
+      align-self: start;
+      margin-left: 5%;
+      margin-bottom: 2%;
+    }
+  
+  }
 
   h2 {
   
@@ -650,11 +789,9 @@ background: linear-gradient(to right, rgba(123, 241, 184, 1),rgba(166, 245, 169,
     color: white;
     @include atSmallMedium {
       align-self: start;
-      margin-left: 12%;
+      margin-bottom: 4%;
     }
-    @include atLarge {
-      margin-left: 20%;
-    }
+  
   }
 
 
@@ -669,7 +806,7 @@ background: linear-gradient(to right, rgba(123, 241, 184, 1),rgba(166, 245, 169,
  
   }
   @include atMedium {
-    grid-template-columns: repeat(3, 1fr);
+   column-gap: 50px;
    
   
   }
@@ -839,31 +976,45 @@ background-image: linear-gradient(to right, #6f0079e0,#EB88B1, #F5C05A),
   align-items: center;
 
   .admin-Btn-Container {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    margin-top: 50px;
+    display: none;
+    @include atMedium {
+      display: block;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-top: 50px;
+    }
+   
   }
   
 
   .erase-Btn {
-   background-color: #3DD1AC;
-   border: none;
-   width: 90px;
-   height: 40px;
-   border-radius: 12px;
-   color: #000000;
-   font-weight: 700;
+    display: none;
+    @include at2XlLarge {
+      display: block;
+      background-color: #3DD1AC;
+      border: none;
+      width: 90px;
+      height: 40px;
+      border-radius: 12px;
+      color: #000000;
+      font-weight: 700;
+    }
   }
 
   .change-Btn {
-    background-color:transparent;
-    border: solid 2px  #3DD1AC;
-    width: 90px;
-    height: 40px;
-    border-radius: 12px;
-    color:  #3DD1AC;
-    font-weight: 700;
+    display: none;
+    @include at2XlLarge {
+      display: block;
+      background-color:transparent;
+      border: solid 2px  #3DD1AC;
+      width: 90px;
+      height: 40px;
+      border-radius: 12px;
+      color:  #3DD1AC;
+      font-weight: 700;
+    }
+ 
   }
 
   .admin-Btn-Container-icon {

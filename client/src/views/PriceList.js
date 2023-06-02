@@ -80,6 +80,9 @@ export default function PriceList({ theme, ToggleTheme }) {
   return (
     <div className='priceList-container'>
      <Header theme={theme} ToggleTheme={ToggleTheme}/>
+     <div className='radialGradientGreen'></div>
+         <div className='radialsmall'></div>
+         <div className='radialbig'></div>
       <div className='priceList-wrapper'>
         <div className='priceList-info-box'>
           {priceInfo.map((info, index) => {
@@ -184,7 +187,7 @@ export default function PriceList({ theme, ToggleTheme }) {
      </div>
   </div>
       
-
+    <div className='price-list-wrapper-flex'>
       <div className='price-list-price-wrapper'>
         {pricePackage.map((list, index) => {
           return (
@@ -235,6 +238,7 @@ export default function PriceList({ theme, ToggleTheme }) {
      
        
       </div>
+    </div>
 
       <div className='price-list-btn-wrapper'>
 

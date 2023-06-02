@@ -115,7 +115,7 @@ export default function Home({theme, ToggleTheme, authorized}) {
     
 
     <div  className='middleContainer'>
-   
+ 
     <hr className='hr'/>
 
     <div className='middleContainer-img'>
@@ -164,6 +164,7 @@ export default function Home({theme, ToggleTheme, authorized}) {
     </div>
 
     <hr className='hr'/>
+   
 
     <div className='project-container'>
       <h2>Tidigare Projekt</h2>

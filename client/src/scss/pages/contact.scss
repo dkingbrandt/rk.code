@@ -1,42 +1,81 @@
 @import './../Base/variables.scss';
+@import './../Base/mixins.scss';
 
 #dark {
-    .areYouIntressted {
-        position: absolute;
-        left: 248px;
-        top: 150px;
-        z-index: 20;
-        color:rgba(221, 255, 246, 1);
-        font-family: $menyFont;
-        font-size: 22px;
-        max-width: 557px;;
+   
+    
+    .marginBottom {
+        margin-bottom: 200px;
+        padding-bottom: 200px;
     }
+   
+    .areYouIntressted {
+        display: none;
+      
+
+        @include atMedium{
+            display: block;
+            position: absolute;
+            left: 248px;
+            top: 150px;
+            z-index: 7 !important;
+            color:rgba(221, 255, 246, 1);
+            font-family: $menyFont;
+            max-width: 557px;
+            font-size: 22px;
+           
+        }
+    }
+
     .form-img {
-        position: absolute;
-        min-width: 1050px;
-        min-height: 650px;
-        max-width: 950px;
-        max-height: 544px;
-        left: 0;
-        right: 0;
+        width: 90%;
+        height: auto;
+        display: flex;
+        align-items: center;
         margin: 0 auto;
-        top: 250px;
+        top: 150px;
         border-radius: 10px;
-        z-index: 20;
+        z-index: 7;
         background-size: cover;
         background-repeat: no-repeat;
-        background-image: linear-gradient(115deg, rgba(57, 54, 54,.7) 0%, rgba(57, 54, 54,.7) 60%, transparent 60%), url(../../img/form-img-black.jpg)
-    
+        background-image: linear-gradient(115deg, rgba(57, 54, 54,.7) 0%, rgba(57, 54, 54,.7) 100%), url(../../img/form-img-black.jpg);
+        margin-bottom: 200px;
+        @include atMedium {
+            position: absolute;
+            min-height: 650px;
+            top: 250px;
+            left: 0;
+            right: 0;
+        }
+
+        @include atLarge {
+           
+            min-width: 1050px;
+            min-height: 650px;
+            max-width: 950px;
+            max-height: 544px;
+         
+            background-image: linear-gradient(115deg, rgba(57, 54, 54,.7) 0%, rgba(57, 54, 54,.7) 60%, transparent 60%), url(../../img/form-img-black.jpg);
+        }
+       
        
         
     }
     .form-flex {
         display: flex;
         flex-direction: column;
-        width: 450px;
         gap: 20px;
         margin-top: 30px;
-        margin-left: 50px;
+        margin-left: 0px;
+       
+        height: auto;
+
+        @include atLarge {
+            width: 450px;
+            gap: 20px;
+            margin-top: 30px;
+            margin-left: 50px;
+        }
     
         .input-field {
             background: rgba(0, 0, 0, 0.7);
@@ -44,6 +83,11 @@
             border-radius: 5px;
             width: 380px;
             height: 40px;
+
+            @include atLarge {
+                width: 200px;
+                height: 40px;
+            }
             &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
                 color:rgba(221, 255, 246, 1);
                 padding-left:5%;
@@ -161,43 +205,68 @@
 
 #light{
     .areYouIntressted {
+        display: none;
+        @include atMedium {
+        display: block;    
         position: absolute;
         left: 248px;
         top: 150px;
-        z-index: 20;
+        z-index: 7;
         color:#232424;
         font-family: $menyFont;
         font-size: 22px;
         max-width: 557px;;
+        }
+      
     }
     .form-img {
-        position: absolute;
-        min-width: 1050px;
-        min-height: 650px;
-        max-width: 950px;
-        max-height: 544px;
-        left: 0;
-        right: 0;
+       
+        width: 90%;
+        height: auto;
+        display: flex;
+        align-items: center;
         margin: 0 auto;
         top: 250px;
         border-radius: 10px;
-        z-index: 20;
+        z-index: 7;
         background-size: cover;
         background-repeat: no-repeat;
         background-image: linear-gradient(115deg, rgba(255, 255, 255, 0.62) 0%,rgba(255, 255, 255, 0.62) 60%, transparent 60%), url(../../img/form-img-ligth2.jpg);
         background-position: center;
         
-    
+            @include atMedium {
+            position: absolute;
+            min-height: 650px;
+            top: 250px;
+            left: 0;
+            right: 0;
+        }
+
+        @include atLarge {
+           
+            min-width: 1050px;
+            min-height: 650px;
+            max-width: 950px;
+            max-height: 544px;
+         
+            background-image: linear-gradient(115deg, rgba(57, 54, 54,.7) 0%, rgba(57, 54, 54,.7) 60%, transparent 60%), url(../../img/form-img-black.jpg);
+        }
        
         
     }
     .form-flex {
         display: flex;
         flex-direction: column;
-        width: 450px;
         gap: 20px;
         margin-top: 30px;
-        margin-left: 50px;
+        margin-left: 0px;
+
+             @include atLarge {
+            width: 450px;
+            gap: 20px;
+            margin-top: 30px;
+            margin-left: 50px;
+        }
     
         .input-field {
             background: rgba(255, 255, 255, 0.7);
