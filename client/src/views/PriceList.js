@@ -94,14 +94,16 @@ export default function PriceList({ theme, ToggleTheme }) {
      <Header theme={theme} ToggleTheme={ToggleTheme}/>
      <div className='radialGradientGreen'></div>
          <div className='radialsmall'></div>
-         <div className='radialbig'></div>
+      <div className='radialbig'></div>
+      
+      <button className='price-info-create-Btn' onClick={() => {
+        handlePopUpPriceInfo()
+        setAddPriceInfo(true)
+
+      }}>Lägg till info</button>
       <div className='priceList-wrapper'>
 
-        <button className='price-info-create-Btn' onClick={() => {
-          handlePopUpPriceInfo()
-          setAddPriceInfo(true)
-
-        }}>Lägg till info</button>
+      
         <div className='priceList-info-box'>
           
           {priceInfo.map((info, index) => {
@@ -219,15 +221,18 @@ export default function PriceList({ theme, ToggleTheme }) {
           
         
      </div>
-  </div>
+      </div>
       
-    <div className='price-list-wrapper-flex'>
-      <div className='price-list-price-wrapper'>
-        <button className='price-list-create-Btn'  onClick={() => {
-          handlePopUpPriceList()
-          setAddPriceList(true)
+      <button className='price-list-create-Btn' onClick={() => {
+        handlePopUpPriceList()
+        setAddPriceList(true)
 
-        }}>Lägg till prisplan</button>
+      }}>Lägg till prisplan</button>
+      
+      <div className='price-list-wrapper-flex'>
+      
+      <div className='price-list-price-wrapper'>
+      
         {pricePackage.map((list, index) => {
           return (
               

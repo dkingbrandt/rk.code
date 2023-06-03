@@ -81,7 +81,6 @@
   
     }
 
-    .price-info-delete-Btn,
     .price-info-change-Btn {
       background-color: transparent;
       border: solid 2px #3DD1AC;
@@ -89,10 +88,10 @@
       height: 40px;
       border-radius: 12px;
       color: #3DD1AC;
-      font-weight: 700;
-      margin-left: 20px;
+          font-weight: 700;
+          margin-left: 20px;
     
-    }
+        }
   
   .priceList-info-box{
   display: grid;
@@ -217,15 +216,24 @@
     align-items: center;
   }
   
-  .price-list-price-wrapper{
-    display: grid;
-    max-width: 1400px;
-    margin:0 auto;
-    grid-template-columns: repeat(1, 2fr);
-    box-sizing: border-box;
-    padding-bottom: 100px;
-    gap: 50px;
-    
+    .price-list-price-wrapper {
+      display: grid;
+      max-width: 1400px;
+      margin: 0 auto;
+      grid-template-columns: repeat(1, 2fr);
+      box-sizing: border-box;
+      padding-bottom: 100px;
+      gap: 50px;
+  
+  
+  
+      @include atLarge {
+        grid-template-columns: repeat(3, 4fr);
+        gap: 50px;
+        padding-top: 200px;
+      }
+  
+    }
 
 
 
@@ -366,7 +374,7 @@
     color: #000000;
   }
 }
-}
+
 
 //light *****************************************************************
 
@@ -635,7 +643,7 @@
     
 
 
-    @include at2XlLarge {
+    @include atLarge {
       grid-template-columns: repeat(3, 4fr);
       gap: 10px;
       padding-top: 200px;

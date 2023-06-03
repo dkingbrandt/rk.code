@@ -200,12 +200,13 @@ export default function About({ theme, ToggleTheme }) {
 
 
       <div className='team-wrapper'>
+       
+        <div className='team-container'></div>
         <button className='team-create-Btn' onClick={() => {
           handlePopUpTeam()
           setTeamModal(true)
           setAddTeam(true)
         }}>Lägg till ny team medlem</button>
-        <div className='team-container'></div>
         <h1 className='team-heading'>TEAMET</h1>
        
         {team.map((member, index) => {
@@ -294,7 +295,7 @@ export default function About({ theme, ToggleTheme }) {
                   }
 
 
-                  <div className='team-Btn-Container-icon'>
+                   <div className='team-Btn-Container-icon'>
                     <button className='team-delete-Btn'  onClick={() => {
                       showDetailTeam(index)
                       handlePopUpDelete()
@@ -309,7 +310,7 @@ export default function About({ theme, ToggleTheme }) {
                     }}>Ändra</button>
                   </div>
 
-              
+               
                 </div>
 
               </div>
