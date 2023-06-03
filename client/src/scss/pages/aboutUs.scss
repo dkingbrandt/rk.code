@@ -60,7 +60,34 @@
     
   }
 
+    .history-create-Btn {
+      position: absolute;
+      background-color: transparent;
+      border: solid 2px #3DD1AC;
+      width: 200px;
+      height: 40px;
+      border-radius: 12px;
+      color: #3DD1AC;
+      font-weight: 700;
+        @include atXsSmall {
+           
+          }
+      
+    }
+    
+  .history-wrapper{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 300px;
+      @include atXsSmall {
+          margin-top: 100px;
+         
+        }
+   
+      
 
+  }
   .history-container {
     position: relative;
     z-index: 7;
@@ -73,6 +100,7 @@
     margin-top: 10%;
     background-color: rgba(#ffffff, 0.1);
     border-radius: 10px;
+    margin-top: 80px;
     padding-bottom: 2%;
 
 
@@ -96,9 +124,12 @@
       color: #ffff;
       letter-spacing: 0.255em;
 
+     
+
       @include atMedium {
         font-size: 40px;
         line-height: 25px;
+        font-size: 30px;
       }
   
     }
@@ -137,12 +168,20 @@
       font-size: 16px;
       letter-spacing: 0.22em;
       line-height: 25px;
+        @include atXsSmall {
+           padding-top: 20px;
+          }
     }
     .icon-history{
       margin-left: 10px;
       align-self: center;
       width: 45px;
       height: 45px;
+      
+      @include atXsSmall{
+        height: 25px;
+        width: 25px;
+      }
     }
       
     .history-label-knowledge,
@@ -157,6 +196,11 @@
       border-radius: 10px 10px 10px 0px;
       background: rgba(255, 255, 255, 0.1);
       margin-top: 5px;
+        @include atXsSmall {
+            height: 45px;
+            width: 250px;
+            
+          }
 
       .heading-vision,
       .heading-create,
@@ -173,6 +217,11 @@
         align-items: center;
         letter-spacing: 0.22em;
         color: #FFFFFF;
+
+        @include atXsSmall{
+          font-size: 20px;
+          padding-left: 20px;
+        }
     
       }
 
@@ -189,38 +238,25 @@
         padding-top: 40px;
         
       }
-       .history-create-Btn{
-        background: linear-gradient(90deg, #46EFC4 -19.55%, #7BF1B8 13.97%, #A6F5A9 34.08%, #D4F79A 50%);
-          border-radius: 13px;
-          width: 110px;
-          border: none;
-          height: 36px;
-          font-family: 'Montserrat';
-          font-style: normal;
-          font-weight: 600;
-          font-size: 16px;
-          color: #000000;
-       }
+       
+       
+       
+       .history-delete-Btn,
        .history-change-Btn{
-        border: 2px solid #808281;
-          border-radius: 13px;
+        background-color: transparent;
+          border: solid 2px #3DD1AC;
           width: 110px;
-          height: 36px;
-          font-family: 'Montserrat';
-          font-style: normal;
-          font-weight: 600;
-          font-size: 16px;
-          color: white;
-          background: #000000;
+          height: 40px;
+          border-radius: 12px;
+          color: #3DD1AC;
+          font-weight: 700;
        }
+
+      
      
   
   }
-    .formAbout-error{
-      font-size: large;
-      color: red;
-    }
-  
+   
 }
 
 
@@ -265,6 +301,15 @@
   position: relative;
   z-index: 7;
 
+  
+  @include atMedium{
+    flex-direction: row;
+      justify-content: flex-start;
+      width: 900px;
+      height: 550px;
+      padding: 80px;
+
+  }
 
   @include atLarge {
     flex-direction: row;
@@ -273,6 +318,7 @@
     height: 550px;
      padding: 80px;
   }
+ 
 }
 
 
@@ -300,6 +346,11 @@
   width: 333px;
   border-radius: 50%;
 
+  @include atMedium{
+  
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+  }
+
   @include atLarge {
     height: 326px;
     flex-direction: column;
@@ -322,6 +373,20 @@
 
 .circle-globe-one {
     display: none;
+
+    @include atMedium{
+      display: block;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        right: 40px;
+        bottom: 170px;
+        border-radius: 50%;
+        background: linear-gradient(180deg, #A6F5A9 26%, rgba(166, 245, 169, 0) 126%);
+        transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
   @include atLarge {
     display: block;
     display: flex;
@@ -340,6 +405,20 @@
 
 .circle-globe-two {
   display: none;
+
+  @include atMedium{
+    display: block;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      right: -40px;
+      bottom: 1px;
+      background: linear-gradient(139.09deg, #D4F79A 0%, rgba(212, 247, 154, 0) 95.05%);
+      transform: matrix(-1, 0, 0, 1, 0, 0);
+  }
   @include atLarge {
   display: block;  
   position: absolute;
@@ -360,6 +439,21 @@
 
   display: none;
 
+  @include atMedium{
+    display: block;
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      bottom: 1px;
+      left: -20px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #3FDCB4 0%, rgba(63, 220, 180, 0) 100%);
+      transform: matrix(-1, 0, 0, 1, 0, 0);
+
+  }
+
   @include atLarge{
   display: block;  
   display: flex;
@@ -378,6 +472,20 @@
 
 .circle-globe-four {
     display: none;
+
+    @include atMedium{
+      display: block;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        top: -50px;
+        left: -10px;
+        border-radius: 50%;
+        background: linear-gradient(215.98deg, #46EFC4 42.07%, rgba(166, 245, 169, 0) 116.55%, rgba(166, 245, 169, 0) 116.55%);
+        transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
   @include atLarge {
     display: block;
     display: flex;
@@ -396,6 +504,21 @@
 
 .circle-globe-five {
    display: none;
+
+   @include atMedium{
+    display: block;
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      left: 120px;
+      top: 200px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #02FFD1 0%, rgba(2, 255, 209, 0) 100%);
+      transform: matrix(-1, 0, 0, 1, 0, 0);
+
+   }
   @include atLarge {
     display: block;
     display: flex;
@@ -449,14 +572,22 @@
 .team-heading-rebecca,
 .team-heading-dan{
       
-       
+      
       font-family: $menyFont;
       font-style: normal;
       font-weight: 500;
-      font-size: 30px;
+      font-size: 25px;
       line-height: 25px;
-      margin-bottom: 50px;
+      margin-top: 30px;
+      margin-bottom: 30px;
       color: #FFFFFF;
+
+     
+
+      @include atLarge {
+        font-size: 30px;
+        margin-bottom: 30px;
+      }
     
 }
 
@@ -464,7 +595,6 @@
 
   display: flex;
   flex-direction: column;
-  text-align: center;
 
  @include atLarge {
   display: flex;
@@ -474,15 +604,13 @@
  }
 }
 .team-text-box-knowledge{
-  padding-left: 15px;
   padding-top: 30px;
   display: flex;
   flex-direction: column;
-  text-align: center;
 
 
   @include atLarge {
-    display: flex;
+  display: flex;
   flex-direction: row;
   width: 500px;
   text-align: start;
@@ -520,6 +648,12 @@
     color: #FFFFFF;
     max-width: 300px;
 
+    @include atMedium{
+      max-width: 500px;
+      line-height: 20px;
+
+    }
+
     @include atLarge {
        padding-left: 10px;
        max-width: 700px;
@@ -531,6 +665,10 @@
   gap: 10px;
   margin-left: 30%;
   margin-top: 5%;
+  @include atMedium {
+   margin-top: 20px;
+  
+    }
 }
      .team-Btn-Container-icon{
       display: flex;
@@ -540,28 +678,25 @@
      }
 
     .team-create-Btn {
-      background: linear-gradient(90deg, #46EFC4 -19.55%, #7BF1B8 13.97%, #A6F5A9 34.08%, #D4F79A 50%);
-      border-radius: 13px;
-      width: 110px;
-      border: none;
-      height: 36px;
-      font-family: 'Montserrat';
-      font-style: normal;
-      font-weight: 600;
-      font-size: 16px;
+      background-color: transparent;
+      border: solid 2px #3DD1AC;
+      width: 200px;
+      height: 40px;
+      border-radius: 12px;
+      color: #3DD1AC;
+      font-weight: 700;
+      z-index: 3;
+    
     }
-  
+    .team-delete-Btn,
     .team-change-Btn {
-      border: 2px solid #808281;
-      border-radius: 13px;
-      width: 110px;
-      height: 36px;
-      font-family: 'Montserrat';
-      font-style: normal;
-      font-weight: 600;
-      font-size: 16px;
-      color: white;
-      background: #000000;
+      background-color: transparent;
+        border: solid 2px #3DD1AC;
+        width: 110px;
+        height: 40px;
+        border-radius: 12px;
+        color: #3DD1AC;
+        font-weight: 700;
     }
 
 

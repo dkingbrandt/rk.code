@@ -70,6 +70,28 @@
     margin-bottom: 200px;
    
   }
+    .price-info-create-Btn {
+      background-color: transparent;
+      border: solid 2px #3DD1AC;
+      width: 200px;
+      height: 40px;
+      border-radius: 12px;
+      color: #3DD1AC;
+      font-weight: 700;
+  
+    }
+
+    .price-info-change-Btn {
+      background-color: transparent;
+      border: solid 2px #3DD1AC;
+      width: 110px;
+      height: 40px;
+      border-radius: 12px;
+      color: #3DD1AC;
+          font-weight: 700;
+          margin-left: 20px;
+    
+        }
   
   .priceList-info-box{
   display: grid;
@@ -194,22 +216,66 @@
     align-items: center;
   }
   
-  .price-list-price-wrapper{
-    display: grid;
-    max-width: 1400px;
-    margin:0 auto;
-    grid-template-columns: repeat(1, 2fr);
-    box-sizing: border-box;
-    padding-bottom: 100px;
-    gap: 50px;
+    .price-list-price-wrapper {
+      display: grid;
+      max-width: 1400px;
+      margin: 0 auto;
+      grid-template-columns: repeat(1, 2fr);
+      box-sizing: border-box;
+      padding-bottom: 100px;
+      gap: 50px;
+  
+  
+  
+      @include atLarge {
+        grid-template-columns: repeat(3, 4fr);
+        gap: 50px;
+        padding-top: 200px;
+      }
+  
+    }
+
+
+
+.price-list-create-Btn{
+  background-color: transparent;
+      border: solid 2px #3DD1AC;
+      width: 200px;
+      height: 40px;
+      border-radius: 12px;
+      color: #3DD1AC;
+      font-weight: 700;
+}
+
+.price-list-delete-Btn{
+  background-color: transparent;
+    border: solid 2px #3DD1AC;
+    width: 110px;
+    height: 40px;
+    border-radius: 12px;
+    color: #3DD1AC;
+    font-weight: 700;
+    margin-left: 100px
     
 
+}
 
-    @include at2XlLarge {
-      grid-template-columns: repeat(3, 4fr);
-      gap: 10px;
-      padding-top: 200px;
-    }
+
+.price-list-change-Btn{
+     
+    background-color: transparent;
+    border: solid 2px #3DD1AC;
+    width: 110px;
+    height: 40px;
+    border-radius: 12px;
+    color: #3DD1AC;
+    font-weight: 700;
+   margin-left: 20px;
+    // @include at2XlLarge {
+    //   grid-template-columns: repeat(3, 4fr);
+    //   gap: 10px;
+    //   padding-top: 200px;
+    // }
   
   }
   
@@ -308,6 +374,7 @@
     color: #000000;
   }
 }
+
 
 //light *****************************************************************
 
@@ -421,10 +488,10 @@
    border-radius:20px; 
    padding: 4px; 
    background: linear-gradient(82.48deg, #962DE9 11.66%, rgba(144, 63, 173, 0.44) 90.76%, rgba(186, 58, 218, 0)159.15%) border-box; /*3*/
--webkit-mask: 
-linear-gradient(#fff 0 0) content-box, 
-linear-gradient(#fff 0 0);
--webkit-mask-composite: xor;
+   -webkit-mask: 
+   linear-gradient(#fff 0 0) content-box, 
+   linear-gradient(#fff 0 0);
+   -webkit-mask-composite: xor;
     mask-composite: exclude; 
 
 
@@ -467,7 +534,7 @@ linear-gradient(#fff 0 0);
        
   }
 
-  }
+}
   
   
   
@@ -576,7 +643,7 @@ linear-gradient(#fff 0 0);
     
 
 
-    @include at2XlLarge {
+    @include atLarge {
       grid-template-columns: repeat(3, 4fr);
       gap: 10px;
       padding-top: 200px;
@@ -614,7 +681,7 @@ linear-gradient(#fff 0 0);
       border: 2px solid #E6F5E7;
       border-radius: 10px 10px 0px 10px;
       
-      ;
+      
   
   }
   
