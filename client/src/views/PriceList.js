@@ -130,7 +130,7 @@ export default function PriceList({ theme, ToggleTheme }) {
 
 
                 <div className='priceInfo-Btn-Container-icon'>
-                  <button className='price-list-delete-Btn' onClick={() => {
+                  <button className='price-info-delete-Btn' onClick={() => {
                     showDetailPriceInfo(index)
                     handlePopUpDelete()
                     setDeletePriceinfoModal(true);
