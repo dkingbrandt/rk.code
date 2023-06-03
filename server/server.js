@@ -2,16 +2,17 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 const dotenv = require('dotenv');
 const bodyParser = require("body-parser");
-const aboutUsRouter = require("./Api/AboutUsApi")
-const pricelistRouter = require("./Api/PriceListApi")
-const homeRouter = require("./Api/HomeApi")
+const aboutUsRouter = require("./Api/AboutUsApi");
+const pricelistRouter = require("./Api/PriceListApi");
+const homeRouter = require("./Api/HomeApi");
+const routerSignUp = require("./Api/SignUpAPI"); 
 const cookieParser = require("cookie-parser");
 const path = require('path')
 
 const mongoose = require("mongoose")
 
 
-dotenv.config({ path: '../config.env' });
+dotenv.config({ path: './../config.env' });
 const app = express();
 
 
@@ -38,6 +39,8 @@ app.use(handleStaticFiles);
 app.use(aboutUsRouter);
 app.use(pricelistRouter);
 app.use(homeRouter);
+app.use(routerSignUp);
+
 
 
 const port = process.env.PORT || 8080;
