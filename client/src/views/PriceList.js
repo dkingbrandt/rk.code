@@ -8,6 +8,10 @@ import { useNavigate } from "react-router-dom";
 import FormPriceListInfo from '../components/formPriceListInfo';
 import FormPriceList from '../components/formPriceList';
 import CardModal from '../components/cardModal';
+import SmalModal from '../components/smalModal';
+import FormDelete from '../components/deleteForm';
+
+
 
 
 
@@ -17,12 +21,14 @@ export default function PriceList({ theme, ToggleTheme, authorized, setAuthorize
   
   const [popUpPriceInfo, setPopUpPriceInfo] = useState(false);
   const [popUpPriceList, setPopUpPriceList] = useState(false);
+  const [popUpDelete, setPopUpDelete] = useState(false);
   const [addPriceInfo, setAddPriceInfo] = useState(false);
   const [addPriceList, setAddPriceList] = useState(false);
   const [heading, setHeading] = useState("");
+  const [deletePriceinfoModal, setDeletePriceinfoModal] = useState(false);
+  const [deletePriceListModal, setDeletePriceListModal] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [descriptionList, setDescriptionList] = useState([]);
   const [img, setImg] = useState("");
   const [priceInfo, setPriceInfo] = useState([]);
   const [pricePackage, setPricePackage] = useState([]);
@@ -47,6 +53,12 @@ export default function PriceList({ theme, ToggleTheme, authorized, setAuthorize
   const handlePopUpPriceList = () => {
     setPopUpPriceList((current) => !current); //toggle
   };
+
+  const handlePopUpDelete = () => {
+    setPopUpDelete((current) => !current); //toggle
+    setDeletePriceinfoModal(false);
+  };
+
  
 
   
@@ -82,9 +94,18 @@ export default function PriceList({ theme, ToggleTheme, authorized, setAuthorize
      <Header authorized={authorized} setAuthorized={setAuthorized}  theme={theme} ToggleTheme={ToggleTheme}/>
      <div className='radialGradientGreen'></div>
          <div className='radialsmall'></div>
-         <div className='radialbig'></div>
+      <div className='radialbig'></div>
+      
+      <button className='price-info-create-Btn' onClick={() => {
+        handlePopUpPriceInfo()
+        setAddPriceInfo(true)
+
+      }}>Lägg till info</button>
       <div className='priceList-wrapper'>
+
+      
         <div className='priceList-info-box'>
+          
           {priceInfo.map((info, index) => {
 
             return (
@@ -110,13 +131,15 @@ export default function PriceList({ theme, ToggleTheme, authorized, setAuthorize
               </div>
 
 
-                   <div className='priceInfo-Btn-Container-icon'>
-                  <button className='price-info-create-Btn' index={index} onClick={() => {
+                <div className='priceInfo-Btn-Container-icon'>
+                  <button className='price-info-delete-Btn' onClick={() => {
                     showDetailPriceInfo(index)
-                    handlePopUpPriceInfo()
-                    setAddPriceInfo(true)
+                    handlePopUpDelete()
+                    setDeletePriceinfoModal(true);
 
-                  }}>Lägg till</button>
+
+                  }}>Ta Bort</button>
+                
                   <button className='price-info-change-Btn' index={index} onClick={() => {
                     showDetailPriceInfo(index)
                     handlePopUpPriceInfo()
@@ -140,7 +163,20 @@ export default function PriceList({ theme, ToggleTheme, authorized, setAuthorize
 
      
       
-    
+          {deletePriceinfoModal && (
+            <SmalModal
+              handlePopUp={handlePopUpDelete}
+              popUp={popUpDelete}
+              component={<FormDelete handlePopUp={handlePopUpDelete} setProjects={setPriceInfo} title={title} link={"/pricelist/info/"} textHeading={"Är du säker på att du vill ta bort projektet?"} />} />
+
+          )}
+          {deletePriceListModal && (
+            <SmalModal
+              handlePopUp={handlePopUpDelete}
+              popUp={popUpDelete}
+              component={<FormDelete handlePopUp={handlePopUpDelete} setProjects={setPricePackage} title={title} link={"/pricelist/package/"} textHeading={"Är du säker på att du vill ta bort projektet?"} />} />
+
+          )}
     
   
 
@@ -185,10 +221,18 @@ export default function PriceList({ theme, ToggleTheme, authorized, setAuthorize
           
         
      </div>
-  </div>
+      </div>
       
-    <div className='price-list-wrapper-flex'>
+      <button className='price-list-create-Btn' onClick={() => {
+        handlePopUpPriceList()
+        setAddPriceList(true)
+
+      }}>Lägg till prisplan</button>
+      
+      <div className='price-list-wrapper-flex'>
+      
       <div className='price-list-price-wrapper'>
+      
         {pricePackage.map((list, index) => {
           return (
               
@@ -207,12 +251,12 @@ export default function PriceList({ theme, ToggleTheme, authorized, setAuthorize
 
 
               <div className='pricelist-Btn-Container'>
-                <button className='price-list-create-Btn' index={index} onClick={() => {
+                <button className='price-list-delete-Btn' onClick={() => {
                   showDetailPricePackage(index)
-                  handlePopUpPriceList()
-                  setAddPriceList(true)
-
-                }}>Lägg till</button>
+                  handlePopUpDelete()
+                  setDeletePriceListModal(true)
+                }}>Ta Bort</button>
+               
                 <button className='price-list-change-Btn' index={index} onClick={() => {
                   showDetailPricePackage(index)
                   handlePopUpPriceList()

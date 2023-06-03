@@ -76,14 +76,14 @@ export default function FormAboutUsHistory(props) {
         required
         type="file"
         name="file"
-        placeholder="Ladda upp icon"
         onChange={(e) => {
-          setImg(e.target.files[0]);
+        setImg(e.target.files[0]);
         }}
       />
       <input
         required
         type="text"
+        placeholder={!props.add ? props.title : "Titel"}
         className="formAbout-heading"
         onChange={(e) => setNewTitle(e.target.value)}
       />
@@ -92,7 +92,7 @@ export default function FormAboutUsHistory(props) {
         required
         type="text"
         className="formAbout-heading"
-        placeholder={props.heading}
+        placeholder={!props.add ? props.heading : "Rubrik"}
         onChange={(e) => setNewHeading(e.target.value)}
       />
 
@@ -100,7 +100,7 @@ export default function FormAboutUsHistory(props) {
         required
         type="text"
         className="formAbout-description"
-        placeholder={props.description}
+        placeholder={ !props.add ? props.description : "Textfält"}
         onChange={(e) => setNewDescription(e.target.value)}
       ></textarea>
 

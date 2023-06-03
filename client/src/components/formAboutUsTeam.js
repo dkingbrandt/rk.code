@@ -87,28 +87,28 @@ export default function FormAboutUsTeam(props) {
         required
         type="file"
         name="file"
-        placeholder="Ladda upp en bild"
+        placeholder={!props.add ? props.img :null}
         onChange={(e) => { setImg(e.target.files[0]) }}
       />
      
       <input
         className='formAbout-team-title'
         required
-        placeholder={props.title}
+        placeholder={!props.add ? props.title : "Titel"}
         onChange={(e) => setNewTitle(e.target.value)}
       />
 
       <input
         className='formAbout-team-name'
         required
-        placeholder={props.name}
+        placeholder={!props.add ? props.name : "Namn" }
         onChange={(e) => setNewName(e.target.value)}
       />
 
       <input
         className='formAbout-team-heading'
         required
-        placeholder={props.heading}
+        placeholder={!props.add ? props.heading : "Rubrik 1"}
         onChange={(e) => setNewHeading(e.target.value)}
       />
 
@@ -116,21 +116,21 @@ export default function FormAboutUsTeam(props) {
       <input
         className='formAbout-team-heading'
         required
-        placeholder={props.heading1}
+        placeholder={!props.add ? props.heading1 : "Rubrik 2"}
         onChange={(e) => setNewHeading1(e.target.value)}
       />
 
       <textarea
         className='formAbout-team-description'
         required
-        placeholder={props.description}
+        placeholder={!props.add ? props.description : "textfält 1"}
         onChange={(e) => setNewDescription(e.target.value)}
       ></textarea>
 
       <textarea
         className='formAbout-team-description'
         required
-        placeholder={props.description1}
+        placeholder={!props.add ? props.description1 :"textfält 2"}
         onChange={(e) => setNewDescription1(e.target.value)}
       ></textarea>
 

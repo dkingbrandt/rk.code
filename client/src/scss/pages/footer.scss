@@ -4,6 +4,8 @@
 
 #dark {
   .footerContainer {
+
+    
     z-index: 2;
     overflow: hidden;
     position: relative;
@@ -36,7 +38,9 @@
                 transform: rotate(30deg);
                 background: radial-gradient(56.51% 46.26% at 52.72% 55.17%, #023D37 0%, #043933 33.33%,rgba(36, 129, 114, 0.521), #001F1A 66.67%, rgba(0, 0, 0, 0) 100%)
               }
-  
+      @include atXsSmall{
+        height: 350px;
+      }
   
   
   
@@ -47,6 +51,10 @@
     top: 50px;
     left: 55px;
     color: white;
+      @include atXsSmall {
+          top:5px;
+          left:60px;
+        }
     
   }
   
@@ -74,8 +82,8 @@
   }
   .footer-socialMedia-container{
     position: absolute;
-    bottom: 60px;
-    right: 100px;
+    bottom: 30px;
+    right: 30px;
    color: white;
      
    font-size: 26px;
@@ -83,6 +91,11 @@
    line-height: 64px ;
    line-height: 202% ;
    font-weight: bold;
+   
+   @include atLarge{
+    bottom: 60px;
+    right: 100px;
+   }
   }
   
   .footerList {
