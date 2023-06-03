@@ -24,7 +24,7 @@ import FormAboutUsTeam from '../components/formAboutUsTeam';
 
 
 
-export default function About({ theme, ToggleTheme }) {
+export default function About({ theme, ToggleTheme, authorized, setAuthorized }) {
   
   const [popUpHistory, setPopUpHistory] = useState(false);
   const [popUpDelete, setPopUpDelete] = useState(false);
@@ -100,7 +100,7 @@ export default function About({ theme, ToggleTheme }) {
 
   return (
     <div className='about-container'>
-      <Header theme={theme} ToggleTheme={ToggleTheme}/>
+      <Header theme={theme}  authorized={authorized} setAuthorized={setAuthorized} ToggleTheme={ToggleTheme}/>
          <div className='radialGradientGreen'></div>
          <div className='radialsmall'></div>
          <div className='radialbig'></div>

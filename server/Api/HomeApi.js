@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const homeController = require("../controller/homeController")
+const authController = require("../controller/authController")
 
 
   
@@ -19,7 +20,7 @@ router.get("/home/info", homeController.getAllHomeInfo, (request, response) => {
 });
 
 
-router.post("/home/info", homeController.createHomeInfo, (request, response) => {
+router.post("/home/info",authController.protect, homeController.createHomeInfo, (request, response) => {
 
 
   response.json({
@@ -28,7 +29,7 @@ router.post("/home/info", homeController.createHomeInfo, (request, response) => 
 
   });
 })
-router.delete("/home/info/:title", homeController.deleteHomeInfo, (request, response) => {
+router.delete("/home/info/:title",authController.protect, homeController.deleteHomeInfo, (request, response) => {
 
 
   response.json({
@@ -38,7 +39,7 @@ router.delete("/home/info/:title", homeController.deleteHomeInfo, (request, resp
   });
 })
 
-router.put("/home/info/:title", homeController.updateHomeInfo, (request, response) => {
+router.put("/home/info/:title",authController.protect, homeController.updateHomeInfo, (request, response) => {
 
 
   response.json({
@@ -57,7 +58,7 @@ router.get("/home/projects", homeController.getAllHomeProjects, (request, respon
 });
 
 
-router.post("/home/projects", homeController.createHomeProjects, (request, response) => {
+router.post("/home/projects",authController.protect, homeController.createHomeProjects, (request, response) => {
 
 
   response.json({
@@ -70,7 +71,7 @@ router.post("/home/projects", homeController.createHomeProjects, (request, respo
 
   
 
-router.delete("/home/projects/:title", homeController.deleteHomeProjects, (request, response) => {
+router.delete("/home/projects/:title",authController.protect, homeController.deleteHomeProjects, (request, response) => {
 
 
   response.json({
@@ -80,7 +81,7 @@ router.delete("/home/projects/:title", homeController.deleteHomeProjects, (reque
   });
 })
 
-router.put("/home/projects/:title", homeController.updateHomeProjects, (request, response) => {
+router.put("/home/projects/:title",authController.protect, homeController.updateHomeProjects, (request, response) => {
 
 
   response.json({

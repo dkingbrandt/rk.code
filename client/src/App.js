@@ -12,7 +12,7 @@ import Admin from './views/admin';
 export const ThemeContext = createContext(null);
 
 function App() {
-    const [authorized, setAuthorized] = useState(true);
+    const [authorized, setAuthorized] = useState(false);
     const [theme, setTheme] = useState("dark");
 
     const ToggleTheme = () => {
@@ -22,11 +22,11 @@ function App() {
   /*   <ThemeContext.Provider value= {{theme, ToggleTheme}}> */
     <div className="App" id={theme}>
       <Routes>
-         <Route path="/" element={<Home authorized={authorized} theme={theme} ToggleTheme={ToggleTheme} />} />
-         <Route path="/om-oss" element={<About authorized={authorized} theme={theme} ToggleTheme={ToggleTheme} />} />
-         <Route path="/prislista" element={<PriceList authorized={authorized} theme={theme} ToggleTheme={ToggleTheme} />} />
-         <Route path="/kontakt" element={<Contact authorized={authorized} theme={theme} ToggleTheme={ToggleTheme}/>} />
-         <Route path="/admin" element={<Admin authorized={authorized} theme={theme} ToggleTheme={ToggleTheme}/>} />
+         <Route path="/" element={<Home authorized={authorized} setAuthorized={setAuthorized}  theme={theme} ToggleTheme={ToggleTheme} />} />
+         <Route path="/om-oss" element={<About authorized={authorized}setAuthorized={setAuthorized}  theme={theme} ToggleTheme={ToggleTheme} />} />
+         <Route path="/prislista" element={<PriceList authorized={authorized} setAuthorized={setAuthorized}  theme={theme} ToggleTheme={ToggleTheme} />} />
+         <Route path="/kontakt" element={<Contact authorized={authorized} setAuthorized={setAuthorized}  theme={theme} ToggleTheme={ToggleTheme}/>} />
+         <Route path="/admin" element={<Admin authorized={authorized} setAuthorized={setAuthorized} theme={theme} ToggleTheme={ToggleTheme}/>} />
       </Routes>
     </div>
  /*    </ThemeContext.Provider> */
