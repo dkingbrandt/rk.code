@@ -1,4 +1,5 @@
 @import './Base/variables.scss';
+@import './Base/mixins.scss';
 
 * {
   box-sizing: border-box;
@@ -8,10 +9,14 @@
   body {
     z-index: -2;
     margin: 0px;
+    @include at3Xxl {
+      margin-left: 10%;
+      margin-right: 10%;
+      background-color: rgba(84, 80, 80, 0.754);
+    }
     #dark{
       background-color: $backgroundColor;
-      background-color: $backgroundColor;
-    
+     
     }
     #light{
       background-color: white;
