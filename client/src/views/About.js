@@ -3,8 +3,8 @@ import { get } from '../utility/fetchHealper'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import './../scss/pages/aboutUs.scss';
-import Dan from './../img/dan.jpg';
 import nodeIcon from './../img/node.svg';
+import FormDelete from '../components/deleteForm';
 import cssIcon from './../img/css.svg';
 import wordpressIcon from './../img/wordpress.svg';
 import reactIcon from './../img/react.svg';
@@ -15,6 +15,7 @@ import sassIcon from './../img/sass.svg';
 import linkedInIcon from './../img/linkedin.svg';
 import mailIcon from './../img/mejl.svg';
 import CardModal from '../components/cardModal';
+import SmalModal from '../components/smalModal';
 import FormAboutUsHistory from '../components/formAboutUsHistory';
 import FormAboutUsTeam from '../components/formAboutUsTeam';
 
@@ -26,10 +27,13 @@ import FormAboutUsTeam from '../components/formAboutUsTeam';
 export default function About({ theme, ToggleTheme }) {
   
   const [popUpHistory, setPopUpHistory] = useState(false);
+  const [popUpDelete, setPopUpDelete] = useState(false);
   const [popUpTeam, setPopUpTeam] = useState(false);
   const [addHistory, setAddHistory] = useState(false);
   const [addTeam, setAddTeam] = useState(false);
   const [historyModal, setHistoryModal] = useState(false);
+  const [deleteHistoryModal, setDeleteHistoryModal] = useState(false);
+  const [deleteTeamModal, setDeleteTeamModal] = useState(false);
   const [teamModal, setTeamModal] = useState(false);
   const [history, setHistory] = useState([]);
   const [team, setTeam] = useState([]);
@@ -62,6 +66,10 @@ export default function About({ theme, ToggleTheme }) {
   const handlePopUpHistory = () => {
     setPopUpHistory((current) => !current); //toggle
     setHistoryModal(false);
+  };
+  const handlePopUpDelete = () => {
+    setPopUpDelete((current) => !current); //toggle
+    setDeleteHistoryModal(false);
   };
 
   
@@ -96,10 +104,18 @@ export default function About({ theme, ToggleTheme }) {
          <div className='radialGradientGreen'></div>
          <div className='radialsmall'></div>
          <div className='radialbig'></div>
-         <div className='history-wrapper'>
+      <div className='history-wrapper'>
+        
+        <button className='history-create-Btn' onClick={() => {
+          handlePopUpHistory()
+          setAddHistory(true)
+          setHistoryModal(true)
+        }}>Lägg till Nytt Project</button>
 
         <div className='history-container'>
+          
           <h1 className='history-heading'>VÅR HISTORIA</h1>
+          
           {history.map((history, index) => {
             
             return (
@@ -112,12 +128,13 @@ export default function About({ theme, ToggleTheme }) {
                   <p className='text-knowledge'>{history.description}</p>
 
                   <div className='history-Btn-Container-icon'>
-                    <button className='history-create-Btn' index={index} onClick={() => {
+                
+                    <button className='history-delete-Btn' index={index} onClick={() => {
                       showDetailHistory(index)
-                      handlePopUpHistory()
-                      setAddHistory(true)
-                      setHistoryModal(true)
-                    }}>Lägg till</button>
+                      handlePopUpDelete()
+                      setDeleteHistoryModal(true)
+                    }}>Ta Bort</button>
+                
                     <button className='history-change-Btn' index={index} onClick={() => {
                       showDetailHistory(index)
                       handlePopUpHistory()
@@ -141,6 +158,23 @@ export default function About({ theme, ToggleTheme }) {
 
 
           })}
+
+          {deleteHistoryModal && (
+            <SmalModal
+              handlePopUp={handlePopUpDelete}
+              popUp={popUpDelete}
+              component={<FormDelete handlePopUp={handlePopUpDelete} setProjects={setHistory} title={title} link={"/aboutus/history/"} textHeading={"Är du säker på att du vill ta bort projektet?"} />} />
+
+          )}
+          {deleteTeamModal && (
+            <SmalModal
+              handlePopUp={handlePopUpDelete}
+              popUp={popUpDelete}
+              component={<FormDelete handlePopUp={handlePopUpDelete} setProjects={setTeam} title={title} link={"/aboutus/team/"} textHeading={"Är du säker på att du vill ta bort projektet?"} />} />
+
+          )}
+          
+
 
         
           {historyModal && (
@@ -166,7 +200,14 @@ export default function About({ theme, ToggleTheme }) {
 
 
       <div className='team-wrapper'>
+        <button className='team-create-Btn' onClick={() => {
+          handlePopUpTeam()
+          setTeamModal(true)
+          setAddTeam(true)
+        }}>Lägg till ny team medlem</button>
+        <div className='team-container'></div>
         <h1 className='team-heading'>TEAMET</h1>
+       
         {team.map((member, index) => {
           return (
             <div>
@@ -254,12 +295,12 @@ export default function About({ theme, ToggleTheme }) {
 
 
                   <div className='team-Btn-Container-icon'>
-                    <button className='team-create-Btn' index={index} onClick={() => {
+                    <button className='team-delete-Btn'  onClick={() => {
                       showDetailTeam(index)
-                      handlePopUpTeam()
-                      setTeamModal(true)
-                      setAddTeam(true)
-                    }}>Lägg till</button>
+                      handlePopUpDelete()
+                      setDeleteTeamModal(true)
+                    }}>Ta Bort</button>
+                   
                     <button className='team-change-Btn' index={index} onClick={() => {
                       showDetailTeam(index)
                       handlePopUpTeam()

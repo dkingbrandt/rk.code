@@ -41,17 +41,36 @@
     background: radial-gradient(56.51% 46.26% at 52.72% 55.17%, #023D37 0%, #011311 33.33%, #000000 66.67%, rgba(0, 0, 0, 0) 100%)
   }
 
+    .history-create-Btn {
+      background-color: transparent;
+      border: solid 2px #3DD1AC;
+      width: 200px;
+      height: 40px;
+      border-radius: 12px;
+      color: #3DD1AC;
+      font-weight: 700;
+      
+    }
+    
+  .history-wrapper{
+    display: flex;
+    justify-content: center;
+    margin-top: 300px;
+    gap: 20px;
+   
+      
 
+  }
   .history-container {
     position: relative;
     z-index: 200;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 70%;
-    height: 1000px;
-    margin: auto;
-    margin-top: 10%;
+    max-width: 50%;
+    min-height: 600px;
+    max-height: 1000px;
+   
     background-color: rgba(#ffffff, 0.1);
     border-radius: 10px;
   
@@ -148,38 +167,25 @@
         padding-top: 40px;
         
       }
-       .history-create-Btn{
-        background: linear-gradient(90deg, #46EFC4 -19.55%, #7BF1B8 13.97%, #A6F5A9 34.08%, #D4F79A 50%);
-          border-radius: 13px;
-          width: 110px;
-          border: none;
-          height: 36px;
-          font-family: 'Montserrat';
-          font-style: normal;
-          font-weight: 600;
-          font-size: 16px;
-          color: #000000;
-       }
+       
+       
+       
+       .history-delete-Btn,
        .history-change-Btn{
-        border: 2px solid #808281;
-          border-radius: 13px;
+        background-color: transparent;
+          border: solid 2px #3DD1AC;
           width: 110px;
-          height: 36px;
-          font-family: 'Montserrat';
-          font-style: normal;
-          font-weight: 600;
-          font-size: 16px;
-          color: white;
-          background: #000000;
+          height: 40px;
+          border-radius: 12px;
+          color: #3DD1AC;
+          font-weight: 700;
        }
+
+      
      
   
   }
-    .formAbout-error{
-      font-size: large;
-      color: red;
-    }
-  
+   
 }
 
 
@@ -432,28 +438,24 @@
      }
 
     .team-create-Btn {
-      background: linear-gradient(90deg, #46EFC4 -19.55%, #7BF1B8 13.97%, #A6F5A9 34.08%, #D4F79A 50%);
-      border-radius: 13px;
-      width: 110px;
-      border: none;
-      height: 36px;
-      font-family: 'Montserrat';
-      font-style: normal;
-      font-weight: 600;
-      font-size: 16px;
+      background-color: transparent;
+      border: solid 2px #3DD1AC;
+      width: 200px;
+      height: 40px;
+      border-radius: 12px;
+      color: #3DD1AC;
+      font-weight: 700;
+    
     }
-  
+    .team-delete-Btn,
     .team-change-Btn {
-      border: 2px solid #808281;
-      border-radius: 13px;
-      width: 110px;
-      height: 36px;
-      font-family: 'Montserrat';
-      font-style: normal;
-      font-weight: 600;
-      font-size: 16px;
-      color: white;
-      background: #000000;
+      background-color: transparent;
+        border: solid 2px #3DD1AC;
+        width: 110px;
+        height: 40px;
+        border-radius: 12px;
+        color: #3DD1AC;
+        font-weight: 700;
     }
 
 

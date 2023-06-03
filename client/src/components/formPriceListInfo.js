@@ -77,7 +77,6 @@ export default function FormPriceListInfo(props) {
         required
         type="file"
         name="file"
-        placeholder="Ladda upp icon"
         onChange={(e) => {
           setImg(e.target.files[0]);
         }}
@@ -86,20 +85,20 @@ export default function FormPriceListInfo(props) {
       <input
         className="formAbout-heading"
         required
-        placeholder={props.title}
+        placeholder={!props.add ? props.title : "Titel"}
         onChange={(e) => setNewTitle(e.target.value)}
       />
 
       <input
         className="formAbout-heading"
         required
-        placeholder={props.heading}
+        placeholder={!props.add ? props.heading : "Rubrik"}
         onChange={(e) => setNewHeading(e.target.value)}
       />
       <textarea
         className='formAbout-description'
         required
-        placeholder={props.description}
+        placeholder={!props.add ? props.description : "Textfält"}
         onChange={(e) => setNewDescription(e.target.value)}
       ></textarea>
 
