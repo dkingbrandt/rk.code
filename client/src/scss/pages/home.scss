@@ -33,11 +33,12 @@
     }
   .radialGradientsmall{
     display: none;
-    @include atMedium {
+    @include at2XlLarge {
+      display: block;
       position: absolute;
-      min-width: 719.58px;
+      min-width: 500.58px;
       min-height: 494.76px;
-      left: 70%;
+      left: 80%;
       top: 700px;
       transform: rotate(-10deg);
       background: radial-gradient(56.51% 46.26% at 52.72% 55.17%, #023D37 0%, #043933 35.58%, #001F1A 57.29%, rgba(0, 0, 0, 0) 100%);
