@@ -31,6 +31,26 @@
    
 }
 
+.LogoutBtn {
+  position: absolute;
+  top: 10px;
+  left: 25%;
+  width: 90px;
+  height: 40px;
+  background-color: #39c9a5;
+  color: black;
+  font-family: 'Murecho', sans-serif;
+  border:none;
+  font-size: 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  z-index: 21;
+
+  @include at2XlLarge {
+    left: 20%;
+  }
+}
+
 #dark {
   .headerContainer {
     background-color:black;

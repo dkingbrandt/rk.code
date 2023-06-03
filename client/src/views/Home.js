@@ -21,7 +21,7 @@ import { get, post, put, erase, patch} from "./../utility/fetchHealper";
 
 
 
-export default function Home({theme, ToggleTheme, authorized}) {
+export default function Home({theme, ToggleTheme, authorized, setAuthorized}) {
 
   const [popUp, setPopUp] = useState(false);
   const [popUpInfo, setPopUpInfo] = useState(false);
@@ -97,7 +97,7 @@ export default function Home({theme, ToggleTheme, authorized}) {
     <div className='pageContainer'>
 
     <div className='TopContainer'>
-       <Header theme={theme} ToggleTheme={ToggleTheme}/>
+       <Header authorized={authorized} setAuthorized={setAuthorized} theme={theme} ToggleTheme={ToggleTheme}/>
       <div className='radialGradientDarkGreen'></div>
       <div className='radialGradientsmall'></div>
       <div className='radialGradientbig'></div>

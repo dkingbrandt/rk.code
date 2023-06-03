@@ -2,9 +2,11 @@ import React from 'react'
 import './../scss/pages/header.scss';
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import {get} from './../utility/fetchHealper';
+import { useNavigate } from 'react-router-dom';
 
 
-export default function Header({theme, ToggleTheme}) {
+export default function Header({theme, ToggleTheme, authorized, setAuthorized}) {
 
   const [meny, setMeny] = useState(false);
 
@@ -12,6 +14,12 @@ export default function Header({theme, ToggleTheme}) {
     setMeny((current) => !current); //toggle
 
   };
+
+  let navigate = useNavigate();
+
+  function routeBack() {
+    navigate('/')
+  }
 
   const logga = "[ RK.CODE ]";
   const homeText = "< HOME />"
@@ -29,7 +37,14 @@ export default function Header({theme, ToggleTheme}) {
           </div>
           </div>
       <div><p className='logga'>{logga}</p></div>
-       
+      {authorized &&(
+      <button className='LogoutBtn' onClick={() => {
+
+        get("/logout");
+        setAuthorized(false);
+        routeBack() 
+      }}>Logga ut</button>
+      )}
    
 
         <ul className={meny ? "headerList navShow" : "headerList hiddenNav"}>
