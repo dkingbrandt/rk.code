@@ -6,6 +6,7 @@
 .about-container {
 
   position: relative;
+  overflow: hidden;
   
   
   .radialGradientGreen {
@@ -19,6 +20,10 @@
   }
   
   .radialsmall {
+
+    display: none;
+    @include atLarge {
+    display: block;
     position: absolute;
     min-width: 900.58px;
     min-height: 700.76px;
@@ -27,6 +32,9 @@
     z-index: 1;
     transform: rotate(-30deg);
     background: radial-gradient(56.51% 46.26% at 52.72% 55.17%, #23a195 0%, #022e2ed5 35.58%, #000201 57.29%, rgba(0, 0, 0, 0) 100%)
+
+    }
+   
   }
   
   
@@ -38,7 +46,18 @@
     top: 350px;
     z-index: 1;
     transform: rotate(30deg);
-    background: radial-gradient(56.51% 46.26% at 52.72% 55.17%, #023D37 0%, #011311 33.33%, #000000 66.67%, rgba(0, 0, 0, 0) 100%)
+    background: radial-gradient(56.51% 46.26% at 52.72% 55.17%, #023D37 0%, #011311 33.33%, #000000 66.67%, rgba(0, 0, 0, 0) 100%);
+
+    @include atLarge {
+       min-width: 1300px;
+    min-height: 1000px;
+    }
+    @include at2XlLarge {
+       min-width: 1500px;
+    min-height: 1300px;
+    }
+
+    
   }
 
     .history-create-Btn {
@@ -62,49 +81,71 @@
   }
   .history-container {
     position: relative;
-    z-index: 200;
+    z-index: 7;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 50%;
-    min-height: 600px;
-    max-height: 1000px;
-   
+    width: 90%;
+    height: auto;
+    margin: auto;
+    margin-top: 10%;
     background-color: rgba(#ffffff, 0.1);
     border-radius: 10px;
+    padding-bottom: 2%;
+
+
+    @include atMedium {
+    padding-bottom: 3%;
+    padding-top: 3%;
+    }
+    @include atLarge {
+     width: 70%;
+    }
+
+
   
     .history-heading {
       font-family: 'Murecho', sans-serif;
       font-style: normal;
       font-weight: 400;
-      font-size: 40px;
-      line-height: 25px;
-      /* identical to box height, or 62% */
-  
+      font-size: 30px;
       display: flex;
       align-self: center;
-  
-      letter-spacing: 0.255em;
-  
       color: #ffff;
+      letter-spacing: 0.255em;
+
+      @include atMedium {
+        font-size: 40px;
+        line-height: 25px;
+      }
   
     }
   
-    .history-knowledge-box,
+ 
     .history-create-box,
-    .history-vision-box {
+    .history-knowledge-box,
+    .history-vision-box
+    {
       display: flex;
-      flex-direction: row;
-      padding-top: 30px;
-      padding-left: 30px;
-      margin-top: 50px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       border-top: 1px solid;
+      padding-top: 2%;
+      padding-bottom: 2%;
       border-image: linear-gradient(90deg, #46EFC4 -19.55%,
           #7BF1B8 13.97%,
           #A6F5A9 34.08%,
           #D4F79A 50%) 1;
-      height: calc(100%/4);
 
+
+    @include atMedium {
+      flex-direction: row;
+      padding-top: 30px;
+      padding-left: 30px;
+      margin-top: 50px;
+      height: calc(100%/4);
+    }
 
     .history-textBox-knowledge {
       height: calc(100%/4);
@@ -188,8 +229,6 @@
 }
 
 
-
-
 .team-wrapper {
   display: flex;
   flex-direction: column;
@@ -199,16 +238,15 @@
   gap: 30px;
 
   .team-heading {
+    position: relative;
+    z-index: 20;
     font-family: 'Murecho', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 40px;
     line-height: 25px;
     margin-bottom: 50px;
-  
-  
     letter-spacing: 0.255em;
-  
     color: #ffff;
   
   }
@@ -217,24 +255,44 @@
 .team-box-rebecca,
 .team-box-dan {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   box-sizing: border-box;
-  padding: 80px;
   margin: auto;
-  width: 1101px;
+  width: 90%;
   height: auto;
+  padding-top:4% ;
+  padding-bottom:4%;
+  gap: 20px;
   column-gap: 30px;
-  border: 3px solid rgba(123, 241, 184, 0.5);
+  border: 2px solid rgba(123, 241, 184, 0.5);
+  position: relative;
+  z-index: 7;
+
+
+  @include atLarge {
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 1101px;
+    height: 550px;
+     padding: 80px;
+  }
 }
 
 
 .team-box-rebecca{
-  border-radius: 20px 20px 0px 20px;
+  @include atLarge {
+    border-radius: 20px 20px 0px 20px;
+  }
+  
 
 }
 .team-box-dan{
-  border-radius: 0px 20px 20px 20px;
+ 
+  @include atLarge {
+    border-radius: 0px 20px 20px 20px;
+  }
 }
 
 
@@ -242,14 +300,18 @@
 .team-circle-dan {
   position: relative;
   display: flex;
- flex-direction: column;
- justify-items: center;
+  flex-direction: column;
+  justify-items: center;
   width: 333px;
-  height: 326px;
   border-radius: 50%;
 
-  border: 1px solid #7BF1B8;
-  transform: matrix(-1, 0, 0, 1, 0, 0);
+  @include atLarge {
+    height: 326px;
+    flex-direction: column;
+    justify-items: center;
+    border: 1px solid #7BF1B8;
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+  }
 }
 
 }
@@ -264,19 +326,27 @@
 }
 
 .circle-globe-one {
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  right: -10px;
-  bottom: 200px;
-  border-radius: 50%;
-  background: linear-gradient(180deg, #A6F5A9 26%, rgba(166, 245, 169, 0) 126%);
-  transform: matrix(-1, 0, 0, 1, 0, 0);
+    display: none;
+  @include atLarge {
+    display: block;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    right: -10px;
+    bottom: 200px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #A6F5A9 26%, rgba(166, 245, 169, 0) 126%);
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+  }
+
 }
 
 .circle-globe-two {
+  display: none;
+  @include atLarge {
+  display: block;  
   position: absolute;
   display: flex;
   justify-content: center;
@@ -285,12 +355,18 @@
   border-radius: 50%;
   right: 10px;
   bottom: 1px;
-
   background: linear-gradient(139.09deg, #D4F79A 0%, rgba(212, 247, 154, 0) 95.05%);
   transform: matrix(-1, 0, 0, 1, 0, 0);
+  }
+
 }
 
 .circle-globe-three {
+
+  display: none;
+
+  @include atLarge{
+  display: block;  
   display: flex;
   justify-content: center;
   position: absolute;
@@ -301,34 +377,44 @@
   border-radius: 50%;
   background: linear-gradient(180deg, #3FDCB4 0%, rgba(63, 220, 180, 0) 100%);
   transform: matrix(-1, 0, 0, 1, 0, 0);
+  }
+ 
 }
 
 .circle-globe-four {
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  top: 100px;
-  left: -10px;
-  border-radius: 50%;
+    display: none;
+  @include atLarge {
+    display: block;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 100px;
+    left: -10px;
+    border-radius: 50%;
+    background: linear-gradient(215.98deg, #46EFC4 42.07%, rgba(166, 245, 169, 0) 116.55%, rgba(166, 245, 169, 0) 116.55%);
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+  }
 
-  background: linear-gradient(215.98deg, #46EFC4 42.07%, rgba(166, 245, 169, 0) 116.55%, rgba(166, 245, 169, 0) 116.55%);
-  transform: matrix(-1, 0, 0, 1, 0, 0);
 }
 
 .circle-globe-five {
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  left: 100px;
-  top: -6px;
-  border-radius: 50%;
+   display: none;
+  @include atLarge {
+    display: block;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 100px;
+    top: -6px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #02FFD1 0%, rgba(2, 255, 209, 0) 100%);
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+  }
 
-  background: linear-gradient(180deg, #02FFD1 0%, rgba(2, 255, 209, 0) 100%);
-  transform: matrix(-1, 0, 0, 1, 0, 0);
 }
 
 .circle-globe-react-icon,
@@ -363,30 +449,49 @@
 
 }
 
+
+
 .team-heading-rebecca,
 .team-heading-dan{
-  font-family: $menyFont;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 25px;
-    margin-bottom: 50px;
-  
-  
-    color: #FFFFFF;
+      
+       
+      font-family: $menyFont;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 25px;
+      margin-bottom: 50px;
+      color: #FFFFFF;
+    
 }
 
 .team-text-box-experience{
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+ @include atLarge {
   display: flex;
   flex-direction: row;
   width: 500px;
+  text-align: start;
+ }
 }
 .team-text-box-knowledge{
   padding-left: 15px;
   padding-top: 30px;
   display: flex;
+  flex-direction: column;
+  text-align: center;
+
+
+  @include atLarge {
+    display: flex;
   flex-direction: row;
   width: 500px;
+  text-align: start;
+  }
 }
 .team-sub-heading-rebecca,
 .team-sub-heading-dan{
@@ -410,17 +515,20 @@
 
 .team-text-rebecca,
 .team-text-dan{
-  padding-left: 10px;
+
   font-family: $menyFont;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 28px;
-    /* or 233% */
-  
     letter-spacing: 0.035em;
-  
     color: #FFFFFF;
+    max-width: 300px;
+
+    @include atLarge {
+       padding-left: 10px;
+       max-width: 700px;
+    }
 }
 
 .team-icon-box{
@@ -467,6 +575,7 @@
   .about-container {
 
     position: relative;
+    overflow: hidden;
     
     
     .radialGradientGreen {
@@ -480,6 +589,10 @@
     }
     
     .radialsmall {
+      display: none;
+
+      @include atLarge {
+      display: block;
       position: absolute;
       min-width: 700.58px;
       min-height: 600.76px;
@@ -488,48 +601,82 @@
       z-index: 1;
       transform: rotate(-30deg);
       background: radial-gradient(50% 50% at 50% 50%, #FFFFFF 9.9%, #cb51cd52 17.96%, #8b1ab462 39.32%, #d56ce893 50%, rgba(255, 255, 255, 0) 100%);
+      }
+     
     }
     
     
     .radialbig {
-      position: absolute;
-      min-width: 1500px;
-      min-height: 1200px;
-      left: -25%;
-      top: 350px;
-      z-index: 1;
-      transform: rotate(30deg);
-      background: radial-gradient(56.51% 46.26% at 36.88% 59.78%, rgba(172, 72, 162, 0.6) 0%, rgba(156, 51, 182, 0.6) 35.58%, rgba(123, 22, 101, 0.6) 57.29%, rgba(231, 18, 209, 0) 100%) 
+    
+        position: absolute;
+        min-width: 1500px;
+        min-height: 1200px;
+        left: -165%;
+        top: 350px;
+        z-index: 1;
+        transform: rotate(40deg);
+        background: radial-gradient(56.51% 46.26% at 36.88% 59.78%, rgba(172, 72, 162, 0.6) 0%, rgba(156, 51, 182, 0.6) 35.58%, rgba(123, 22, 101, 0.6) 57.29%, rgba(231, 18, 209, 0) 100%);
+      
+        @include atSmall{
+          left: -125%;
+        }
+        @include atSmallMedium {
+          left: -95%;
+        }
+        @include atMedium {
+          left: -65%;
+        }
+
+      @include atLarge {
+        left: -45%;
+        min-width: 1300px;
+     min-height: 1000px;
+     }
+     @include at2XlLarge {
+      left: -35%;
+        min-width: 1500px;
+     min-height: 1300px;
+     }
     }
   
   
     .history-container {
       position: relative;
-      z-index: 200;
+      z-index: 7;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      width: 70%;
-      height: 1000px;
+      width: 90%;
+      height: auto;
       margin: auto;
       margin-top: 10%;
-      background-color: rgba(#ffffff, 0.1);
+      background-color: 
+      rgba(56, 50, 79, .1);
       border-radius: 10px;
-    
+      padding-bottom: 2%;
+
+      @include atMedium {
+        padding-bottom: 3%;
+        padding-top: 3%;
+        }
+        @include atLarge {
+         width: 70%;
+        }
+
       .history-heading {
         font-family: 'Murecho', sans-serif;
         font-style: normal;
         font-weight: 400;
-        font-size: 40px;
-        line-height: 25px;
-        /* identical to box height, or 62% */
-    
+        font-size: 30px;
         display: flex;
         align-self: center;
-    
         letter-spacing: 0.255em;
-    
-        color: #ffff;
+        color: rgba(56, 50, 79, 1);
+
+        @include atMedium {
+          font-size: 40px;
+          line-height: 25px;
+        }
     
       }
     
@@ -537,22 +684,30 @@
       .history-create-box,
       .history-vision-box {
         display: flex;
-        flex-direction: row;
-        padding-top: 30px;
-        padding-left: 30px;
-        margin-top: 50px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 2%;
+        align-items: center;
+        padding-bottom: 2%;
         border-top: 1px solid;
-        border-image: linear-gradient(90deg, #46EFC4 -19.55%,
-            #7BF1B8 13.97%,
-            #A6F5A9 34.08%,
-            #D4F79A 50%) 1;
-        height: calc(100%/4);
+        border-image: linear-gradient(90deg, #CF35D2 11.66%, rgba(207, 53, 210, 0.44) 74.84%, rgba(186, 58, 218, 0) 122.96%) 1;
+       
+        
+    @include atMedium {
+      flex-direction: row;
+      padding-top: 30px;
+      padding-left: 30px;
+      margin-top: 50px;
+      height: calc(100%/4);
+    }
   
   
       .history-textBox-knowledge {
         margin-left: 5%;
         width: 70%;
-        color: #ecfaf4;
+        color: 
+        rgba(56, 50, 79, 1);
         font-size: 16px;
         letter-spacing: 0.22em;
         line-height: 25px;
@@ -567,7 +722,7 @@
         width: 250px;
         height: 60px;
         border-radius: 10px 10px 10px 0px;
-        background: rgba(255, 255, 255, 0.1);
+        background-color: rgba(56, 50, 79, .2);
         margin-top: 5px;
   
         .heading-vision,
@@ -584,7 +739,7 @@
           display: flex;
           align-items: center;
           letter-spacing: 0.22em;
-          color: #FFFFFF;
+          color: rgba(56, 50, 79, 1);
       
         }
   
@@ -610,43 +765,106 @@
     gap: 30px;
   
     .team-heading {
+      position: relative;
+      z-index: 20;
       font-family: 'Murecho', sans-serif;
       font-style: normal;
       font-weight: 400;
       font-size: 40px;
       line-height: 25px;
       margin-bottom: 50px;
-    
-    
       letter-spacing: 0.255em;
-    
-      color: #ffff;
+      color: rgba(56, 50, 79, 1);
+
     
     }
   
     
-  .team-box-rebecca,
-  .team-box-dan {
+  .team-box-rebecca
+  {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     box-sizing: border-box;
-    padding: 80px;
     margin: auto;
-    width: 1101px;
-    height: 550px;
+    width: 90%;
+    height: auto;
+    column-gap: 20px;
+    position: relative;
+    padding-top:4% ;
+    padding-bottom:4%;
     column-gap: 30px;
-    border: 3px solid rgba(123, 241, 184, 0.5);
+  
+      @include atLarge {
+         padding: 80px;
+         width: 1101px;
+         height: 550px;
+         flex-direction: row;
+         justify-content: flex-start;
+    }
+  
+         
+            &::before {
+              content: "";
+    position: absolute;
+    inset: 0;
+  
+    padding: 4px; 
+    background: linear-gradient(82.48deg, #962DE9 11.66%, rgba(144, 63, 173, 0.44) 90.76%, rgba(186, 58, 218, 0)159.15%) border-box; /*3*/
+    -webkit-mask: 
+       linear-gradient(#fff 0 0) content-box, 
+       linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude; 
+            border-radius: 20px 20px 0px 20px;
+         
+            }
+  }
+
+  .team-box-dan {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin: auto;
+    width: 90%;
+    height: auto;
+    gap: 20px;
+    column-gap: 30px;
+    padding-top:4% ;
+    padding-bottom:4%;
+    position: relative;
+    @include atLarge {
+      flex-direction: row;
+      justify-content: flex-start;
+      width: 1101px;
+      height: 550px;
+       padding: 80px;
+    }
+  
+  
+         
+            &::before {
+              content: "";
+    position: absolute;
+    inset: 0;
+  
+    padding: 4px; 
+    background: linear-gradient(82.48deg, #962DE9 11.66%, rgba(144, 63, 173, 0.44) 90.76%, rgba(186, 58, 218, 0)159.15%) border-box; /*3*/
+    -webkit-mask: 
+       linear-gradient(#fff 0 0) content-box, 
+       linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude; 
+            border-radius: 0px 20px 20px 20px;
+         
+            }
   }
   
   
-  .team-box-rebecca{
-    border-radius: 20px 20px 0px 20px;
-  
-  }
-  .team-box-dan{
-    border-radius: 0px 20px 20px 20px;
-  }
   
   
   .team-circle-rebecca,
@@ -656,11 +874,16 @@
    flex-direction: column;
    justify-items: center;
     width: 333px;
-    height: 326px;
     border-radius: 50%;
-  
-    border: 1px solid #7BF1B8;
-    transform: matrix(-1, 0, 0, 1, 0, 0);
+   
+
+    @include atLarge{
+       height: 326px;
+       flex-direction: column;
+       justify-items: center;
+       border: 1px solid  #962DE9;
+       transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
   }
   
   }
@@ -675,6 +898,9 @@
   }
   
   .circle-globe-one {
+    display: none;
+    @include atLarge {
+    display: block;
     display: flex;
     justify-content: center;
     position: absolute;
@@ -683,25 +909,35 @@
     right: -10px;
     bottom: 200px;
     border-radius: 50%;
-    background: linear-gradient(180deg, #A6F5A9 26%, rgba(166, 245, 169, 0) 126%);
+    background: linear-gradient(180deg,rgba(242, 83, 226, 0.967), rgba(242, 83, 226, 0.281));
     transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
+   
   }
   
   .circle-globe-two {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    right: 10px;
-    bottom: 1px;
-  
-    background: linear-gradient(139.09deg, #D4F79A 0%, rgba(212, 247, 154, 0) 95.05%);
-    transform: matrix(-1, 0, 0, 1, 0, 0);
+    display: none;
+    @include atLarge {
+      display: block;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      right: 10px;
+      bottom: 1px;
+      background: linear-gradient(180deg,rgba(242, 83, 226, 0.967), rgba(242, 83, 226, 0.281));
+      transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
+   
   }
   
   .circle-globe-three {
+    display: none;
+
+    @include atLarge {
+    display: block;
     display: flex;
     justify-content: center;
     position: absolute;
@@ -710,36 +946,48 @@
     bottom: 1px;
     left: 30px;
     border-radius: 50%;
-    background: linear-gradient(180deg, #3FDCB4 0%, rgba(63, 220, 180, 0) 100%);
+    background: linear-gradient(180deg,rgba(228, 157, 254, 0.967), rgba(144, 63, 173, 0.31));
     transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
+   
   }
   
   .circle-globe-four {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    top: 100px;
-    left: -10px;
-    border-radius: 50%;
-  
-    background: linear-gradient(215.98deg, #46EFC4 42.07%, rgba(166, 245, 169, 0) 116.55%, rgba(166, 245, 169, 0) 116.55%);
-    transform: matrix(-1, 0, 0, 1, 0, 0);
+    display: none;
+
+    @include atLarge {
+      display: block;
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      top: 100px;
+      left: -10px;
+      border-radius: 50%;
+      background: linear-gradient(180deg,rgba(144, 63, 173, 0.967), rgba(144, 63, 173, 0.31));
+      transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
+ 
   }
   
   .circle-globe-five {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    left: 100px;
-    top: -6px;
-    border-radius: 50%;
-  
-    background: linear-gradient(180deg, #02FFD1 0%, rgba(2, 255, 209, 0) 100%);
-    transform: matrix(-1, 0, 0, 1, 0, 0);
+    display: none;
+
+    @include atLarge {
+      display: block;
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      left: 100px;
+      top: -6px;
+      border-radius: 50%;
+      background: linear-gradient(180deg,rgba(144, 63, 173, 0.972), rgba(144, 63, 173, 0.44));
+      transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
+
   }
   
   .circle-globe-react-icon,
@@ -782,22 +1030,35 @@
       font-size: 30px;
       line-height: 25px;
       margin-bottom: 50px;
-    
-    
-      color: #FFFFFF;
+      color: rgba(56, 50, 79, 1);
   }
   
   .team-text-box-experience{
     display: flex;
-    flex-direction: row;
-    width: 500px;
+    flex-direction: column;
+    text-align: center;
+
+    @include atLarge {
+      display: flex;
+      flex-direction: row;
+      width: 500px;
+      text-align: start;
+     }
   }
   .team-text-box-knowledge{
     padding-left: 15px;
     padding-top: 30px;
     display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+
+    @include atLarge {
+      display: flex;
     flex-direction: row;
     width: 500px;
+    text-align: start;
+    }
   }
   .team-sub-heading-rebecca,
   .team-sub-heading-dan{
@@ -811,27 +1072,31 @@
       /* or 125% */
     
     
-      color: #46EFC4;
+      color: rgba(242, 83, 226, 0.967)
   }
   .sub-heading-divider{
-    color: white;
+    color: rgba(56, 50, 79, 1);
     padding-left: 5px;
     font-size: 25;
   }
   
   .team-text-rebecca,
   .team-text-dan{
-    padding-left: 10px;
+   
     font-family: $menyFont;
       font-style: normal;
       font-weight: 400;
       font-size: 16px;
       line-height: 28px;
       /* or 233% */
-    
       letter-spacing: 0.035em;
-    
-      color: #FFFFFF;
+      color: rgba(56, 50, 79, 1);
+      max-width: 300px;
+
+      @include atLarge {
+        padding-left: 10px;
+        max-width: 700px;
+      }
   }
   
   .team-icon-box{
@@ -839,5 +1104,8 @@
     gap: 10px;
     margin-left: 30%;
     margin-top: 5%;
+    a{
+      background-color: rgba(56, 50, 79, 1);
+    }
   }
 }

@@ -91,9 +91,10 @@ export default function PriceList({ theme, ToggleTheme }) {
 
   return (
     <div className='priceList-container'>
-      
-      <Header theme={theme} ToggleTheme={ToggleTheme} />
-      
+     <Header theme={theme} ToggleTheme={ToggleTheme}/>
+     <div className='radialGradientGreen'></div>
+         <div className='radialsmall'></div>
+         <div className='radialbig'></div>
       <div className='priceList-wrapper'>
 
         <button className='price-info-create-Btn' onClick={() => {
@@ -220,7 +221,7 @@ export default function PriceList({ theme, ToggleTheme }) {
      </div>
   </div>
       
-
+    <div className='price-list-wrapper-flex'>
       <div className='price-list-price-wrapper'>
         <button className='price-list-create-Btn'  onClick={() => {
           handlePopUpPriceList()
@@ -276,6 +277,7 @@ export default function PriceList({ theme, ToggleTheme }) {
      
        
       </div>
+    </div>
 
       <div className='price-list-btn-wrapper'>
 
