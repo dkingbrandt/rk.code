@@ -105,12 +105,17 @@ export default function About({ theme, ToggleTheme }) {
          <div className='radialsmall'></div>
          <div className='radialbig'></div>
       <div className='history-wrapper'>
+
+        <div className='history-create-btn-container'>
+          <button className='history-create-Btn' onClick={() => {
+            handlePopUpHistory()
+            setAddHistory(true)
+            setHistoryModal(true)
+          }}>Lägg till Nytt Project</button>
+
+        </div>
         
-        <button className='history-create-Btn' onClick={() => {
-          handlePopUpHistory()
-          setAddHistory(true)
-          setHistoryModal(true)
-        }}>Lägg till Nytt Project</button>
+     
 
         <div className='history-container'>
           
@@ -127,7 +132,7 @@ export default function About({ theme, ToggleTheme }) {
                 <div className='history-textBox-knowledge'>
                   <p className='text-knowledge'>{history.description}</p>
 
-                  <div className='history-Btn-Container-icon'>
+                  <div className='history-btn-container'>
                 
                     <button className='history-delete-Btn' index={index} onClick={() => {
                       showDetailHistory(index)
@@ -201,12 +206,21 @@ export default function About({ theme, ToggleTheme }) {
 
       <div className='team-wrapper'>
        
-        <div className='team-container'></div>
-        <button className='team-create-Btn' onClick={() => {
-          handlePopUpTeam()
-          setTeamModal(true)
-          setAddTeam(true)
-        }}>Lägg till ny team medlem</button>
+        
+        <div className='team-create-btn-container'>
+          <button className='team-create-Btn' onClick={() => {
+            handlePopUpTeam()
+            setTeamModal(true)
+            setAddTeam(true)
+          }}>Lägg till ny team medlem</button>
+
+
+
+         </div>
+      
+       
+        
+        
         <h1 className='team-heading'>TEAMET</h1>
        
         {team.map((member, index) => {
@@ -295,7 +309,7 @@ export default function About({ theme, ToggleTheme }) {
                   }
 
 
-                   <div className='team-Btn-Container-icon'>
+                   <div className='team-btn-container'>
                     <button className='team-delete-Btn'  onClick={() => {
                       showDetailTeam(index)
                       handlePopUpDelete()
