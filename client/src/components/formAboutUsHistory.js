@@ -9,15 +9,32 @@ export default function FormAboutUsHistory(props) {
   const [newDescription, setNewDescription] = useState("");
   const [img, setImg] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [imgLight, setImgLight] = useState("");
+  const [imageUrlLight, setImageUrlLight] = useState("");
   
 
   useEffect(() => {
     uploadImage();
-  }, [img]);
+  }, [img,imgLight]);
 
   const uploadImage = async () => {
     const formData = new FormData();
     formData.append('file', img);
+    formData.append('upload_preset', 'Hantverkare');
+    try {
+      const res = await Axios.post(
+        'https://api.cloudinary.com/v1_1/bexryd/image/upload',
+        formData
+      );
+      setImageUrl(res.data.secure_url);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+ 
+  const uploadImageLight = async () => {
+    const formData = new FormData();
+    formData.append('file', imgLight);
     formData.append('upload_preset', 'Hantverkare');
     try {
       const res = await Axios.post(
@@ -40,6 +57,7 @@ export default function FormAboutUsHistory(props) {
       post('/aboutus/history', {
         title: newTitle,
         img: imageUrl,
+        imgLight:imageUrlLight,
         heading: newHeading,
         description: newDescription,
       })
@@ -47,12 +65,14 @@ export default function FormAboutUsHistory(props) {
         .then((response) => props.setHistory(response.data))
         .finally(() => {
           uploadImage();
+          uploadImageLight();
           props.handlePopUp();
         });
     } else {
       put(`/aboutus/history/${props.title}`, {
         title: newTitle,
         img: imageUrl,
+        imgLight:imageUrlLight,
         heading: newHeading,
         description: newDescription,
       })
@@ -60,6 +80,7 @@ export default function FormAboutUsHistory(props) {
         .then((response) => props.setHistory(response.data))
         .finally(() => {
           uploadImage();
+          uploadImageLight();
           props.handlePopUp();
         });
     }
@@ -78,6 +99,16 @@ export default function FormAboutUsHistory(props) {
         name="file"
         onChange={(e) => {
         setImg(e.target.files[0]);
+        }}
+      />
+      <input
+        
+        className="formAbout-icon"
+        required
+        type="file"
+        name="file"
+        onChange={(e) => {
+        setImgLight(e.target.files[0]);
         }}
       />
       <input

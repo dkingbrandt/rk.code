@@ -60,6 +60,7 @@ const updateAboutHistory = async (req, res) => {
           heading: req.body.heading,
           description: req.body.description,
           img: req.body.img,
+          imgLight:req.body.imgLight,
           category: req.body.category,
         },
       }
@@ -195,7 +196,8 @@ const updateAboutTeam = async (req, res) => {
           description1: req.body.description1,
           description2: req.body.description2,
           img: req.body.img,
-          category: req.body.category,
+          imgLight:req.body.imgLight,
+          category: req.body.category
         },
       }
     ).exec();
