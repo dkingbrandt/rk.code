@@ -39,11 +39,12 @@ const createSendToken = (user, statuscode, res) => {
 
 
         json({
-            status: "success",
+            status: true,
             token,
             data: {
                 user
-            }
+            },
+           
         })
 
 }

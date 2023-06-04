@@ -21,7 +21,7 @@ import { get, post, put, erase, patch} from "./../utility/fetchHealper";
 
 
 
-export default function Home({theme, ToggleTheme, authorized}) {
+export default function Home({theme, ToggleTheme, authorized, setAuthorized}) {
 
   const [popUp, setPopUp] = useState(false);
   const [popUpInfo, setPopUpInfo] = useState(false);
@@ -97,7 +97,7 @@ export default function Home({theme, ToggleTheme, authorized}) {
     <div className='pageContainer'>
 
     <div className='TopContainer'>
-       <Header theme={theme} ToggleTheme={ToggleTheme}/>
+       <Header authorized={authorized} setAuthorized={setAuthorized} theme={theme} ToggleTheme={ToggleTheme}/>
       <div className='radialGradientDarkGreen'></div>
       <div className='radialGradientsmall'></div>
       <div className='radialGradientbig'></div>
@@ -211,8 +211,8 @@ export default function Home({theme, ToggleTheme, authorized}) {
     
       </div>
     </div>
-    <SmalModal handlePopUp={handleDelete } popUp={deleteModal} component={<FormDelete setProjects={setProjects} title={title} link={"home/projects/"} textHeading={"Är du säker på att du vill ta bort projektet?"}/>} />
-    <SmalModal handlePopUp={handleDeleteInfo } popUp={deleteInfo} component={<FormDelete setProjects={setInfo} title={infoTitle} link={"home/info/"} textHeading={"Är du säker på att du vill ta bort infoblocket?"}/>} />
+    <SmalModal handlePopUp={handleDelete } popUp={deleteModal} component={<FormDelete  handlePopUp={handleDelete} setProjects={setProjects} title={title} link={"home/projects/"} textHeading={"Är du säker på att du vill ta bort projektet?"}/>} />
+    <SmalModal handlePopUp={handleDeleteInfo } popUp={deleteInfo} component={<FormDelete  handlePopUp={handleDeleteInfo} setProjects={setInfo} title={infoTitle} link={"home/info/"} textHeading={"Är du säker på att du vill ta bort infoblocket?"}/>} />
     <CardModal handlePopUp={handleAddProjectModal } popUp={addProjectModal} component={<FormAddProject textHeading={"Lägg till ett nytt Projekt"} link={"home/projects/"} setProjects={setProjects} handlePopUp={handleAddProjectModal} />}/>
     <CardModal handlePopUp={handleAddInfoModal } popUp={addInfoModal} component={<FormAddProject textHeading={"Lägg till ett nytt informationsblock"} link={"home/info"} setProjects={setInfo} handlePopUp={handleAddInfoModal} />}/>
     <CardModal handlePopUp={handlepPopUpInfo} popUp={popUpInfo} component={<FormInfoHome setInfo={setInfo} heading={infoHeading} title={infoTitle} description={infoDescription} handlePopUp={handlepPopUpInfo}/>}/>

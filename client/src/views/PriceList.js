@@ -17,7 +17,7 @@ import FormDelete from '../components/deleteForm';
 
 
 
-export default function PriceList({ theme, ToggleTheme }) {
+export default function PriceList({ theme, ToggleTheme, authorized, setAuthorized }) {
   
   const [popUpPriceInfo, setPopUpPriceInfo] = useState(false);
   const [popUpPriceList, setPopUpPriceList] = useState(false);
@@ -91,7 +91,7 @@ export default function PriceList({ theme, ToggleTheme }) {
 
   return (
     <div className='priceList-container'>
-     <Header theme={theme} ToggleTheme={ToggleTheme}/>
+     <Header authorized={authorized} setAuthorized={setAuthorized}  theme={theme} ToggleTheme={ToggleTheme}/>
      <div className='radialGradientGreen'></div>
          <div className='radialsmall'></div>
       <div className='radialbig'></div>
