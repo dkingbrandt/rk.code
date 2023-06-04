@@ -168,6 +168,7 @@
       font-size: 16px;
       letter-spacing: 0.22em;
       line-height: 25px;
+      margin-top: 30px;
         @include atXsSmall {
            padding-top: 20px;
           }
@@ -195,7 +196,7 @@
       height: 60px;
       border-radius: 10px 10px 10px 0px;
       background: rgba(255, 255, 255, 0.1);
-      margin-top: 5px;
+     
         @include atXsSmall {
             height: 45px;
             width: 250px;
@@ -235,7 +236,6 @@
         justify-content: flex-start;
         gap: 10px;
         margin: auto;
-        padding-top: 40px;
         
       }
        

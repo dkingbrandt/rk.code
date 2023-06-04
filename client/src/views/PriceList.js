@@ -95,12 +95,17 @@ export default function PriceList({ theme, ToggleTheme }) {
      <div className='radialGradientGreen'></div>
          <div className='radialsmall'></div>
       <div className='radialbig'></div>
-      
-      <button className='price-info-create-Btn' onClick={() => {
-        handlePopUpPriceInfo()
-        setAddPriceInfo(true)
 
-      }}>Lägg till info</button>
+      <div className='price-info-create-btn-wrapper'>
+        <button className='price-info-create-Btn' onClick={() => {
+          handlePopUpPriceInfo()
+          setAddPriceInfo(true)
+
+        }}>Lägg till info</button>
+
+      </div>
+      
+    
       <div className='priceList-wrapper'>
 
       
@@ -222,12 +227,15 @@ export default function PriceList({ theme, ToggleTheme }) {
         
      </div>
       </div>
+      <div className='price-list-create-btn-wrapper'>
       
       <button className='price-list-create-Btn' onClick={() => {
         handlePopUpPriceList()
         setAddPriceList(true)
 
-      }}>Lägg till prisplan</button>
+        }}>Lägg till prisplan</button>
+        
+      </div>
       
       <div className='price-list-wrapper-flex'>
       
@@ -282,7 +290,8 @@ export default function PriceList({ theme, ToggleTheme }) {
      
        
       </div>
-    </div>
+        </div>
+      
 
       <div className='price-list-btn-wrapper'>
 
@@ -292,5 +301,6 @@ export default function PriceList({ theme, ToggleTheme }) {
 
         <Footer />
     </div>
+    
   )
 }
