@@ -189,42 +189,42 @@
         .icon-history {
           margin-left: 10px;
           align-self: center;
-          width: 45px;
-          height: 45px;
+          width: 25px;
+          height: 25px;
 
-          @include atXsSmall {
-            height: 25px;
-            width: 25px;
+          @include atLarge {
+            height: 60px;
+            width: 60px;
           }
         }
 
-        .history-label-knowledge,
-        .history-label-create,
-        .history-label-vision {
+       
+
+        .history-label-create {
           display: flex;
           flex-direction: row;
           justify-content: flex-start;
           gap: 5px;
+          height: 45px;
           width: 250px;
-          height: 60px;
           border-radius: 10px 10px 10px 0px;
           background: rgba(255, 255, 255, 0.1);
 
-          @include atXsSmall {
-            height: 45px;
+          @include atLarge {
+            
             width: 250px;
+            height: 60px;
 
           }
 
-          .heading-vision,
-          .heading-create,
-          .heading-knowledge {
+         
+          .heading-create {
             align-self: center;
             padding-left: 10px;
             font-family: 'Murecho';
             font-style: normal;
             font-weight: 400;
-            font-size: 24px;
+            font-size: 20px;
             line-height: 25px;
             /* identical to box height, or 104% */
             display: flex;
@@ -232,8 +232,8 @@
             letter-spacing: 0.22em;
             color: #FFFFFF;
 
-            @include atXsSmall {
-              font-size: 20px;
+            @include atLarge {
+              font-size: 24px;
               padding-left: 20px;
             }
 

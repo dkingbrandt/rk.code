@@ -90,9 +90,10 @@ export default function FormAboutUsHistory(props) {
   return (
     <form className="formAbout-Container" onSubmit={handleSubmit}>
      
+       <label className='label-img-dark' for="darkImg">Dark-mode bild:</label>
      
       <input
-        
+        id='darkImg'
         className="formAbout-icon"
         required
         type="file"
@@ -101,10 +102,14 @@ export default function FormAboutUsHistory(props) {
         setImg(e.target.files[0]);
         }}
       />
+
+      <label className='label-img-light' for="lightimg">Light-mode bild:</label>
+
       <input
-        
+        id='lightimg'
         className="formAbout-icon"
         required
+        placeholder='Light-mode bild'
         type="file"
         name="file"
         onChange={(e) => {

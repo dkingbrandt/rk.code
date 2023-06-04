@@ -41,6 +41,7 @@
    background: #000000;
  }
  .formAbout-icon{
+  color: whitesmoke;
   width: 500px;
   height: 40px;
   border-radius: 10px;
@@ -57,4 +58,9 @@
     height: 300px;
     border-radius: 10px;
 
+ }
+
+ .label-img-light,
+ .label-img-dark{
+  color: whitesmoke;
  }
