@@ -5,12 +5,12 @@ import Footer from '../components/Footer';
 import './../scss/pages/contact.scss';
 
 
-export default function contact({theme, ToggleTheme}) {
+export default function contact({theme, ToggleTheme, authorized, setAuthorized}) {
   return (
     <div className='pageContainer'>
 
     <div className='TopContainer'>
-       <Header theme={theme} ToggleTheme={ToggleTheme}/>
+       <Header setAuthorized={setAuthorized}  authorized={authorized}  theme={theme} ToggleTheme={ToggleTheme}/>
       <div className='radialGradientDarkGreen'></div>
       <div className='radialGradientsmall'></div>
 

@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const aboutUsController = require("../controller/aboutUsController")
+const authController = require("../controller/authController")
 
   
  
@@ -15,7 +16,7 @@ router.get("/aboutus/history", aboutUsController.getAllAboutHistory, (request, r
 });
 
 
-router.post("/aboutus/history", aboutUsController.createAboutHistory, (request, response) => {
+router.post("/aboutus/history",authController.protect, aboutUsController.createAboutHistory, (request, response) => {
 
 
   response.json({
@@ -25,7 +26,7 @@ router.post("/aboutus/history", aboutUsController.createAboutHistory, (request, 
   });
 })
 
-router.put("/aboutus/history/:title", aboutUsController.updateAboutHistory, (request, response) => {
+router.put("/aboutus/history/:title",authController.protect, aboutUsController.updateAboutHistory, (request, response) => {
 
 
   response.json({
@@ -35,7 +36,7 @@ router.put("/aboutus/history/:title", aboutUsController.updateAboutHistory, (req
   });
 })
 
-router.delete("/aboutus/history/:title", aboutUsController.deleteAboutHistory, (request, response) => {
+router.delete("/aboutus/history/:title",authController.protect, aboutUsController.deleteAboutHistory, (request, response) => {
 
 
   response.json({
@@ -45,7 +46,7 @@ router.delete("/aboutus/history/:title", aboutUsController.deleteAboutHistory, (
   });
 })
 
-router.put("/aboutus/team/:title", aboutUsController.updateAboutTeam, (request, response) => {
+router.put("/aboutus/team/:title",authController.protect, aboutUsController.updateAboutTeam, (request, response) => {
   
 
   response.json({
@@ -64,7 +65,7 @@ router.get("/aboutus/team", aboutUsController.getAllAboutTeam, (request, respons
 });
 
 
-router.post("/aboutus/team", aboutUsController.createAboutTeam, (request, response) => {
+router.post("/aboutus/team",authController.protect, aboutUsController.createAboutTeam, (request, response) => {
 
 
   response.json({
@@ -73,7 +74,7 @@ router.post("/aboutus/team", aboutUsController.createAboutTeam, (request, respon
 
   });
 })
-router.delete("/aboutus/team/:title", aboutUsController.deleteAboutTeam, (request, response) => {
+router.delete("/aboutus/team/:title",authController.protect, aboutUsController.deleteAboutTeam, (request, response) => {
 
 
   response.json({

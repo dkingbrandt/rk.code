@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const priceListController = require("../controller/priceListController")
+const authController = require("../controller/authController")
 
 
  
@@ -16,7 +17,7 @@ router.get("/pricelist/info", priceListController.getAllPriceListInfo, (request,
 });
 
 
-router.post("/pricelist/info", priceListController.createPriceListInfo, (request, response) => {
+router.post("/pricelist/info", authController.protect, priceListController.createPriceListInfo, (request, response) => {
 
 
   response.json({
@@ -25,7 +26,7 @@ router.post("/pricelist/info", priceListController.createPriceListInfo, (request
 
   });
 })
-router.delete("/pricelist/info/:title", priceListController.deletePriceListInfo, (request, response) => {
+router.delete("/pricelist/info/:title", authController.protect, priceListController.deletePriceListInfo, (request, response) => {
 
 
   response.json({
@@ -35,7 +36,7 @@ router.delete("/pricelist/info/:title", priceListController.deletePriceListInfo,
   });
 })
 
-router.put("/pricelist/info/:title", priceListController.updatePriceListInfo, (request, response) => {
+router.put("/pricelist/info/:title",authController.protect, priceListController.updatePriceListInfo, (request, response) => {
 
 
   response.json({
@@ -44,7 +45,7 @@ router.put("/pricelist/info/:title", priceListController.updatePriceListInfo, (r
 
   });
 })
-router.get("/pricelist/package", priceListController.getAllPriceListPackage, (request, response) => {
+router.get("/pricelist/package",  priceListController.getAllPriceListPackage, (request, response) => {
 
   response.json({
     status: "success",
@@ -54,7 +55,7 @@ router.get("/pricelist/package", priceListController.getAllPriceListPackage, (re
 });
 
 
-router.post("/pricelist/package", priceListController.createPriceListPackage, (request, response) => {
+router.post("/pricelist/package", authController.protect, priceListController.createPriceListPackage, (request, response) => {
 
 
   response.json({
@@ -63,7 +64,7 @@ router.post("/pricelist/package", priceListController.createPriceListPackage, (r
 
   });
 })
-router.delete("/pricelist/package/:title", priceListController.deletePriceListPackage, (request, response) => {
+router.delete("/pricelist/package/:title",authController.protect, priceListController.deletePriceListPackage, (request, response) => {
 
 
   response.json({
@@ -73,7 +74,7 @@ router.delete("/pricelist/package/:title", priceListController.deletePriceListPa
   });
 })
 
-router.put("/pricelist/package/:title", priceListController.updatePriceListPackage, (request, response) => {
+router.put("/pricelist/package/:title", authController.protect, priceListController.updatePriceListPackage, (request, response) => {
 
 
   response.json({
