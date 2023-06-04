@@ -36,7 +36,7 @@
   @media (min-width: 400px) {
     #dark .footer-heading-container {
       top: 5px;
-      left: 60px; } }
+      left: 65; } }
 
 #dark .footer-heading1 {
   font-size: 26px;
@@ -154,14 +154,18 @@
 
 #light .footer-socialMedia-container {
   position: absolute;
-  bottom: 60px;
-  right: 100px;
   color: #34103f;
+  bottom: 20px;
+  right: 15px;
   font-size: 26px;
   font-family: "Montserrat", sans-serif;
   line-height: 64px;
   line-height: 202%;
   font-weight: bold; }
+  @media (min-width: 1200px) {
+    #light .footer-socialMedia-container {
+      bottom: 60px;
+      right: 100px; } }
 
 #light .footerList {
   display: flex;

@@ -95,12 +95,20 @@ export default function PriceList({ theme, ToggleTheme, authorized, setAuthorize
      <div className='radialGradientGreen'></div>
          <div className='radialsmall'></div>
       <div className='radialbig'></div>
-      
-      <button className='price-info-create-Btn' onClick={() => {
-        handlePopUpPriceInfo()
-        setAddPriceInfo(true)
 
-      }}>Lägg till info</button>
+      {authorized &&
+
+      <div className='price-info-create-btn-wrapper'>
+        <button className='price-info-create-Btn' onClick={() => {
+          handlePopUpPriceInfo()
+          setAddPriceInfo(true)
+
+        }}>Lägg till info</button>
+
+      </div>
+      }
+      
+    
       <div className='priceList-wrapper'>
 
       
@@ -130,6 +138,7 @@ export default function PriceList({ theme, ToggleTheme, authorized, setAuthorize
                
               </div>
 
+                {authorized &&
 
                 <div className='priceInfo-Btn-Container-icon'>
                   <button className='price-info-delete-Btn' onClick={() => {
@@ -149,7 +158,8 @@ export default function PriceList({ theme, ToggleTheme, authorized, setAuthorize
 
 
 
-                </div>
+                  </div>
+                }
               </div>
 
 
@@ -222,12 +232,18 @@ export default function PriceList({ theme, ToggleTheme, authorized, setAuthorize
         
      </div>
       </div>
+
+      {authorized &&
+      <div className='price-list-create-btn-wrapper'>
       
       <button className='price-list-create-Btn' onClick={() => {
         handlePopUpPriceList()
         setAddPriceList(true)
 
-      }}>Lägg till prisplan</button>
+        }}>Lägg till prisplan</button>
+        
+      </div>
+      }
       
       <div className='price-list-wrapper-flex'>
       
@@ -249,22 +265,23 @@ export default function PriceList({ theme, ToggleTheme, authorized, setAuthorize
                 )}
               </ul>
 
-
-              <div className='pricelist-Btn-Container'>
-                <button className='price-list-delete-Btn' onClick={() => {
-                  showDetailPricePackage(index)
-                  handlePopUpDelete()
-                  setDeletePriceListModal(true)
-                }}>Ta Bort</button>
+              {authorized &&
+                <div className='pricelist-Btn-Container'>
+                  <button className='price-list-delete-Btn' onClick={() => {
+                    showDetailPricePackage(index)
+                    handlePopUpDelete()
+                    setDeletePriceListModal(true)
+                  }}>Ta Bort</button>
                
-                <button className='price-list-change-Btn' index={index} onClick={() => {
-                  showDetailPricePackage(index)
-                  handlePopUpPriceList()
-                  setAddPriceList(false)
+                  <button className='price-list-change-Btn' index={index} onClick={() => {
+                    showDetailPricePackage(index)
+                    handlePopUpPriceList()
+                    setAddPriceList(false)
 
-                }}>Ändra</button>
+                  }}>Ändra</button>
 
-              </div>
+                </div>
+              }
             </div>
 
 
@@ -282,7 +299,8 @@ export default function PriceList({ theme, ToggleTheme, authorized, setAuthorize
      
        
       </div>
-    </div>
+        </div>
+      
 
       <div className='price-list-btn-wrapper'>
 
@@ -292,5 +310,6 @@ export default function PriceList({ theme, ToggleTheme, authorized, setAuthorize
 
         <Footer />
     </div>
+    
   )
 }

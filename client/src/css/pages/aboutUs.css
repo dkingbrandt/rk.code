@@ -39,15 +39,20 @@
       #dark .about-container .radialbig {
         min-width: 1500px;
         min-height: 1300px; } }
-  #dark .about-container .history-create-Btn {
-    position: absolute;
-    background-color: transparent;
-    border: solid 2px #3DD1AC;
-    width: 200px;
-    height: 40px;
-    border-radius: 12px;
-    color: #3DD1AC;
-    font-weight: 700; }
+  #dark .about-container .history-create-btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px; }
+    #dark .about-container .history-create-btn-container .history-create-Btn {
+      position: absolute;
+      background-color: transparent;
+      border: solid 2px #3DD1AC;
+      width: 200px;
+      height: 40px;
+      border-radius: 12px;
+      color: #3DD1AC;
+      font-weight: 700; }
   #dark .about-container .history-wrapper {
     position: relative;
     display: flex;
@@ -120,7 +125,8 @@
         color: #ecfaf4;
         font-size: 16px;
         letter-spacing: 0.22em;
-        line-height: 25px; }
+        line-height: 25px;
+        margin-top: 30px; }
         @media (min-width: 400px) {
           #dark .about-container .history-container .history-create-box .history-textBox-knowledge,
           #dark .about-container .history-container .history-knowledge-box .history-textBox-knowledge,
@@ -155,8 +161,7 @@
         width: 250px;
         height: 60px;
         border-radius: 10px 10px 10px 0px;
-        background: rgba(255, 255, 255, 0.1);
-        margin-top: 5px; }
+        background: rgba(255, 255, 255, 0.1); }
         @media (min-width: 400px) {
           #dark .about-container .history-container .history-create-box .history-label-knowledge,
           #dark .about-container .history-container .history-create-box .history-label-create,
@@ -242,17 +247,19 @@
       display: flex;
       justify-content: flex-start;
       gap: 10px;
-      margin: auto;
-      padding-top: 40px; }
-    #dark .about-container .history-container .history-delete-Btn,
-    #dark .about-container .history-container .history-change-Btn {
-      background-color: transparent;
-      border: solid 2px #3DD1AC;
-      width: 110px;
-      height: 40px;
-      border-radius: 12px;
-      color: #3DD1AC;
-      font-weight: 700; }
+      margin: auto; }
+    #dark .about-container .history-container .history-btn-container {
+      display: flex;
+      gap: 10px; }
+      #dark .about-container .history-container .history-btn-container .history-delete-Btn,
+      #dark .about-container .history-container .history-btn-container .history-change-Btn {
+        background-color: transparent;
+        border: solid 2px #3DD1AC;
+        width: 110px;
+        height: 40px;
+        border-radius: 12px;
+        color: #3DD1AC;
+        font-weight: 700; }
 
 #dark .team-wrapper {
   display: flex;
@@ -595,7 +602,7 @@
     #dark .team-icon-box {
       margin-top: 20px; } }
 
-#dark .team-Btn-Container-icon {
+#dark .team-create-btn-container {
   display: flex;
   gap: 10px;
   padding-top: 40px;
@@ -610,6 +617,12 @@
   color: #3DD1AC;
   font-weight: 700;
   z-index: 3; }
+
+#dark .team-btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding-top: 20px; }
 
 #dark .team-delete-Btn,
 #dark .team-change-Btn {
@@ -673,6 +686,45 @@
         left: -35%;
         min-width: 1500px;
         min-height: 1300px; } }
+  #light .about-container .history-create-btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 150px; }
+    #light .about-container .history-create-btn-container .history-create-Btn {
+      display: none; }
+      @media (min-width: 1200px) {
+        #light .about-container .history-create-btn-container .history-create-Btn {
+          display: block;
+          background-color: transparent;
+          width: 200px;
+          height: 40px;
+          border-radius: 12px;
+          background: linear-gradient(82.48deg, #CF35D2 11.66%, rgba(207, 53, 210, 0.44) 74.84%, rgba(186, 58, 218, 0) 122.96%);
+          border: purple;
+          color: #4f4763;
+          font-weight: 700;
+          z-index: 3; } }
+  #light .about-container .history-btn-container {
+    display: flex;
+    gap: 10px;
+    padding-top: 20px;
+    margin: auto; }
+  #light .about-container .history-delete-Btn,
+  #light .about-container .history-change-Btn {
+    display: none; }
+    @media (min-width: 1200px) {
+      #light .about-container .history-delete-Btn,
+      #light .about-container .history-change-Btn {
+        display: block;
+        background-color: transparent;
+        width: 110px;
+        height: 40px;
+        border-radius: 12px;
+        font-weight: 700;
+        background: linear-gradient(82.48deg, #CF35D2 11.66%, rgba(207, 53, 210, 0.44) 74.84%, rgba(186, 58, 218, 0) 122.96%);
+        border: purple;
+        color: #4f4763; } }
   #light .about-container .history-container {
     position: relative;
     z-index: 7;
@@ -682,7 +734,7 @@
     width: 90%;
     height: auto;
     margin: auto;
-    margin-top: 10%;
+    margin-top: 3%;
     background-color: rgba(56, 50, 79, 0.1);
     border-radius: 10px;
     padding-bottom: 2%; }
@@ -798,6 +850,25 @@
   margin-top: 200px;
   margin-bottom: 50px;
   gap: 30px; }
+  #light .team-wrapper .team-create-btn-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px; }
+    #light .team-wrapper .team-create-btn-container .team-create-Btn {
+      display: none; }
+      @media (min-width: 1200px) {
+        #light .team-wrapper .team-create-btn-container .team-create-Btn {
+          display: block;
+          position: absolute;
+          background-color: transparent;
+          width: 200px;
+          height: 40px;
+          border-radius: 12px;
+          background: linear-gradient(82.48deg, #CF35D2 11.66%, rgba(207, 53, 210, 0.44) 74.84%, rgba(186, 58, 218, 0) 122.96%);
+          border: purple;
+          color: #4f4763;
+          font-weight: 700;
+          z-index: 3; } }
   #light .team-wrapper .team-heading {
     position: relative;
     z-index: 20;
@@ -887,7 +958,7 @@
         height: 326px;
         flex-direction: column;
         justify-items: center;
-        border: 1px solid  #962DE9;
+        border: 1px solid #962DE9;
         transform: matrix(-1, 0, 0, 1, 0, 0); } }
 
 #light .team-img-rebecca,
@@ -1079,3 +1150,25 @@
   margin-top: 5%; }
   #light .team-icon-box a {
     background-color: #38324f; }
+
+#light .team-btn-container {
+  display: flex;
+  gap: 10px;
+  padding-top: 20px;
+  margin: auto; }
+
+#light .team-delete-Btn,
+#light .team-change-Btn {
+  display: none; }
+  @media (min-width: 1200px) {
+    #light .team-delete-Btn,
+    #light .team-change-Btn {
+      display: block;
+      background-color: transparent;
+      width: 110px;
+      height: 40px;
+      border-radius: 12px;
+      font-weight: 700;
+      background: linear-gradient(82.48deg, #CF35D2 11.66%, rgba(207, 53, 210, 0.44) 74.84%, rgba(186, 58, 218, 0) 122.96%);
+      border: purple;
+      color: #4f4763; } }
