@@ -61,6 +61,7 @@ const updatePriceListInfo = async (req, res) => {
           heading: req.body.heading,
           description: req.body.description,
           img: req.body.img,
+          imgLight:req.body.imgLight,
           category: req.body.category,
         },
       }
@@ -196,6 +197,7 @@ const updatePriceListPackage = async (req, res) => {
           heading: req.body.heading,
           description: req.body.description,
           img: req.body.img,
+          imgLight:req.body.imgLight,
           category: req.body.category,
         },
       }

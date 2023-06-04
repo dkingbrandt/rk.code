@@ -16,7 +16,8 @@ const priceListPackageSchema = new mongoose.Schema({
   title: { type: String, required: true },
   heading: { type: String, required: true },
   description: { type: Array, required: true },
-  img: { type: String },
+  img: { type: String},
+  imgLight: { type: String}
 }, { timestamps: true });
 
 priceListPackageSchema.index({ '$**': 'text' });
