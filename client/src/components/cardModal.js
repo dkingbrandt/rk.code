@@ -10,7 +10,7 @@ export default function CardModal({ handlePopUp, popUp, component }) {
     style={{
       opacity: popUp ? "1" : "0",
       visibility: popUp ? "visible" : "hidden",
-      zIndex: popUp ? "1000" : "-2",
+      zIndex: popUp ? "300" : "-2",
     }}
   >
     <div className="popUp">

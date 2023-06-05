@@ -124,7 +124,7 @@ export default function PriceList({ theme, ToggleTheme, authorized, setAuthorize
                     <img className='price-list-icon-computer' src={info.img} alt="computer-icon" />
                   )
                   : (
-                    <img className='price-list-icon-computer' src={info.img} alt="computer-icon" />
+                    <img className='price-list-icon-computer' src={info.imgLight} alt="computer-icon" />
                   )
                 }
                 <div className='price-list-heading-box'>
@@ -180,13 +180,7 @@ export default function PriceList({ theme, ToggleTheme, authorized, setAuthorize
               component={<FormDelete handlePopUp={handlePopUpDelete} setProjects={setPriceInfo} title={title} link={"/pricelist/info/"} textHeading={"Är du säker på att du vill ta bort projektet?"} />} />
 
           )}
-          {deletePriceListModal && (
-            <SmalModal
-              handlePopUp={handlePopUpDelete}
-              popUp={popUpDelete}
-              component={<FormDelete handlePopUp={handlePopUpDelete} setProjects={setPricePackage} title={title} link={"/pricelist/package/"} textHeading={"Är du säker på att du vill ta bort projektet?"} />} />
-
-          )}
+          
     
   
 
@@ -208,22 +202,7 @@ export default function PriceList({ theme, ToggleTheme, authorized, setAuthorize
             
             
            
-              <CardModal
-                
-                handlePopUp={handlePopUpPriceList}
-                popUp={popUpPriceList}
-                component=
-                {<FormPriceList
-                  setPricePackage={setPricePackage}
-                  img={img} heading={heading}
-                  title={title}
-                  description={description}
-                  handlePopUp={handlePopUpPriceList}
-                  popUp={popUpPriceList}
-                  add={addPriceList}
-                  
-                />}
-              />
+             
             
 
 
@@ -232,6 +211,8 @@ export default function PriceList({ theme, ToggleTheme, authorized, setAuthorize
         
      </div>
       </div>
+
+      <div className='package-wrapper'>
 
       {authorized &&
       <div className='price-list-create-btn-wrapper'>
@@ -291,14 +272,38 @@ export default function PriceList({ theme, ToggleTheme, authorized, setAuthorize
 
           )
         })}
+         <CardModal
+                
+                handlePopUp={handlePopUpPriceList}
+                popUp={popUpPriceList}
+                component=
+                {<FormPriceList
+                  setPricePackage={setPricePackage}
+                  img={img} heading={heading}
+                  title={title}
+                  description={description}
+                  handlePopUp={handlePopUpPriceList}
+                  popUp={popUpPriceList}
+                  add={addPriceList}
+                  
+                />}
+              />
         
-        
+            {deletePriceListModal && (
+            <SmalModal
+              handlePopUp={handlePopUpDelete}
+              popUp={popUpDelete}
+              component={<FormDelete handlePopUp={handlePopUpDelete} setProjects={setPricePackage} title={title} link={"/pricelist/package/"} textHeading={"Är du säker på att du vill ta bort projektet?"} />} />
+
+          )}
       
        
 
      
        
       </div>
+        </div>
+
         </div>
       
 

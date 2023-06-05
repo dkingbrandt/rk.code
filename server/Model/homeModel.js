@@ -8,6 +8,7 @@ const homeInfoSchema = new mongoose.Schema({
   heading: { type: String, required: true },
   description: { type: String, required: true },
   img: { type: String },
+  imgLight: { type: String}
 }, { timestamps: true });
 
 homeInfoSchema.index({ '$**': 'text' });
@@ -17,7 +18,6 @@ const homeProjectsSchema = new mongoose.Schema({
   heading: { type: String, required: true },
   description: { type: String, required: true },
   img: { type: String},
-  imgLight: { type: String}
 }, { timestamps: true });
 
 homeProjectsSchema.index({ '$**': 'text' });

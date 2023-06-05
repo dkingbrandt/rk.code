@@ -14,10 +14,16 @@ export default function FormPriceListInfo(props) {
   const [newDescription, setNewDescription] = useState("")
   const [img, setImg] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [imgLight, setImgLight] = useState("");
+  const [imageUrlLight, setImageUrlLight] = useState("");
 
   useEffect(() => {
     uploadImage()
   }, [img])
+
+  useEffect(() => {
+    uploadImageLight();
+  }, [imgLight]);
 
   const uploadImage = async () => {
     const formData = new FormData();
@@ -34,6 +40,21 @@ export default function FormPriceListInfo(props) {
     }
   };
 
+   const uploadImageLight = async () => {
+    const formData = new FormData();
+    formData.append('file', imgLight);
+    formData.append('upload_preset', 'Hantverkare');
+    try {
+      const res = await Axios.post(
+        'https://api.cloudinary.com/v1_1/bexryd/image/upload',
+        formData
+      );
+      setImageUrlLight(res.data.secure_url);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     
@@ -42,6 +63,7 @@ export default function FormPriceListInfo(props) {
       post("/pricelist/info", {
         title: newTitle,
         img: imageUrl,
+        imgLight:imageUrlLight,
         heading: newHeading,
         description: newDescription,
       })
@@ -49,12 +71,14 @@ export default function FormPriceListInfo(props) {
         .then((response) => props.setPriceInfo(response.data))
         .finally(() => {
           uploadImage();
+          uploadImageLight();
           props.handlePopUp();
         });
     } else {
       put(`/pricelist/info/${props.title}`, {
         title: newTitle,
         img: imageUrl,
+        imgLight:imageUrlLight,
         heading: newHeading,
         description: newDescription,
       })
@@ -62,6 +86,7 @@ export default function FormPriceListInfo(props) {
         .then((response) => props.setPriceInfo(response.data))
         .finally(() => {
           uploadImage();
+          uploadImageLight();
           props.handlePopUp();
         });
     }
@@ -72,13 +97,29 @@ export default function FormPriceListInfo(props) {
 
   return (
     <form className='formAbout-Container' onSubmit={handleSubmit}>
+
+    <label className='label-img-dark' for="darkImg">Dark-mode bild:</label>
+
       <input
+        id='darkImg'
         className="formAbout-icon"
         required
         type="file"
         name="file"
         onChange={(e) => {
           setImg(e.target.files[0]);
+        }}
+      />
+
+      <label className='label-img-light' for="lightimg">Light-mode bild:</label>
+      <input
+        id='darkImg'
+        className="formAbout-icon"
+        required
+        type="file"
+        name="file"
+        onChange={(e) => {
+           setImgLight(e.target.files[0]);
         }}
       />
 

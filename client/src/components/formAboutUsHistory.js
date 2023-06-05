@@ -15,7 +15,12 @@ export default function FormAboutUsHistory(props) {
 
   useEffect(() => {
     uploadImage();
-  }, [img,imgLight]);
+  }, [img]);
+  
+  
+  useEffect(() => {
+    uploadImageLight();
+  }, [imgLight]);
 
   const uploadImage = async () => {
     const formData = new FormData();
@@ -41,7 +46,7 @@ export default function FormAboutUsHistory(props) {
         'https://api.cloudinary.com/v1_1/bexryd/image/upload',
         formData
       );
-      setImageUrl(res.data.secure_url);
+      setImageUrlLight(res.data.secure_url);
     } catch (err) {
       console.error(err);
     }
@@ -95,7 +100,6 @@ export default function FormAboutUsHistory(props) {
       <input
         id='darkImg'
         className="formAbout-icon"
-        required
         type="file"
         name="file"
         onChange={(e) => {
@@ -108,7 +112,7 @@ export default function FormAboutUsHistory(props) {
       <input
         id='lightimg'
         className="formAbout-icon"
-        required
+        
         placeholder='Light-mode bild'
         type="file"
         name="file"
@@ -140,7 +144,9 @@ export default function FormAboutUsHistory(props) {
         onChange={(e) => setNewDescription(e.target.value)}
       ></textarea>
 
-     
+     {console.log(imageUrlLight)}
+     {console.log(imageUrl)}
+     {console.log(img)}
 
       <div className='formAbout-btn-container'>
         {props.add && (

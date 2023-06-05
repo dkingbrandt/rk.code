@@ -11,28 +11,47 @@ export default function FormHome({handlePopUp,heading, title, description, setPr
   const [newDescription, setNewDescription] = useState(description);
   const [img, setImg] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [imgLight, setImgLight] = useState("");
+  const [imageUrlLight, setImageUrlLight] = useState("");
 
   useEffect(() => {
     uploadImage()
   }, [img])
+
+  useEffect(() => {
+    uploadImageLight();
+  }, [imgLight]);
 
   const uploadImage = async () => {
     const formData = new FormData();
     formData.append('file', img);
     formData.append('upload_preset', 'Hantverkare');
     try {
-      setLoading(true);
       const res = await Axios.post(
         'https://api.cloudinary.com/v1_1/bexryd/image/upload',
         formData
       );
       setImageUrl(res.data.secure_url);
-      setLoading(false);
     } catch (err) {
       console.error(err);
     }
   };
+
+   const uploadImageLight = async () => {
+    const formData = new FormData();
+    formData.append('file', imgLight);
+    formData.append('upload_preset', 'Hantverkare');
+    try {
+      const res = await Axios.post(
+        'https://api.cloudinary.com/v1_1/bexryd/image/upload',
+        formData
+      );
+      setImageUrlLight(res.data.secure_url);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  
 
 
 
@@ -40,6 +59,7 @@ export default function FormHome({handlePopUp,heading, title, description, setPr
     e.preventDefault();
     put(`home/projects/${title}`, {
       img: imageUrl,
+      imgLight:imageUrlLight,
       title: newTitle,
       heading: newTitle,
       description: newDescription,
@@ -48,6 +68,7 @@ export default function FormHome({handlePopUp,heading, title, description, setPr
         .then((response) => setProjects(response.data))
         .finally(() => {
           uploadImage();
+           uploadImageLight();
           handlePopUp();
         })
       );
@@ -62,16 +83,29 @@ export default function FormHome({handlePopUp,heading, title, description, setPr
   return (
     <div>
       <form className='homeFormContainer' onSubmit={handleSubmit}>
-            
+        
+        <label className='label-img-dark' for="darkImg">Dark-mode bild:</label>
+
           <input
             className="formAbout-icon"
             required
-            id="image"
+            id="label-img-dark"
             type="file"
             name="file"
             placeholder="Ladda upp icon"
             onChange={(e) => { setImg(e.target.files[0]); }}
-          />
+        />
+        
+          <label className='label-img-light' for="lightimg">Light-mode bild:</label>
+            <input
+            className="formAbout-icon"
+            required
+            id="label-img-dark"
+            type="file"
+            name="file"
+            placeholder="Ladda upp icon"
+            onChange={(e) => { setImgLight(e.target.files[0]); }}
+        />
           <label for="title">Title:</label>
           <input
             required

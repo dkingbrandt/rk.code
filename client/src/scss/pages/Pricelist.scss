@@ -4,6 +4,7 @@
   .priceList-container {
     position: relative;
     overflow: hidden;
+    z-index: 3;
 
     .radialGradientGreen {
       position: absolute;
@@ -63,7 +64,7 @@
 
   .priceList-wrapper {
     position: relative;
-    z-index: 7;
+    z-index: 2;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -101,6 +102,8 @@
     display: flex;
     justify-content: center;
     padding-top: 50px;
+    position: relative;
+    z-index: 2;
 
   }
 
@@ -295,6 +298,7 @@
       grid-template-columns: repeat(3, 4fr);
       gap: 50px;
       padding-top: 200px;
+      
     }
 
   }
@@ -303,6 +307,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+   
 
   }
 
@@ -320,7 +325,7 @@
       border-radius: 12px;
       color: #3DD1AC;
       font-weight: 700;
-      z-index: 3;
+      z-index: 1;
     }
 
   }
@@ -343,6 +348,8 @@
         border-radius: 12px;
         color: #3DD1AC;
         font-weight: 700;
+        
+        
       }
 
     }
@@ -352,36 +359,19 @@
 
 
   .price-list-price-small {
-    position: relative;
-    z-index: 7;
+   
     width: 453px;
     height: 684px;
     background: rgba(35, 35, 35, 0.6);
     border: 2px solid #e8f7e9;
     border-radius: 10px 10px 10px 0px;
-  }
-
-  .price-list-price-medium {
     position: relative;
-    z-index: 7;
-    width: 453px;
-    height: 684px;
-    background: rgba(35, 35, 35, 0.6);
-    border: 2px solid #e8f7e9;
-    border-radius: 10px 10px 10px 10px;
-
+    z-index: 2;
   }
 
-  .price-list-price-large {
-    position: relative;
-    z-index: 7;
-    width: 453px;
-    height: 684px;
-    background: rgba(35, 35, 35, 0.6);
-    border: 2px solid #e8f7e9;
-    border-radius: 10px 10px 0px 10px;
+  
 
-  }
+ 
 
 
   .pirce-list-label-box {
@@ -447,6 +437,8 @@
     line-height: 25px;
     letter-spacing: 0.22em;
     color: #000000;
+    position: relative;
+    z-index: 2;
   }
 }
 
@@ -597,7 +589,7 @@
 
     .priceList-wrapper {
       position: relative;
-      z-index: 7;
+      z-index: 3;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -648,70 +640,9 @@
 
 
 
-      // .priceList-info-box {
+      
 
-
-      //     display: grid;
-      //     column-gap: 50px;
-      //     grid-template-columns: repeat(1, 1fr);
-      //     width: 100%;
-      //     padding: 2%;
-      //     max-width: 1300px;
-      //     box-sizing: border-box;
-      //     border-radius: 20px;
-
-      //     margin-top: 100px;
-
-
-
-
-
-
-      //   @include atMedium {
-      //     grid-template-columns: repeat(2, 3fr);
-      //     width: 95%;
-      //     column-gap: 2%;
-      //     row-gap: 20px;
-      //   }
-
-      //   @include atLarge {
-      //     width: 100%;
-      //     height: 1100px;
-      //     column-gap: 50px;
-      //   }
-      // }
-
-      // @include atLarge {
-      //   width: 100%;
-      //   column-gap: 50px;
-
-
-      //   &::before {
-      //     margin-left: 4%;
-      //     margin-right: 4%;
-      //   }
-      // }
-
-      // @include atXlLarge {
-
-      //   &::before {
-      //     margin-left: 7%;
-      //     margin-right: 7%;
-      //   }
-      // }
-
-      // @include at2XlLarge {
-      //   column-gap: 20px;
-
-      //   &::before {
-
-      //     margin-left: 10%;
-      //     margin-right: 10%;
-      //   }
-      // }
-
-
-
+ 
 
       .price-list-info-tailor-box {
 
@@ -912,7 +843,7 @@
 
       margin-top: 150px;
       position: relative;
-      z-index: 50;
+      z-index: 2;
       width: auto;
       height: auto;
 
@@ -923,6 +854,8 @@
       @include atLarge {
         width: 453px;
         height: 684px;
+       position: relative;
+       z-index: 3;
       }
     }
 
@@ -1025,6 +958,8 @@
       letter-spacing: 0.22em;
       color: #000000;
       border: none;
+      position: relative;
+      z-index: 2;
     }
   }
 }

@@ -129,7 +129,10 @@ export default function About({ theme, ToggleTheme, authorized, setAuthorized })
             return (
               <div className='history-create-box'>
                 <div className='history-label-create'>
-                  <img className='icon-history' src={history.img} alt="task" />
+                  {theme === "dark" ?
+                    <img className='icon-history' src={history.img} alt="task" />
+                    :<img className='icon-history' src={history.imgLight} alt="task" />
+                    }
                   <p className='heading-create'>{history.heading}</p>
                 </div>
                 <div className='history-textBox-knowledge'>

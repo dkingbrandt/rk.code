@@ -15,7 +15,6 @@ export default function FormAboutUsTeam(props) {
   const [newDescription, setNewDescription] = useState(props.heading)
   const [img, setImg] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     uploadImage()
@@ -26,13 +25,11 @@ export default function FormAboutUsTeam(props) {
     formData.append('file', img);
     formData.append('upload_preset', 'Hantverkare');
     try {
-      setLoading(true);
       const res = await Axios.post(
         'https://api.cloudinary.com/v1_1/bexryd/image/upload',
         formData
       );
       setImageUrl(res.data.secure_url);
-      setLoading(false);
     } catch (err) {
       console.error(err);
     }
