@@ -7,6 +7,7 @@ const aboutUsHistorySchema = new mongoose.Schema({
   heading: { type: String, required: true },
   description: { type: String, required: true },
   img: { type: String, required: true },
+  imgLight: { type: String}
 }, { timestamps: true });
 
 aboutUsHistorySchema.index({ '$**': 'text' });
@@ -19,7 +20,6 @@ const aboutUsTeamSchema = new mongoose.Schema({
   description1: { type: String, required: true },
   description2: { type: String, required: true },
   img: { type: String},
-  imgLight: { type: String}
 }, { timestamps: true });
 
 aboutUsTeamSchema.index({ '$**': 'text' });

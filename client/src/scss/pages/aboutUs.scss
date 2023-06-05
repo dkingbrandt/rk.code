@@ -8,6 +8,11 @@
     position: relative;
     overflow: hidden;
 
+    .popUp {
+        height: 90vh;
+    
+      }
+
 
     .radialGradientGreen {
       position: absolute;
@@ -234,7 +239,6 @@
 
             @include atLarge {
               font-size: 24px;
-              padding-left: 20px;
             }
 
           }
@@ -287,8 +291,6 @@
     gap: 30px;
 
     .team-heading {
-      position: relative;
-      z-index: 20;
       font-family: 'Murecho', sans-serif;
       font-style: normal;
       font-weight: 400;
@@ -317,7 +319,7 @@
       column-gap: 30px;
       border: 2px solid rgba(123, 241, 184, 0.5);
       position: relative;
-      z-index: 7;
+      z-index: 3;
 
 
       @include atMedium {
@@ -737,8 +739,12 @@
     font-weight: 700;
   }
 
+   
+
 
 }
+
+
 
 //ligth ************************************************************************
 
@@ -1027,7 +1033,6 @@
 
     .team-heading {
       position: relative;
-      z-index: 20;
       font-family: 'Murecho', sans-serif;
       font-style: normal;
       font-weight: 400;
@@ -1055,6 +1060,7 @@
       padding-top: 4%;
       padding-bottom: 4%;
       column-gap: 30px;
+      position: relative;
 
       @include atLarge {
         padding: 80px;
@@ -1062,6 +1068,8 @@
         height: 550px;
         flex-direction: row;
         justify-content: flex-start;
+        position: relative;
+        z-index: 3;
       }
 
 
@@ -1108,6 +1116,7 @@
         width: 1101px;
         height: 550px;
         padding: 80px;
+       
       }
 
 
@@ -1288,8 +1297,11 @@
     justify-content: flex-start;
     align-self: center;
     margin-left: 50px;
+    position: relative;
+    z-index: 3;
 
   }
+  
 
   .team-heading-rebecca,
   .team-heading-dan {
@@ -1408,4 +1420,8 @@
     }
 
   }
+   .popUp{
+        height: 90vh;
+
+   }
 }
