@@ -1,7 +1,10 @@
 import React from 'react'
 import './../scss/pages/footer.scss';
 import { NavLink } from "react-router-dom";
-import { Icon } from '@iconify/react';
+import facebook from './../img/facebook.svg';
+import instagram from './../img/instagram.svg';
+import mailIcon from './../img/mejl.svg';
+
 
 
 
@@ -16,7 +19,7 @@ export default function Footer() {
 
 
           <h3 className='footer-heading1' >kontakt oss</h3>
-          <Icon icon="material-symbols:mail-outline" className='mail-Icon' />
+          <a href='mailto:rk.code@hotmail.com'><img src={mailIcon} className='mail-Icon' /></a>
         </div>
       <ul className="footerList">
 
@@ -50,8 +53,8 @@ export default function Footer() {
 
           <div className='footer-socialMedia-container'>
             <p className='heading-socialMedia'>Social Media</p>
-            <Icon icon="bi:instagram" className='instagram-Icon' />
-            <Icon icon="bi:facebook" className='fb-Icon' />
+            <a  href='https://www.facebook.com/profile.php?id=100093569520360'> <img  src={facebook} className='instagram-Icon' /></a>
+            <a  href='https://www.facebook.com/profile.php?id=100093569520360'> <img  src={instagram} className='fb-Icon' /></a>
 
          
 
