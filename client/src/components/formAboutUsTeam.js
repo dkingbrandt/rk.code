@@ -76,6 +76,19 @@ export default function FormAboutUsTeam(props) {
    
   };
 
+   const handleDescriptionChange = (e) => {
+    const descriptionValue = e.target.value;
+    const descriptionArray = descriptionValue.split('\n'); 
+
+    setNewDescription(descriptionArray);
+  };
+   const handleDescriptionChange1 = (e) => {
+    const descriptionValue = e.target.value;
+    const descriptionArray = descriptionValue.split('\n'); 
+
+    setNewDescription1(descriptionArray);
+  };
+
   return (
     <form className='formAbout-team-Container' onSubmit={handleSubmit}>
 
@@ -119,16 +132,22 @@ export default function FormAboutUsTeam(props) {
 
       <textarea
         className='formAbout-team-description'
+        rows="8" cols="50"
+
         required
         placeholder={!props.add ? props.description : "textfält 1"}
-        onChange={(e) => setNewDescription(e.target.value)}
+        onChange={handleDescriptionChange}
+
       ></textarea>
 
       <textarea
         className='formAbout-team-description'
+        rows="8" cols="50"
+
         required
         placeholder={!props.add ? props.description1 :"textfält 2"}
-        onChange={(e) => setNewDescription1(e.target.value)}
+        onChange={handleDescriptionChange1}
+
       ></textarea>
 
       <div className='formAbout-team-btn-container'>

@@ -115,6 +115,7 @@ export default function FormPriceList(props) {
       <textarea
         className='formAbout-description'
         required
+        rows="8" cols="50"
         placeholder={props.description}
         onChange={handleDescriptionChange}
       ></textarea>

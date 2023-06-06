@@ -262,6 +262,7 @@ export default function About({ theme, ToggleTheme, authorized, setAuthorized })
                 }
 
                 {member.title === "Rebecca Rydgren" &&
+                  
                   <div className='team-circle-rebecca'>
                     <img className='team-img-rebecca' src={member.img} alt='photo-rebecca' />
                     <div className='circle-globe-one'>
@@ -293,13 +294,23 @@ export default function About({ theme, ToggleTheme, authorized, setAuthorized })
 
                   <div className='team-text-box-experience'>
                     <p className='team-sub-heading-dan'>{member.heading1} <p className='sub-heading-divider'>|</p> </p>
-                    <p className='team-text-dan'>{member.description1}</p>
+                    <ul className='team-text-experience-ul'>
+                      {member.description1.map((e)=>
+                     <p className='team-text-dan'>{e}</p>
+                      )}
+                    </ul>
 
 
                   </div>
                   <div className='team-text-box-knowledge'>
                     <p className='team-sub-heading-dan'>{member.heading2}<p className='sub-heading-divider'>|</p> </p>
-                    <p className='team-text-dan'>{member.description2}</p>
+                    <ul className='team-text-knowledge-ul'>
+                      {member.description2.map((e)=>
+                     <p className='team-text-dan'>{e}</p>
+
+                      )}
+                    </ul>
+                    
 
 
                   </div>

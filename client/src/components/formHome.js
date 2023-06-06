@@ -88,7 +88,6 @@ export default function FormHome({handlePopUp,heading, title, description, setPr
 
           <input
             className="formAbout-icon"
-            required
             id="label-img-dark"
             type="file"
             name="file"
@@ -99,8 +98,7 @@ export default function FormHome({handlePopUp,heading, title, description, setPr
           <label className='label-img-light' for="lightimg">Light-mode bild:</label>
             <input
             className="formAbout-icon"
-            required
-            id="label-img-dark"
+            id="label-img-light"
             type="file"
             name="file"
             placeholder="Ladda upp icon"

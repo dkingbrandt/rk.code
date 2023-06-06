@@ -2,21 +2,21 @@ import React, { useState, useEffect } from 'react'
 import './../scss/pages/home.scss';
 import Header from '../components/Header';
 import Footer from '../components/Footer'
-import data from './../img/data.svg';
-import dollar from './../img/dollar.svg';
-import heart from './../img/heart.svg';
-import comment from './../img/comment.svg';
-import dataLight from './../img/data-light.svg';
-import dollarLight from './../img/dollar-light.svg';
-import heartLight from './../img/heart-light.svg';
-import commentLight from './../img/comment-light.svg';
-import wildline from './../img/wildline.png';
+import tsIcon from './../img/typescript.svg';
+import bootstrapIcon from './../img/bootstrap.svg';
+import nodeIcon from './../img/node.svg';
 import CardModal from '../components/cardModal';
 import FormHome from '../components/formHome';
 import FormAddProject from '../components/formAddProject';
 import SmalModal from '../components/smalModal';
 import FormDelete from '../components/deleteForm';
 import FormInfoHome from '../components/formInfoHome';
+import wordpressIcon from './../img/wordpress.svg';
+import reactIcon from './../img/react.svg';
+import sassIcon from './../img/sass.svg';
+import jsIcon from './../img/js.svg';
+import cssIcon from './../img/css.svg';
+
 import { get, post, put, erase, patch} from "./../utility/fetchHealper";
 
 
@@ -104,7 +104,7 @@ export default function Home({theme, ToggleTheme, authorized, setAuthorized}) {
       <div className='textBox'>
      
       <h1 className='textBox-h1'>En Junior webbyrå där idéer blir till verklighet.<br/><span className='textBox-h1-color'>Optimera ditt företag idag!</span></h1>
-       <p className='textBox-p'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+       <p className='textBox-p'> Välkommen till Rk.code en webbyrå med hög kvalitet & passion vi hjälper ditt företag att synas och växa online </p>
        <div className='textBox-Btn-Container'>
         <button className='btn-info-home'>mer info</button>
         <button className='btn-contact'>kontakta oss</button>
@@ -117,8 +117,38 @@ export default function Home({theme, ToggleTheme, authorized, setAuthorized}) {
     <div  className='middleContainer'>
  
     <hr className='hr'/>
+ 
+        <div className='middleContainer-img'>
 
-    <div className='middleContainer-img'>
+          {theme === "light" &&
+            <div className='team-circle-dan'>
+                    <div className='circle-globe-1'>
+                    </div>
+                    <div className='circle-globe-2'>
+                    </div>
+                    <div className='circle-globe-3'>
+                    </div>
+                    <div className='circle-globe-4'>
+                    </div>
+                    <div className='circle-globe-5'>
+                    </div>
+                  
+
+                    <div className='circle-globe-one'>
+                    </div>
+                    <div className='circle-globe-two'>
+                    </div>
+                    
+                    <div className='circle-globe-three'>
+                    </div>
+                    <div className='circle-globe-four'>
+                    </div>
+                    <div className='circle-globe-five'>
+                    </div>
+                    
+
+                  </div>
+            }
     <button className='addInfo-Btn' onClick={handleAddInfoModal}>Lägg till Info</button>
     <div className='middleContainer-grid'>
      
@@ -131,7 +161,7 @@ export default function Home({theme, ToggleTheme, authorized, setAuthorized}) {
       {theme === "dark" ? (
       <img className='icon data' src={infos.img}alt="computer" />
       ):(
-        <img className='icon data' src={dataLight} alt="computer" />
+        <img className='icon data' src={infos.imgLight} alt="computer" />
       )}
       <div>
          <h4 className='icon-heading'>{infos.heading}</h4> 
