@@ -36,7 +36,7 @@ export default function Header({theme, ToggleTheme, authorized, setAuthorized}) 
           <span className="line-3"></span>
           </div>
           </div>
-      <div><p className='logga'>{logga}</p></div>
+      <div><p className='logga' onClick={routeBack}>{logga}</p></div>
       {authorized &&(
       <button className='LogoutBtn' onClick={() => {
 
