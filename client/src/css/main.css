@@ -74,11 +74,10 @@ body {
   #dark .about-container .history-wrapper {
     position: relative;
     display: flex;
-    justify-content: center;
-    margin-top: 300px; }
-    @media (min-width: 400px) {
+    justify-content: center; }
+    @media (min-width: 1200px) {
       #dark .about-container .history-wrapper {
-        margin-top: 100px; } }
+        margin-top: 300px; } }
   #dark .about-container .history-container {
     position: relative;
     z-index: 7;
