@@ -149,7 +149,9 @@ export default function Home({theme, ToggleTheme, authorized, setAuthorized}) {
 
                   </div>
             }
+            {authorized && (
     <button className='addInfo-Btn' onClick={handleAddInfoModal}>Lägg till Info</button>
+    )}
     <div className='middleContainer-grid'>
      
     {info.map((infos, index) => {
@@ -197,16 +199,15 @@ export default function Home({theme, ToggleTheme, authorized, setAuthorized}) {
    
 
     <div className='project-container'>
-      <h2>Tidigare Projekt</h2>
-
+      <h2 className='h2-lightmode'>Tidigare Projekt</h2>
+      {authorized && (
       <button className='add-Btn' onClick={handleAddProjectModal}>Lägg till Projekt</button>
+      )}
 
       <div className='project-container-grid'>
 
       {projects.map((project, index) => {
 
-   
-       console.log(project.heading)
 
    return (
 
