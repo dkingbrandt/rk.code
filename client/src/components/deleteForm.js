@@ -13,6 +13,7 @@ export default function FormDelete(props) {
     <div>
       <form className='homeFormContainer' onSubmit={handleSubmit} >
             <h1>{props.textHeading}</h1>
+            <div className='btn-container'>
             <button  type="submit" className='homeFormContainer-btn' onClick={()=> {
 
                 erase(`${props.link}${props.title}`, {
@@ -25,6 +26,7 @@ export default function FormDelete(props) {
             }}>Ja</button>
             <button type="button" className='homeFormContainer-btn' onClick={ ()=> props.handlePopUp()}
                 >Nej</button>
+            </div>
         </form>
   
     </div>

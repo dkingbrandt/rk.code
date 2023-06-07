@@ -1,21 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import './../scss/pages/home.scss';
 import Header from '../components/Header';
-import Footer from '../components/Footer'
-import tsIcon from './../img/typescript.svg';
-import bootstrapIcon from './../img/bootstrap.svg';
-import nodeIcon from './../img/node.svg';
+import Footer from '../components/Footer';
+import { useNavigate } from "react-router-dom";
 import CardModal from '../components/cardModal';
 import FormHome from '../components/formHome';
 import FormAddProject from '../components/formAddProject';
 import SmalModal from '../components/smalModal';
 import FormDelete from '../components/deleteForm';
 import FormInfoHome from '../components/formInfoHome';
-import wordpressIcon from './../img/wordpress.svg';
-import reactIcon from './../img/react.svg';
-import sassIcon from './../img/sass.svg';
-import jsIcon from './../img/js.svg';
-import cssIcon from './../img/css.svg';
+
 
 import { get, post, put, erase, patch} from "./../utility/fetchHealper";
 
@@ -52,7 +46,16 @@ export default function Home({theme, ToggleTheme, authorized, setAuthorized}) {
     );
   }, []);
 
-  console.log(info);
+  let navigate = useNavigate()
+  
+  const navigateToContact = () => {
+    navigate("/kontakt");
+
+  }
+  const navigateToPricelist = () => {
+    navigate("/prislista");
+
+  }
 
   const handlePopUp = () => {
     setPopUp((current) => !current); //toggle
@@ -106,8 +109,8 @@ export default function Home({theme, ToggleTheme, authorized, setAuthorized}) {
       <h1 className='textBox-h1'>En Junior webbyrå där idéer blir till verklighet.<br/><span className='textBox-h1-color'>Optimera ditt företag idag!</span></h1>
        <p className='textBox-p'> Välkommen till Rk.code en webbyrå med hög kvalitet & passion vi hjälper ditt företag att synas och växa online </p>
        <div className='textBox-Btn-Container'>
-        <button className='btn-info-home'>mer info</button>
-        <button className='btn-contact'>kontakta oss</button>
+        <button className='btn-info-home'onClick={navigateToPricelist}>mer info</button>
+        <button className='btn-contact'  onClick={navigateToContact}>kontakta oss</button>
        </div>
       </div>
       </div>
@@ -119,8 +122,10 @@ export default function Home({theme, ToggleTheme, authorized, setAuthorized}) {
     <hr className='hr'/>
  
         <div className='middleContainer-img'>
-
+         
           {theme === "light" &&
+          <>
+            
             <div className='team-circle-dan'>
                     <div className='circle-globe-1'>
                     </div>
@@ -148,6 +153,8 @@ export default function Home({theme, ToggleTheme, authorized, setAuthorized}) {
                     
 
                   </div>
+                  <div className='overlay'></div>
+                  </>
             }
             {authorized && (
     <button className='addInfo-Btn' onClick={handleAddInfoModal}>Lägg till Info</button>
