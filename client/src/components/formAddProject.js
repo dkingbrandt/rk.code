@@ -82,7 +82,7 @@ export default function FormAddProject({handlePopUp, setProjects, textHeading, l
     <div>
       <form className='homeFormContainer' onSubmit={handleSubmit}>
 
-        <h1>{textHeading}</h1>
+       {/*  <h1>{textHeading}</h1> */}
         
         <label className='label-img-dark' for="darkImg">Dark-mode bild:</label>
 

@@ -4,11 +4,7 @@
 #dark {
    
     
-    .marginBottom {
-        margin-bottom: 200px;
-        padding-bottom: 200px;
-    }
-   
+  
     .areYouIntressted {
         display: none;
       
@@ -27,7 +23,18 @@
         }
     }
 
-    .form-img {
+    .marginBottom {
+        margin-top: 25px;  
+        position: relative;
+
+        @include atMedium {
+            margin-top: -50px;
+        }
+       
+    }
+
+    .form-img-1{
+       
         width: 90%;
         height: auto;
         display: flex;
@@ -77,11 +84,11 @@
             margin-left: 50px;
         }
     
-        .input-field {
+        .input-field-1 {
             background: rgba(0, 0, 0, 0.7);
             border: 1.5px solid #3D3A3A;
             border-radius: 5px;
-            width: 380px;
+            width: 70%;
             height: 40px;
 
             @include atLarge {
@@ -94,13 +101,18 @@
               }
         }
     
-        .textarea-field {
+        .textarea-field-1 {
             background: rgba(0, 0, 0, 0.7);
             border: 1.5px solid #3D3A3A;
             border-radius: 5px;
-            width: 380px;
-            height: 150px;
+            width: 90%;
+            height: 130px;
             resize: none;
+
+            @include atLarge {
+                width: 380px;
+                height: 150px;
+            }
             &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
                 color:rgba(221, 255, 246, 1);
                 padding-left:5%;
@@ -113,6 +125,13 @@
             font-size: 16px;
             font-family: $menyFont;
             color: #DDFFF6;
+            margin-left: -25px;
+            margin-bottom: -10px;
+
+            @include atLarge {
+                margin-left: 0px;
+                margin-bottom: 0px;
+            }
         }
     
         .submitBtn {
@@ -124,6 +143,13 @@
             font-family: $menyFont;
             font-weight: 400;
             border: none;
+            margin-top: -10px;
+            margin-bottom: 20px;
+
+            @include atLarge {
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
         }
     }
     .checkbox-Container-flex {
@@ -219,7 +245,18 @@
         }
       
     }
-    .form-img {
+
+    .marginBottom {
+        margin-top: 25px;  
+        position: relative;
+
+        @include atMedium {
+            margin-top: -50px;
+        }
+       
+    }
+
+    .form-img-1 {
        
         width: 90%;
         height: auto;
@@ -249,7 +286,7 @@
             max-width: 950px;
             max-height: 544px;
          
-            background-image: linear-gradient(115deg, rgba(57, 54, 54,.7) 0%, rgba(57, 54, 54,.7) 60%, transparent 60%), url(../../img/form-img-black.jpg);
+            background-image: linear-gradient(115deg, rgba(255, 255, 255, 0.62) 0%,rgba(255, 255, 255, 0.62) 60%, transparent 60%), url(../../img/form-img-ligth2.jpg);
         }
        
         
@@ -268,24 +305,33 @@
             margin-left: 50px;
         }
     
-        .input-field {
+        .input-field-1 {
             background: rgba(255, 255, 255, 0.7);
             border: 1.5px solid rgba(0, 0, 0, 0.3);
             border-radius: 5px;
-            width: 380px;
+            width: 70%;
             height: 40px;
+
+            @include atLarge {
+                width: 380px;
+                height: 40px;
+            }
             &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
                 color:#232424;
                 padding-left:5%;
               }
         }
     
-        .textarea-field {
+        .textarea-field-1 {
             background: rgba(255, 255, 255, 0.7);
             border: 1.5px solid rgba(0, 0, 0, 0.3);
             border-radius: 5px;
-            width: 380px;
-            height: 150px;
+            width: 90%;
+            height: 130px;
+            @include atLarge {
+                width: 380px;
+                height: 150px;
+            }
             resize: none;
             &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
                 color:#232424;
@@ -299,6 +345,13 @@
             font-size: 16px;
             font-family: $menyFont;
             color:#232424;
+            margin-left: -25px;
+            margin-bottom: -10px;
+
+            @include atLarge {
+                margin-left: 0px;
+                margin-bottom: 0px;
+            }
         }
     
         .submitBtn {
@@ -310,6 +363,13 @@
             font-family: $menyFont;
             font-weight: 400;
             border: none;
+            margin-top: -10px;
+            margin-bottom: 20px;
+
+            @include atLarge {
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
         }
     }
     .checkbox-Container-flex {
