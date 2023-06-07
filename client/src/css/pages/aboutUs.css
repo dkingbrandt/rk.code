@@ -58,11 +58,10 @@
   #dark .about-container .history-wrapper {
     position: relative;
     display: flex;
-    justify-content: center;
-    margin-top: 300px; }
-    @media (min-width: 400px) {
+    justify-content: center; }
+    @media (min-width: 1200px) {
       #dark .about-container .history-wrapper {
-        margin-top: 100px; } }
+        margin-top: 300px; } }
   #dark .about-container .history-container {
     position: relative;
     z-index: 7;
@@ -183,8 +182,7 @@
             #dark .about-container .history-container .history-create-box .history-label-create .heading-create,
             #dark .about-container .history-container .history-knowledge-box .history-label-create .heading-create,
             #dark .about-container .history-container .history-vision-box .history-label-create .heading-create {
-              font-size: 24px;
-              padding-left: 20px; } }
+              font-size: 24px; } }
     #dark .about-container .history-container .history-Btn-Container-icon {
       display: flex;
       justify-content: flex-start;
@@ -227,7 +225,7 @@
     align-items: center;
     box-sizing: border-box;
     margin: auto;
-    width: 90%;
+    width: auto;
     height: auto;
     padding-top: 4%;
     padding-bottom: 4%;
@@ -251,7 +249,8 @@
         justify-content: flex-start;
         width: 1101px;
         height: 550px;
-        padding: 80px; } }
+        padding: 80px;
+        height: auto; } }
   @media (min-width: 1200px) {
     #dark .team-wrapper .team-box-rebecca {
       border-radius: 20px 20px 0px 20px; } }
@@ -482,7 +481,8 @@
       display: flex;
       flex-direction: row;
       width: 500px;
-      text-align: start; } }
+      text-align: start;
+      margin-right: 30px; } }
 
 #dark .team-text-box-knowledge {
   padding-top: 30px;
@@ -518,10 +518,10 @@
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 28px;
+  line-height: 1.5;
   letter-spacing: 0.035em;
   color: #FFFFFF;
-  max-width: 300px; }
+  max-width: 500px; }
   @media (min-width: 960px) {
     #dark .team-text-rebecca,
     #dark .team-text-dan {
@@ -531,7 +531,15 @@
     #dark .team-text-rebecca,
     #dark .team-text-dan {
       padding-left: 10px;
-      max-width: 700px; } }
+      max-width: 700px;
+      width: 450px; } }
+
+#dark .team-text-experience-ul {
+  padding-left: 10px; }
+
+#dark .team-text-knowledge-ul {
+  list-style-type: none;
+  padding-left: 10px; }
 
 #dark .team-icon-box {
   display: flex;
@@ -837,8 +845,8 @@
     @media (min-width: 1200px) {
       #light .team-wrapper .team-box-rebecca {
         padding: 80px;
-        width: 1101px;
-        height: 550px;
+        width: auto;
+        height: auto;
         flex-direction: row;
         justify-content: flex-start;
         position: relative;
@@ -872,8 +880,8 @@
       #light .team-wrapper .team-box-dan {
         flex-direction: row;
         justify-content: flex-start;
-        width: 1101px;
-        height: 550px;
+        width: auto;
+        height: auto;
         padding: 80px; } }
     #light .team-wrapper .team-box-dan::before {
       content: "";
@@ -1038,7 +1046,8 @@
       display: flex;
       flex-direction: row;
       width: 500px;
-      text-align: start; } }
+      text-align: start;
+      margin-right: 30px; } }
 
 #light .team-text-box-knowledge {
   padding-left: 15px;
@@ -1050,7 +1059,7 @@
     #light .team-text-box-knowledge {
       display: flex;
       flex-direction: row;
-      width: 500px;
+      max-width: 800px;
       text-align: start; } }
 
 #light .team-sub-heading-rebecca,
@@ -1076,16 +1085,31 @@
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 28px;
-  /* or 233% */
-  letter-spacing: 0.035em;
+  padding: 2px;
+  line-height: 1.5;
+  letter-spacing: 0.065em;
+  margin: auto;
   color: #38324f;
-  max-width: 300px; }
+  max-width: 300px;
+  text-align: start; }
   @media (min-width: 1200px) {
     #light .team-text-rebecca,
     #light .team-text-dan {
-      padding-left: 10px;
-      max-width: 700px; } }
+      letter-spacing: 0.065em;
+      padding-left: 5px;
+      max-width: 700px;
+      width: 450px;
+      padding: 3px; } }
+
+@media (min-width: 1200px) {
+  #light .team-text-experience-ul {
+    list-style-type: none;
+    padding-left: 10px; } }
+
+@media (min-width: 1200px) {
+  #light .team-text-knowledge-ul {
+    list-style-type: none;
+    padding-left: 10px; } }
 
 #light .team-icon-box {
   display: flex;
