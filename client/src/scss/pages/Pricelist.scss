@@ -838,10 +838,8 @@
 
       display: grid;
       max-width: 1400px;
-      margin-top: 250px;
       grid-template-columns: repeat(1, 2fr);
       box-sizing: border-box;
-      padding-bottom: 100px;
       gap: 50px;
 
       @include atSmall {
