@@ -1,0 +1,107 @@
+#dark .formAbout-team-Container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: auto;
+  height: auto; }
+
+#dark .formAbout-team-btn-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px; }
+
+#dark .formAbout-team-save-btn {
+  background: linear-gradient(90deg, #46EFC4 -19.55%, #7BF1B8 13.97%, #A6F5A9 34.08%, #D4F79A 50%);
+  border-radius: 13px;
+  width: 110px;
+  border: none;
+  height: 36px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px; }
+
+#dark .formAbout-team-cancel-btn {
+  border: 2px solid #808281;
+  border-radius: 13px;
+  width: 110px;
+  height: 36px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  color: white;
+  background: #000000; }
+
+#dark .formAbout-team-icon {
+  width: 500px;
+  height: 40px;
+  border-radius: 10px; }
+
+#dark .formAbout-team-name,
+#dark .formAbout-team-title,
+#dark .formAbout-team-heading {
+  width: 500px;
+  height: 40px;
+  border-radius: 10px; }
+
+#dark .formAbout-team-description {
+  width: 500px;
+  height: 300px;
+  border-radius: 10px; }
+
+#light .formAbout-team-Container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: auto;
+  height: auto; }
+
+#light .formAbout-team-btn-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px; }
+
+#light .formAbout-team-save-btn {
+  background: linear-gradient(90deg, #9221bb -19.55%, #e385d4 13.97%, #a01a54 34.08%, #85197a 50%);
+  border-radius: 13px;
+  width: 200px;
+  border: none;
+  height: 50px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  color: whitesmoke; }
+
+#light .formAbout-team-cancel-btn {
+  border: 2px solid #9ba29e;
+  border-radius: 13px;
+  width: 200px;
+  height: 50px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  color: whitesmoke;
+  background: linear-gradient(90deg, #9221bb -19.55%, #e385d4 13.97%, #a01a54 34.08%, #85197a 50%); }
+
+#light .formAbout-team-icon {
+  color: #544251;
+  width: 500px;
+  height: 40px;
+  border-radius: 10px; }
+
+#light .formAbout-team-name,
+#light .formAbout-team-title,
+#light .formAbout-team-heading {
+  width: 500px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid purple; }
+
+#light .formAbout-team-description {
+  width: 500px;
+  height: 300px;
+  border-radius: 10px;
+  border: 1px solid purple; }

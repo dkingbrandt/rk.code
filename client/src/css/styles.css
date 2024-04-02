@@ -1,2 +1,15 @@
+* {
+  box-sizing: border-box; }
+
 body {
-  background-color: #000000; }
+  z-index: -2;
+  margin: 0px; }
+  @media (min-width: 2900px) {
+    body {
+      margin-left: 10%;
+      margin-right: 10%;
+      background-color: rgba(84, 80, 80, 0.754); } }
+  body #dark {
+    background-color: #000000; }
+  body #light {
+    background-color: white; }

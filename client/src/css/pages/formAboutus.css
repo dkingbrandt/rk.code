@@ -1,0 +1,112 @@
+#dark .formAbout-Container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: auto;
+  height: auto; }
+
+#dark .formAbout-btn-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px; }
+
+#dark .formAbout-save-btn {
+  background: linear-gradient(90deg, #46EFC4 -19.55%, #7BF1B8 13.97%, #A6F5A9 34.08%, #D4F79A 50%);
+  border-radius: 13px;
+  width: 110px;
+  border: none;
+  height: 36px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px; }
+
+#dark .formAbout-cancel-btn {
+  border: 2px solid #808281;
+  border-radius: 13px;
+  width: 110px;
+  height: 36px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  color: white;
+  background: #000000; }
+
+#dark .formAbout-icon {
+  color: whitesmoke;
+  width: 500px;
+  height: 40px;
+  border-radius: 10px; }
+
+#dark .formAbout-heading {
+  width: 500px;
+  height: 40px;
+  border-radius: 10px; }
+
+#dark .formAbout-description {
+  width: 500px;
+  height: 300px;
+  border-radius: 10px; }
+
+#dark .label-img-light,
+#dark .label-img-dark {
+  color: whitesmoke; }
+
+#light .formAbout-Container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: auto;
+  height: auto; }
+
+#light .formAbout-btn-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px; }
+
+#light .formAbout-save-btn {
+  background: linear-gradient(90deg, #9221bb -19.55%, #e385d4 13.97%, #a01a54 34.08%, #85197a 50%);
+  border-radius: 13px;
+  width: 200px;
+  border: none;
+  color: whitesmoke;
+  height: 50px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px; }
+
+#light .formAbout-cancel-btn {
+  border: 2px solid #9ba29e;
+  border-radius: 13px;
+  width: 200px;
+  height: 50px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  color: whitesmoke;
+  background: linear-gradient(90deg, #9221bb -19.55%, #e385d4 13.97%, #a01a54 34.08%, #85197a 50%); }
+
+#light .formAbout-icon {
+  color: #544251;
+  width: 500px;
+  height: 40px;
+  border-radius: 10px; }
+
+#light .formAbout-heading {
+  width: 500px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid purple; }
+
+#light .formAbout-description {
+  width: 500px;
+  height: 300px;
+  border-radius: 10px;
+  border: 1px solid purple; }
+
+#light .label-img-light,
+#light .label-img-dark {
+  color: purple; }
