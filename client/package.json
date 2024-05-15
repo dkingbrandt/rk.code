@@ -17,7 +17,8 @@
     "web-vitals": "^2.1.4",
     "webpack": "^5.82.0"
   },
-  "proxy": "https://rkcode-82003df10971.herokuapp.com/",
+  
+  "proxy": "https://rkcode-2fcc27c41750.herokuapp.com",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
