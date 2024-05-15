@@ -2,10 +2,10 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 const dotenv = require('dotenv');
 const bodyParser = require("body-parser");
-const aboutUsRouter = require("./Api/AboutUsApi");
-const pricelistRouter = require("./Api/PriceListApi");
-const homeRouter = require("./Api/HomeApi");
-const routerSignUp = require("./Api/SignUpAPI"); 
+const aboutUsRouter = require("./AboutUsApi");
+const pricelistRouter = require("./PriceListApi");
+const homeRouter = require("./HomeApi");
+const routerSignUp = require("./SignUpAPI"); 
 const cookieParser = require("cookie-parser");
 const path = require('path')
 
