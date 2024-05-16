@@ -8,6 +8,7 @@ const homeRouter = require("./HomeApi");
 const routerSignUp = require("./SignUpAPI"); 
 const cookieParser = require("cookie-parser");
 const path = require('path')
+const cors = require('cors');
 
 const mongoose = require("mongoose")
 
@@ -17,6 +18,17 @@ const app = express();
 app.get('/', function (req, res) {
   res.send('Hello World!');
 });
+
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'https://rk-code.onrender.com', // Replace with your actual frontend origin
+  ],
+  methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Set-Cookie'], // Specify only required headers
+  exposedHeaders: ['*', 'Authorization'],
+  credentials: true,
+}));
 
 
 
