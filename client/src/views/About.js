@@ -46,7 +46,7 @@ export default function About({ theme, ToggleTheme, authorized, setAuthorized })
   const [img, setImg] = useState("");
 
   useEffect(() => {
-    get("'https://rk-code-backend.onrender.com/aboutus/history").then((response) =>
+    get("https://rk-code-backend.onrender.com/aboutus/history").then((response) =>
       setHistory(response.data)
     );
   }, []);
