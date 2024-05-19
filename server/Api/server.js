@@ -22,12 +22,8 @@ app.get('/', function (req, res) {
 app.use(cors({
   origin: [
     'http://localhost:3000',
-    'https://rk-code.onrender.com', // Replace with your actual frontend origin
+    'https://rk-code.onrender.com',
   ],
-  methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'Set-Cookie'], // Specify only required headers
-  exposedHeaders: ['*', 'Authorization'],
-  credentials: true,
 }));
 
 
