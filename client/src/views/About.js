@@ -52,7 +52,7 @@ export default function About({ theme, ToggleTheme, authorized, setAuthorized })
   }, []);
 
   useEffect(() => {
-    get("/aboutus/team").then((response) =>
+    get("https://rk-code-backend.onrender.com/aboutus/team").then((response) =>
       setTeam(response.data)
     );
   }, []);

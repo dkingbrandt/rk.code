@@ -36,12 +36,12 @@ export default function PriceList({ theme, ToggleTheme, authorized, setAuthorize
 
 
   useEffect(() => {
-    get("/pricelist/info").then((response) =>
+    get("https://rk-code-backend.onrender.com/pricelist/info").then((response) =>
       setPriceInfo(response.data)
     );
   }, []);
   useEffect(() => {
-    get("/pricelist/package").then((response) =>
+    get("https://rk-code-backend.onrender.com/pricelist/package").then((response) =>
       setPricePackage(response.data)
     );
   }, []);

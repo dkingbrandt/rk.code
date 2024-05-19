@@ -35,13 +35,13 @@ export default function Home({theme, ToggleTheme, authorized, setAuthorized}) {
 
 
   useEffect(() => {
-    get("/home/info").then((response) =>
+    get("https://rk-code-backend.onrender.com/home/info").then((response) =>
       setInfo(response.data)
     );
   }, []);
 
   useEffect(() => {
-    get("/home/projects").then((response) =>
+    get("https://rk-code-backend.onrender.com/home/projects").then((response) =>
       setProjects(response.data)
     );
   }, []);
