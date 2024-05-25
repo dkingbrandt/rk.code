@@ -1,4 +1,10 @@
 @import './variables.scss';
+
+@mixin atXsXsSmall {
+  @media (min-width: 200px) {
+    @content;
+  }
+}
 @mixin atXsSmall {
     @media (min-width: 400px) {
       @content;

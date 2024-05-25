@@ -69,7 +69,6 @@
     align-items: center;
     justify-content: center;
     margin-top: 100px;
-    margin-bottom: 200px;
 
   }
 
@@ -137,10 +136,11 @@
     max-width: 1400px;
     box-sizing: border-box;
     border-radius: 20px;
-    max-height: 900px;
-    height: auto;
+    max-height: 1000px;
 
-
+   @include atSmall{
+    max-height: 1000px;
+   }
 
 
     @include atMedium {
@@ -149,6 +149,7 @@
       width: 95%;
       column-gap: 2%;
       row-gap: 20px;
+
     }
 
     @include atLarge {
@@ -289,16 +290,24 @@
    grid-template-columns: repeat(1, 2fr);
    box-sizing: border-box;
    padding-bottom: 100px;
-    margin-top: 800px;
+   margin: auto;
 
-   gap: 50px;
+   @include atXsXsSmall{
+    margin-top: 1000px;
+    gap: 20px;
+   }
+
+   @include atXsSmall{
+    margin-top: 1000px;
+    gap: 20px;
+   }
 
    @include atSmall {
      padding-top: 150px;
      grid-template-columns: repeat(2, 2fr);
      gap: 10px;
      padding-top: 100px;
-     margin-top: 300px;
+     margin-top: 1000px;
 
    }
 
@@ -315,7 +324,8 @@
      grid-template-columns: repeat(3, 3fr);
      gap: 10px;
      padding-top: 100px;
-     margin: auto;
+     margin-top: 300px;
+
    }
 
  }
